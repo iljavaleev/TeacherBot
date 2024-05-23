@@ -1,0 +1,232 @@
+#include "botstaff/handlers/handlers.hpp"
+#include "botstaff/states.hpp"
+#include "botstaff/utils.hpp"
+#include "botstaff/keyboards/teacher_keyboards/teacherKeyboards.hpp"
+#include "botstaff/keyboards/user_keyboards/userKeyboards.hpp"
+#include "botstaff/keyboards/keyboards.hpp"
+#include "botstaff/handlers/user_handlers/userRegistration.hpp"
+#include "botstaff/handlers/teacher_handlers/createLessonHandlers.hpp"
+#include <unordered_map>
+#include <string>
+#include <exception>
+
+
+namespace CommandHandlers
+{
+    std::function<Message::Ptr (Message::Ptr)> startCommand(TgBot::Bot& bot)
+    {
+        return [&bot](Message::Ptr message) 
+        {   
+            long chat_id(message->chat->id);
+            clear_user_state(chat_id);
+            clear_lesson_state(chat_id);
+
+            if (is_admin(chat_id))
+                return bot.getApi().sendMessage(chat_id, "Вход для админа", false, 0, teacherKeyboards::create_teacher_start_kb(true)); 
+            else if(is_teacher(chat_id))
+                return bot.getApi().sendMessage(chat_id, "Вход для учителя", false, 0, teacherKeyboards::create_teacher_start_kb(false));
+            else
+                return bot.getApi().sendMessage(chat_id, "Вход для пользователя", false, 0, UserKeyboards::create_user_start_kb(chat_id));  
+                          
+        };
+    }
+
+    std::function<Message::Ptr (Message::Ptr)> cancelCommand(TgBot::Bot& bot)
+    {
+        return [&bot](Message::Ptr message) 
+        {   
+            long chat_id(message->chat->id);
+            clear_user_state(chat_id);
+            clear_lesson_state(chat_id);
+            return bot.getApi().sendMessage(message->chat->id, "Cancel command");
+        };
+    }
+
+    std::function<Message::Ptr (Message::Ptr)> helpCommand(TgBot::Bot& bot)
+    {
+        return [&bot](Message::Ptr message) 
+        {
+            return bot.getApi().sendMessage(message->chat->id, "Help command");
+        };
+    }
+
+}
+
+namespace Handlers
+{
+    std::function<Message::Ptr (Message::Ptr)> any_message_handler(TgBot::Bot& bot)
+    {
+        return [&bot](Message::Ptr message)
+        {
+            if (
+                StringTools::startsWith(message->text, "/start") 
+                || StringTools::startsWith(message->text, "/cancel") 
+                || StringTools::startsWith(message->text, "/help")
+                ) 
+            {
+                return Message::Ptr(nullptr);
+            }
+            long user_chat_id{message->chat->id};
+            try
+            {
+                auto res = check_user_state(bot, message);
+                if (res)
+                    return res;
+            }
+            catch(const std::exception& e)
+            {
+                std::cerr << e.what() << '\n';
+            }
+            
+            try
+            {
+                auto res = check_lesson_state(bot, message);
+                if (res)
+                    return res;
+            }
+            catch(const std::exception& e)
+            {
+                std::cerr << e.what() << '\n';
+            }
+
+            return bot.getApi().sendMessage(user_chat_id, "Your message is: " + message->text);
+        };
+    }
+
+    std::function<Message::Ptr (CallbackQuery::Ptr)> calendar_handler(TgBot::Bot& bot)
+    {
+        return [&bot](CallbackQuery::Ptr query) 
+        {
+            if (StringTools::endsWith(query->data, "calendar")) 
+            {
+                auto ymd = get_curent_ymd();
+                return bot.getApi().sendMessage(
+                    query->message->chat->id, 
+                    "Здесь вы можете посмотреть расписание", 
+                    false, 
+                    0, 
+                    Keyboards::create_calendar_kb(ymd[0], ymd[1], 1, query->message->chat->id));  
+            }
+             else
+                return Message::Ptr(nullptr); 
+        };
+    }
+    
+    std::function<Message::Ptr (CallbackQuery::Ptr)> next_month_handler(TgBot::Bot& bot)
+    {
+        return [&bot](CallbackQuery::Ptr query) 
+        {
+            if (StringTools::startsWith(query->data, "change_month")) 
+            {
+                auto info = StringTools::split(query->data, ' ');
+                int year = stoi(info.at(2));
+                int month = stoi(info.at(3));
+                bool update = true ? info.at(4) == "true" : false;
+                if (info.at(1) == "<<")
+                {   
+                    month--;
+                }
+                else
+                {
+                    month++;
+                }
+                return bot.getApi().sendMessage(
+                    query->message->chat->id, 
+                    "Здесь вы можете посмотреть расписание", 
+                    false, 
+                    0, 
+                    Keyboards::create_calendar_kb(year, month, 1, query->message->chat->id, update)
+                    );  
+            }
+             else
+                return Message::Ptr(nullptr); 
+        };
+    }
+
+    std::function<Message::Ptr (CallbackQuery::Ptr)> calendar_day_handler(TgBot::Bot& bot)
+    {
+         return [&bot](CallbackQuery::Ptr query) 
+        {
+            if (StringTools::startsWith(query->data, "calendar_day")) 
+            {
+                auto info = StringTools::split(query->data, ' ');
+                
+                std::string role{info.at(1)};
+                int year = stoi(info.at(2));
+                int month = stoi(info.at(3));
+                int day = stoi(info.at(4));
+
+                return bot.getApi().sendMessage(
+                    query->message->chat->id, 
+                    "Занятия сегодня",
+                    false, 
+                    0, 
+                    Keyboards::lessons_list_kb(query->message->chat->id, role, year, month, day)
+                    );
+
+            }
+             else
+                return Message::Ptr(nullptr); 
+        };
+    }
+
+    std::function<Message::Ptr (CallbackQuery::Ptr)> day_info_handler(TgBot::Bot& bot)
+    {
+         return [&bot](CallbackQuery::Ptr query) 
+        {
+            if (StringTools::startsWith(query->data, "user_lesson")) 
+            {
+                auto info = StringTools::split(query->data, ' ');
+                int user_lesson_id = stoi(info.at(1));
+                std::string role = info.at(2);
+                
+                return bot.getApi().sendMessage(
+                    query->message->chat->id, 
+                    get_user_lesson_info(query->message->chat->id, user_lesson_id, role),
+                    false, 
+                    0, 
+                    Keyboards::day_info_kb(user_lesson_id, role),
+                    "HTML"
+                    );
+
+            }
+             else
+                return Message::Ptr(nullptr); 
+        };
+    }
+}
+
+
+void startPolling(TgBot::Bot& bot )
+{
+     try {
+        printf("Bot username: %s\n", bot.getApi().getMe()->username.c_str());
+        bot.getApi().deleteWebhook();
+
+        TgLongPoll longPoll(bot);
+        while (true) 
+        {
+            printf("Long poll started\n");
+            longPoll.start();
+        }
+    } 
+    catch (exception& e) 
+    {
+        printf("error: %s\n", e.what());
+    }
+}
+
+void startWebhook(TgBot::Bot& bot, std::string& webhookUrl)
+{
+    try {
+        printf("Bot username: %s\n", bot.getApi().getMe()->username.c_str());
+
+        TgWebhookTcpServer webhookServer(8080, bot);
+
+        printf("Server starting\n");
+        bot.getApi().setWebhook(webhookUrl);
+        webhookServer.start();
+    } catch (exception& e) {
+        printf("error: %s\n", e.what());
+    }
+}

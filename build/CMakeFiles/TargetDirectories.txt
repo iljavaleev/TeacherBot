@@ -1,0 +1,6 @@
+/Users/ilavaleev/Dev/CppBot/build/CMakeFiles/cppbot.dir
+/Users/ilavaleev/Dev/CppBot/build/CMakeFiles/edit_cache.dir
+/Users/ilavaleev/Dev/CppBot/build/CMakeFiles/rebuild_cache.dir
+/Users/ilavaleev/Dev/CppBot/build/botstaff/CMakeFiles/func.dir
+/Users/ilavaleev/Dev/CppBot/build/botstaff/CMakeFiles/edit_cache.dir
+/Users/ilavaleev/Dev/CppBot/build/botstaff/CMakeFiles/rebuild_cache.dir
