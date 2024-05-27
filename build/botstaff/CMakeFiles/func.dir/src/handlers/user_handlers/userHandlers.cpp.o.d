@@ -1,5 +1,5 @@
 botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userHandlers.cpp.o: \
-  /Users/ilavaleev/Dev/CppBot/botstaff/src/handlers/user_handlers/userHandlers.cpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/src/handlers/user_handlers/userHandlers.cpp \
   /usr/local/include/tgbot/tgbot.h /usr/local/include/tgbot/Api.h \
   /usr/local/include/tgbot/TgException.h \
   /usr/local/include/tgbot/export.h \
@@ -2520,8 +2520,8 @@ botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userHandlers.cpp.o: \
   /usr/local/include/tgbot/net/TgWebhookServer.h \
   /usr/local/include/tgbot/net/TgWebhookTcpServer.h \
   /usr/local/include/tgbot/tools/FileTools.h \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/states.hpp \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/database/CRUD.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/states.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/database/CRUD.hpp \
   /usr/local/include/pqxx/pqxx \
   /usr/local/include/pqxx/internal/header-pre.hxx \
   /usr/local/include/pqxx/config-public-compiler.h \
@@ -2624,10 +2624,10 @@ botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userHandlers.cpp.o: \
   /usr/local/include/pqxx/time.hxx \
   /usr/local/include/pqxx/transactor.hxx \
   /usr/local/include/pqxx/internal/header-post.hxx \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/utils.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/utils.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/unordered_set \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/handlers/handlers.hpp \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/database/psql.hpp \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/handlers/user_handlers/userHandlers.hpp \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/handlers/user_handlers/userRegistration.hpp \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/keyboards/user_keyboards/userKeyboards.hpp
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/handlers/handlers.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/database/psql.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/handlers/user_handlers/userHandlers.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/handlers/user_handlers/userRegistration.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/keyboards/user_keyboards/userKeyboards.hpp

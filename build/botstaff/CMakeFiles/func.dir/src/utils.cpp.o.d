@@ -1,6 +1,6 @@
 botstaff/CMakeFiles/func.dir/src/utils.cpp.o: \
-  /Users/ilavaleev/Dev/CppBot/botstaff/src/utils.cpp \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/utils.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/src/utils.cpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/utils.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/vector \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__algorithm/copy.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__algorithm/copy_move_common.h \
@@ -2522,7 +2522,7 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: \
   /usr/local/include/tgbot/net/TgWebhookTcpServer.h \
   /usr/local/include/tgbot/tools/FileTools.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/unordered_set \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/database/CRUD.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/database/CRUD.hpp \
   /usr/local/include/pqxx/pqxx \
   /usr/local/include/pqxx/internal/header-pre.hxx \
   /usr/local/include/pqxx/config-public-compiler.h \
@@ -2632,9 +2632,9 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/deque \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/stack \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__format/formatter_tuple.h \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/database/psql.hpp \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/handlers/handlers.hpp \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/states.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/database/psql.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/handlers/handlers.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/states.hpp \
   /opt/homebrew/include/boost/locale/encoding_utf.hpp \
   /opt/homebrew/include/boost/locale/encoding_errors.hpp \
   /opt/homebrew/include/boost/locale/config.hpp \

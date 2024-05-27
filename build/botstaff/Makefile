@@ -57,10 +57,10 @@ RM = /opt/homebrew/Cellar/cmake/3.29.2/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/ilavaleev/Dev/CppBot
+CMAKE_SOURCE_DIR = /Users/ilavaleev/Dev/TeacherBot
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/ilavaleev/Dev/CppBot/build
+CMAKE_BINARY_DIR = /Users/ilavaleev/Dev/TeacherBot/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/ilavaleev/Dev/CppBot/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/ilavaleev/Dev/CppBot/build/CMakeFiles /Users/ilavaleev/Dev/CppBot/build/botstaff//CMakeFiles/progress.marks
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 botstaff/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ilavaleev/Dev/CppBot/build/CMakeFiles 0
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/ilavaleev/Dev/TeacherBot/build/CMakeFiles /Users/ilavaleev/Dev/TeacherBot/build/botstaff//CMakeFiles/progress.marks
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 botstaff/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ilavaleev/Dev/TeacherBot/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 botstaff/clean
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 botstaff/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 botstaff/preinstall
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 botstaff/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 botstaff/preinstall
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 botstaff/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 botstaff/CMakeFiles/func.dir/rule:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 botstaff/CMakeFiles/func.dir/rule
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 botstaff/CMakeFiles/func.dir/rule
 .PHONY : botstaff/CMakeFiles/func.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ func: botstaff/CMakeFiles/func.dir/rule
 
 # fast build rule for target.
 func/fast:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/build
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/build
 .PHONY : func/fast
 
 src/commands.o: src/commands.cpp.o
@@ -135,7 +135,7 @@ src/commands.o: src/commands.cpp.o
 
 # target to build an object file
 src/commands.cpp.o:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/commands.cpp.o
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/commands.cpp.o
 .PHONY : src/commands.cpp.o
 
 src/commands.i: src/commands.cpp.i
@@ -143,7 +143,7 @@ src/commands.i: src/commands.cpp.i
 
 # target to preprocess a source file
 src/commands.cpp.i:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/commands.cpp.i
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/commands.cpp.i
 .PHONY : src/commands.cpp.i
 
 src/commands.s: src/commands.cpp.s
@@ -151,7 +151,7 @@ src/commands.s: src/commands.cpp.s
 
 # target to generate assembly for a file
 src/commands.cpp.s:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/commands.cpp.s
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/commands.cpp.s
 .PHONY : src/commands.cpp.s
 
 src/database/CRUD.o: src/database/CRUD.cpp.o
@@ -159,7 +159,7 @@ src/database/CRUD.o: src/database/CRUD.cpp.o
 
 # target to build an object file
 src/database/CRUD.cpp.o:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/database/CRUD.cpp.o
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/database/CRUD.cpp.o
 .PHONY : src/database/CRUD.cpp.o
 
 src/database/CRUD.i: src/database/CRUD.cpp.i
@@ -167,7 +167,7 @@ src/database/CRUD.i: src/database/CRUD.cpp.i
 
 # target to preprocess a source file
 src/database/CRUD.cpp.i:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/database/CRUD.cpp.i
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/database/CRUD.cpp.i
 .PHONY : src/database/CRUD.cpp.i
 
 src/database/CRUD.s: src/database/CRUD.cpp.s
@@ -175,7 +175,7 @@ src/database/CRUD.s: src/database/CRUD.cpp.s
 
 # target to generate assembly for a file
 src/database/CRUD.cpp.s:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/database/CRUD.cpp.s
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/database/CRUD.cpp.s
 .PHONY : src/database/CRUD.cpp.s
 
 src/database/psql.o: src/database/psql.cpp.o
@@ -183,7 +183,7 @@ src/database/psql.o: src/database/psql.cpp.o
 
 # target to build an object file
 src/database/psql.cpp.o:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/database/psql.cpp.o
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/database/psql.cpp.o
 .PHONY : src/database/psql.cpp.o
 
 src/database/psql.i: src/database/psql.cpp.i
@@ -191,7 +191,7 @@ src/database/psql.i: src/database/psql.cpp.i
 
 # target to preprocess a source file
 src/database/psql.cpp.i:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/database/psql.cpp.i
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/database/psql.cpp.i
 .PHONY : src/database/psql.cpp.i
 
 src/database/psql.s: src/database/psql.cpp.s
@@ -199,7 +199,7 @@ src/database/psql.s: src/database/psql.cpp.s
 
 # target to generate assembly for a file
 src/database/psql.cpp.s:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/database/psql.cpp.s
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/database/psql.cpp.s
 .PHONY : src/database/psql.cpp.s
 
 src/handlers/handlers.o: src/handlers/handlers.cpp.o
@@ -207,7 +207,7 @@ src/handlers/handlers.o: src/handlers/handlers.cpp.o
 
 # target to build an object file
 src/handlers/handlers.cpp.o:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/handlers.cpp.o
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/handlers.cpp.o
 .PHONY : src/handlers/handlers.cpp.o
 
 src/handlers/handlers.i: src/handlers/handlers.cpp.i
@@ -215,7 +215,7 @@ src/handlers/handlers.i: src/handlers/handlers.cpp.i
 
 # target to preprocess a source file
 src/handlers/handlers.cpp.i:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/handlers.cpp.i
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/handlers.cpp.i
 .PHONY : src/handlers/handlers.cpp.i
 
 src/handlers/handlers.s: src/handlers/handlers.cpp.s
@@ -223,7 +223,7 @@ src/handlers/handlers.s: src/handlers/handlers.cpp.s
 
 # target to generate assembly for a file
 src/handlers/handlers.cpp.s:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/handlers.cpp.s
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/handlers.cpp.s
 .PHONY : src/handlers/handlers.cpp.s
 
 src/handlers/teacher_handlers/createLessonHandlers.o: src/handlers/teacher_handlers/createLessonHandlers.cpp.o
@@ -231,7 +231,7 @@ src/handlers/teacher_handlers/createLessonHandlers.o: src/handlers/teacher_handl
 
 # target to build an object file
 src/handlers/teacher_handlers/createLessonHandlers.cpp.o:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/createLessonHandlers.cpp.o
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/createLessonHandlers.cpp.o
 .PHONY : src/handlers/teacher_handlers/createLessonHandlers.cpp.o
 
 src/handlers/teacher_handlers/createLessonHandlers.i: src/handlers/teacher_handlers/createLessonHandlers.cpp.i
@@ -239,7 +239,7 @@ src/handlers/teacher_handlers/createLessonHandlers.i: src/handlers/teacher_handl
 
 # target to preprocess a source file
 src/handlers/teacher_handlers/createLessonHandlers.cpp.i:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/createLessonHandlers.cpp.i
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/createLessonHandlers.cpp.i
 .PHONY : src/handlers/teacher_handlers/createLessonHandlers.cpp.i
 
 src/handlers/teacher_handlers/createLessonHandlers.s: src/handlers/teacher_handlers/createLessonHandlers.cpp.s
@@ -247,7 +247,7 @@ src/handlers/teacher_handlers/createLessonHandlers.s: src/handlers/teacher_handl
 
 # target to generate assembly for a file
 src/handlers/teacher_handlers/createLessonHandlers.cpp.s:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/createLessonHandlers.cpp.s
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/createLessonHandlers.cpp.s
 .PHONY : src/handlers/teacher_handlers/createLessonHandlers.cpp.s
 
 src/handlers/teacher_handlers/teacherHandlers.o: src/handlers/teacher_handlers/teacherHandlers.cpp.o
@@ -255,7 +255,7 @@ src/handlers/teacher_handlers/teacherHandlers.o: src/handlers/teacher_handlers/t
 
 # target to build an object file
 src/handlers/teacher_handlers/teacherHandlers.cpp.o:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/teacherHandlers.cpp.o
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/teacherHandlers.cpp.o
 .PHONY : src/handlers/teacher_handlers/teacherHandlers.cpp.o
 
 src/handlers/teacher_handlers/teacherHandlers.i: src/handlers/teacher_handlers/teacherHandlers.cpp.i
@@ -263,7 +263,7 @@ src/handlers/teacher_handlers/teacherHandlers.i: src/handlers/teacher_handlers/t
 
 # target to preprocess a source file
 src/handlers/teacher_handlers/teacherHandlers.cpp.i:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/teacherHandlers.cpp.i
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/teacherHandlers.cpp.i
 .PHONY : src/handlers/teacher_handlers/teacherHandlers.cpp.i
 
 src/handlers/teacher_handlers/teacherHandlers.s: src/handlers/teacher_handlers/teacherHandlers.cpp.s
@@ -271,7 +271,7 @@ src/handlers/teacher_handlers/teacherHandlers.s: src/handlers/teacher_handlers/t
 
 # target to generate assembly for a file
 src/handlers/teacher_handlers/teacherHandlers.cpp.s:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/teacherHandlers.cpp.s
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/teacherHandlers.cpp.s
 .PHONY : src/handlers/teacher_handlers/teacherHandlers.cpp.s
 
 src/handlers/user_handlers/userHandlers.o: src/handlers/user_handlers/userHandlers.cpp.o
@@ -279,7 +279,7 @@ src/handlers/user_handlers/userHandlers.o: src/handlers/user_handlers/userHandle
 
 # target to build an object file
 src/handlers/user_handlers/userHandlers.cpp.o:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userHandlers.cpp.o
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userHandlers.cpp.o
 .PHONY : src/handlers/user_handlers/userHandlers.cpp.o
 
 src/handlers/user_handlers/userHandlers.i: src/handlers/user_handlers/userHandlers.cpp.i
@@ -287,7 +287,7 @@ src/handlers/user_handlers/userHandlers.i: src/handlers/user_handlers/userHandle
 
 # target to preprocess a source file
 src/handlers/user_handlers/userHandlers.cpp.i:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userHandlers.cpp.i
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userHandlers.cpp.i
 .PHONY : src/handlers/user_handlers/userHandlers.cpp.i
 
 src/handlers/user_handlers/userHandlers.s: src/handlers/user_handlers/userHandlers.cpp.s
@@ -295,7 +295,7 @@ src/handlers/user_handlers/userHandlers.s: src/handlers/user_handlers/userHandle
 
 # target to generate assembly for a file
 src/handlers/user_handlers/userHandlers.cpp.s:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userHandlers.cpp.s
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userHandlers.cpp.s
 .PHONY : src/handlers/user_handlers/userHandlers.cpp.s
 
 src/handlers/user_handlers/userRegistration.o: src/handlers/user_handlers/userRegistration.cpp.o
@@ -303,7 +303,7 @@ src/handlers/user_handlers/userRegistration.o: src/handlers/user_handlers/userRe
 
 # target to build an object file
 src/handlers/user_handlers/userRegistration.cpp.o:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userRegistration.cpp.o
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userRegistration.cpp.o
 .PHONY : src/handlers/user_handlers/userRegistration.cpp.o
 
 src/handlers/user_handlers/userRegistration.i: src/handlers/user_handlers/userRegistration.cpp.i
@@ -311,7 +311,7 @@ src/handlers/user_handlers/userRegistration.i: src/handlers/user_handlers/userRe
 
 # target to preprocess a source file
 src/handlers/user_handlers/userRegistration.cpp.i:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userRegistration.cpp.i
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userRegistration.cpp.i
 .PHONY : src/handlers/user_handlers/userRegistration.cpp.i
 
 src/handlers/user_handlers/userRegistration.s: src/handlers/user_handlers/userRegistration.cpp.s
@@ -319,7 +319,7 @@ src/handlers/user_handlers/userRegistration.s: src/handlers/user_handlers/userRe
 
 # target to generate assembly for a file
 src/handlers/user_handlers/userRegistration.cpp.s:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userRegistration.cpp.s
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userRegistration.cpp.s
 .PHONY : src/handlers/user_handlers/userRegistration.cpp.s
 
 src/keyboards/keyboards.o: src/keyboards/keyboards.cpp.o
@@ -327,7 +327,7 @@ src/keyboards/keyboards.o: src/keyboards/keyboards.cpp.o
 
 # target to build an object file
 src/keyboards/keyboards.cpp.o:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/keyboards/keyboards.cpp.o
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/keyboards/keyboards.cpp.o
 .PHONY : src/keyboards/keyboards.cpp.o
 
 src/keyboards/keyboards.i: src/keyboards/keyboards.cpp.i
@@ -335,7 +335,7 @@ src/keyboards/keyboards.i: src/keyboards/keyboards.cpp.i
 
 # target to preprocess a source file
 src/keyboards/keyboards.cpp.i:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/keyboards/keyboards.cpp.i
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/keyboards/keyboards.cpp.i
 .PHONY : src/keyboards/keyboards.cpp.i
 
 src/keyboards/keyboards.s: src/keyboards/keyboards.cpp.s
@@ -343,7 +343,7 @@ src/keyboards/keyboards.s: src/keyboards/keyboards.cpp.s
 
 # target to generate assembly for a file
 src/keyboards/keyboards.cpp.s:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/keyboards/keyboards.cpp.s
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/keyboards/keyboards.cpp.s
 .PHONY : src/keyboards/keyboards.cpp.s
 
 src/keyboards/teacher_keyboards/teacherKeyboards.o: src/keyboards/teacher_keyboards/teacherKeyboards.cpp.o
@@ -351,7 +351,7 @@ src/keyboards/teacher_keyboards/teacherKeyboards.o: src/keyboards/teacher_keyboa
 
 # target to build an object file
 src/keyboards/teacher_keyboards/teacherKeyboards.cpp.o:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cpp.o
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cpp.o
 .PHONY : src/keyboards/teacher_keyboards/teacherKeyboards.cpp.o
 
 src/keyboards/teacher_keyboards/teacherKeyboards.i: src/keyboards/teacher_keyboards/teacherKeyboards.cpp.i
@@ -359,7 +359,7 @@ src/keyboards/teacher_keyboards/teacherKeyboards.i: src/keyboards/teacher_keyboa
 
 # target to preprocess a source file
 src/keyboards/teacher_keyboards/teacherKeyboards.cpp.i:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cpp.i
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cpp.i
 .PHONY : src/keyboards/teacher_keyboards/teacherKeyboards.cpp.i
 
 src/keyboards/teacher_keyboards/teacherKeyboards.s: src/keyboards/teacher_keyboards/teacherKeyboards.cpp.s
@@ -367,7 +367,7 @@ src/keyboards/teacher_keyboards/teacherKeyboards.s: src/keyboards/teacher_keyboa
 
 # target to generate assembly for a file
 src/keyboards/teacher_keyboards/teacherKeyboards.cpp.s:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cpp.s
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cpp.s
 .PHONY : src/keyboards/teacher_keyboards/teacherKeyboards.cpp.s
 
 src/keyboards/user_keyboards/userKeyboards.o: src/keyboards/user_keyboards/userKeyboards.cpp.o
@@ -375,7 +375,7 @@ src/keyboards/user_keyboards/userKeyboards.o: src/keyboards/user_keyboards/userK
 
 # target to build an object file
 src/keyboards/user_keyboards/userKeyboards.cpp.o:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/keyboards/user_keyboards/userKeyboards.cpp.o
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/keyboards/user_keyboards/userKeyboards.cpp.o
 .PHONY : src/keyboards/user_keyboards/userKeyboards.cpp.o
 
 src/keyboards/user_keyboards/userKeyboards.i: src/keyboards/user_keyboards/userKeyboards.cpp.i
@@ -383,7 +383,7 @@ src/keyboards/user_keyboards/userKeyboards.i: src/keyboards/user_keyboards/userK
 
 # target to preprocess a source file
 src/keyboards/user_keyboards/userKeyboards.cpp.i:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/keyboards/user_keyboards/userKeyboards.cpp.i
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/keyboards/user_keyboards/userKeyboards.cpp.i
 .PHONY : src/keyboards/user_keyboards/userKeyboards.cpp.i
 
 src/keyboards/user_keyboards/userKeyboards.s: src/keyboards/user_keyboards/userKeyboards.cpp.s
@@ -391,7 +391,7 @@ src/keyboards/user_keyboards/userKeyboards.s: src/keyboards/user_keyboards/userK
 
 # target to generate assembly for a file
 src/keyboards/user_keyboards/userKeyboards.cpp.s:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/keyboards/user_keyboards/userKeyboards.cpp.s
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/keyboards/user_keyboards/userKeyboards.cpp.s
 .PHONY : src/keyboards/user_keyboards/userKeyboards.cpp.s
 
 src/utils.o: src/utils.cpp.o
@@ -399,7 +399,7 @@ src/utils.o: src/utils.cpp.o
 
 # target to build an object file
 src/utils.cpp.o:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/utils.cpp.o
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/utils.cpp.o
 .PHONY : src/utils.cpp.o
 
 src/utils.i: src/utils.cpp.i
@@ -407,7 +407,7 @@ src/utils.i: src/utils.cpp.i
 
 # target to preprocess a source file
 src/utils.cpp.i:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/utils.cpp.i
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/utils.cpp.i
 .PHONY : src/utils.cpp.i
 
 src/utils.s: src/utils.cpp.s
@@ -415,7 +415,7 @@ src/utils.s: src/utils.cpp.s
 
 # target to generate assembly for a file
 src/utils.cpp.s:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/utils.cpp.s
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(MAKE) $(MAKESILENT) -f botstaff/CMakeFiles/func.dir/build.make botstaff/CMakeFiles/func.dir/src/utils.cpp.s
 .PHONY : src/utils.cpp.s
 
 # Help Target
@@ -474,6 +474,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/ilavaleev/Dev/CppBot/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/ilavaleev/Dev/TeacherBot/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -1,4 +1,5 @@
-CMakeFiles/cppbot.dir/main.cpp.o: /Users/ilavaleev/Dev/CppBot/main.cpp \
+CMakeFiles/cppbot.dir/main.cpp.o: \
+  /Users/ilavaleev/Dev/TeacherBot/main.cpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/stdio.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__config \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__config_site \
@@ -2519,9 +2520,9 @@ CMakeFiles/cppbot.dir/main.cpp.o: /Users/ilavaleev/Dev/CppBot/main.cpp \
   /usr/local/include/tgbot/net/TgWebhookServer.h \
   /usr/local/include/tgbot/net/TgWebhookTcpServer.h \
   /usr/local/include/tgbot/tools/FileTools.h \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/commands.hpp \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/handlers/handlers.hpp \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/database/psql.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/commands.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/handlers/handlers.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/database/psql.hpp \
   /usr/local/include/pqxx/pqxx \
   /usr/local/include/pqxx/internal/header-pre.hxx \
   /usr/local/include/pqxx/config-public-compiler.h \
@@ -2624,14 +2625,14 @@ CMakeFiles/cppbot.dir/main.cpp.o: /Users/ilavaleev/Dev/CppBot/main.cpp \
   /usr/local/include/pqxx/time.hxx \
   /usr/local/include/pqxx/transactor.hxx \
   /usr/local/include/pqxx/internal/header-post.hxx \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/utils.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/utils.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/unordered_set \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/database/CRUD.hpp \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/states.hpp \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/handlers/user_handlers/userHandlers.hpp \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/handlers/teacher_handlers/teacherHandlers.hpp \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/handlers/teacher_handlers/createLessonHandlers.hpp \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/handlers/user_handlers/userRegistration.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/database/CRUD.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/states.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/handlers/user_handlers/userHandlers.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/handlers/teacher_handlers/teacherHandlers.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/handlers/teacher_handlers/createLessonHandlers.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/handlers/user_handlers/userRegistration.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__format/container_adaptor.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__format/range_default_formatter.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__format/range_formatter.h \

@@ -57,10 +57,10 @@ RM = /opt/homebrew/Cellar/cmake/3.29.2/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/ilavaleev/Dev/CppBot
+CMAKE_SOURCE_DIR = /Users/ilavaleev/Dev/TeacherBot
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/ilavaleev/Dev/CppBot/build
+CMAKE_BINARY_DIR = /Users/ilavaleev/Dev/TeacherBot/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ilavaleev/Dev/CppBot/build/CMakeFiles /Users/ilavaleev/Dev/CppBot/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ilavaleev/Dev/TeacherBot/build/CMakeFiles /Users/ilavaleev/Dev/TeacherBot/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ilavaleev/Dev/CppBot/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ilavaleev/Dev/TeacherBot/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

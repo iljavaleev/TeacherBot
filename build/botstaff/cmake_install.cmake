@@ -1,4 +1,4 @@
-# Install script for directory: /Users/ilavaleev/Dev/CppBot/botstaff
+# Install script for directory: /Users/ilavaleev/Dev/TeacherBot/botstaff
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

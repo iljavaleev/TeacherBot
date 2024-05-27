@@ -1,6 +1,6 @@
 botstaff/CMakeFiles/func.dir/src/commands.cpp.o: \
-  /Users/ilavaleev/Dev/CppBot/botstaff/src/commands.cpp \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/commands.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/src/commands.cpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/commands.hpp \
   /usr/local/include/tgbot/tgbot.h /usr/local/include/tgbot/Api.h \
   /usr/local/include/tgbot/TgException.h \
   /usr/local/include/tgbot/export.h \

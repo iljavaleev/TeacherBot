@@ -1,6 +1,6 @@
 botstaff/CMakeFiles/func.dir/src/keyboards/keyboards.cpp.o: \
-  /Users/ilavaleev/Dev/CppBot/botstaff/src/keyboards/keyboards.cpp \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/keyboards/keyboards.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/src/keyboards/keyboards.cpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/keyboards/keyboards.hpp \
   /usr/local/include/tgbot/tgbot.h /usr/local/include/tgbot/Api.h \
   /usr/local/include/tgbot/TgException.h \
   /usr/local/include/tgbot/export.h \
@@ -2521,9 +2521,9 @@ botstaff/CMakeFiles/func.dir/src/keyboards/keyboards.cpp.o: \
   /usr/local/include/tgbot/net/TgWebhookServer.h \
   /usr/local/include/tgbot/net/TgWebhookTcpServer.h \
   /usr/local/include/tgbot/tools/FileTools.h \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/utils.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/utils.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/unordered_set \
-  /Users/ilavaleev/Dev/CppBot/botstaff/include/botstaff/database/CRUD.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/database/CRUD.hpp \
   /usr/local/include/pqxx/pqxx \
   /usr/local/include/pqxx/internal/header-pre.hxx \
   /usr/local/include/pqxx/config-public-compiler.h \
