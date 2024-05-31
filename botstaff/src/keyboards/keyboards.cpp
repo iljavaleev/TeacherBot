@@ -14,17 +14,17 @@ using namespace TgBot;
 
 namespace Keyboards
 {
-    InlineKeyboardMarkup::Ptr create_calendar_kb(int year, int month, int day, long chat_id, bool update)
+    InlineKeyboardMarkup::Ptr create_calendar_kb(
+        int year, 
+        int month, 
+        int day, 
+        const std::string& role, 
+        long chat_id, 
+        bool update
+        )
     {
         
-        std::string role{"pupil"};
-        if (is_teacher(chat_id))
-            role = "teacher";
-        
         std::unordered_set<int> lesson_days = get_lesson_days(year, month, chat_id, role);
-
-        for (auto i{lesson_days.begin()}; i!=lesson_days.end(); ++i)
-            std::cout << *i << std::endl;        
         
         int first_day_number = dayNumber(year, month, day);
         int month_day_number = num_days(month, year);
@@ -63,7 +63,6 @@ namespace Keyboards
                 else
                     cal_btn->text = std::format("{}", count);
                 
-                std::cout << std::vformat(callback_data, std::make_format_args(role, year, month, count)) << "\n";
                 cal_btn->callbackData = std::vformat(callback_data, std::make_format_args(role, year, month, count));
                 
                 row.at(j) = cal_btn;
@@ -78,7 +77,7 @@ namespace Keyboards
             keyboard->inlineKeyboard.push_back(row);
         }
         
-        create_last_row(keyboard, year, month, update);
+        create_last_row(keyboard, year, month, role, update);
 
         return keyboard;
     }

@@ -6,9 +6,11 @@
 #include "botstaff/keyboards/keyboards.hpp"
 #include "botstaff/handlers/user_handlers/userRegistration.hpp"
 #include "botstaff/handlers/teacher_handlers/createLessonHandlers.hpp"
+#include "botstaff/database/CRUD.hpp"
 #include <unordered_map>
 #include <string>
 #include <exception>
+#include <iostream>
 
 
 namespace CommandHandlers
@@ -20,13 +22,19 @@ namespace CommandHandlers
             long chat_id(message->chat->id);
             clear_user_state(chat_id);
             clear_lesson_state(chat_id);
-
+            botUser user = botUser::get(chat_id);
             if (is_admin(chat_id))
                 return bot.getApi().sendMessage(chat_id, "Вход для админа", false, 0, teacherKeyboards::create_teacher_start_kb(true)); 
-            else if(is_teacher(chat_id))
+            else if(is_teacher(user))
                 return bot.getApi().sendMessage(chat_id, "Вход для учителя", false, 0, teacherKeyboards::create_teacher_start_kb(false));
             else
-                return bot.getApi().sendMessage(chat_id, "Вход для пользователя", false, 0, UserKeyboards::create_user_start_kb(chat_id));  
+                return bot.getApi().sendMessage(
+                    chat_id, 
+                    "Вход для пользователя", 
+                    false, 
+                    0, 
+                    UserKeyboards::create_user_start_kb(chat_id, !user.empty())
+                    );  
                           
         };
     }
@@ -93,19 +101,20 @@ namespace Handlers
         };
     }
 
-    std::function<Message::Ptr (CallbackQuery::Ptr)> calendar_handler(TgBot::Bot& bot)
+    std::function<Message::Ptr (CallbackQuery::Ptr)> calendar_handler(TgBot::Bot& bot) //
     {
         return [&bot](CallbackQuery::Ptr query) 
         {
-            if (StringTools::endsWith(query->data, "calendar")) 
+            if (StringTools::split(query->data, ' ').at(0) == "calendar") 
             {
                 auto ymd = get_curent_ymd();
+                std::string role = StringTools::split(query->data, ' ').at(1);
                 return bot.getApi().sendMessage(
                     query->message->chat->id, 
                     "Здесь вы можете посмотреть расписание", 
                     false, 
                     0, 
-                    Keyboards::create_calendar_kb(ymd[0], ymd[1], 1, query->message->chat->id));  
+                    Keyboards::create_calendar_kb(ymd[0], ymd[1], 1, role, query->message->chat->id));  
             }
              else
                 return Message::Ptr(nullptr); 
@@ -122,6 +131,7 @@ namespace Handlers
                 int year = stoi(info.at(2));
                 int month = stoi(info.at(3));
                 bool update = true ? info.at(4) == "true" : false;
+                std::string role = info.at(5);
                 if (info.at(1) == "<<")
                 {   
                     month--;
@@ -135,7 +145,7 @@ namespace Handlers
                     "Здесь вы можете посмотреть расписание", 
                     false, 
                     0, 
-                    Keyboards::create_calendar_kb(year, month, 1, query->message->chat->id, update)
+                    Keyboards::create_calendar_kb(year, month, 1, role, query->message->chat->id, update)
                     );  
             }
              else
@@ -147,7 +157,7 @@ namespace Handlers
     {
          return [&bot](CallbackQuery::Ptr query) 
         {
-            if (StringTools::startsWith(query->data, "calendar_day")) 
+            if (StringTools::split(query->data, ' ').at(0) == "calendar_day") 
             {
                 auto info = StringTools::split(query->data, ' ');
                 

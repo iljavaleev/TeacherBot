@@ -12,16 +12,16 @@ using namespace TgBot;
 
 namespace UserKeyboards
 {
-    InlineKeyboardMarkup::Ptr create_user_start_kb(long chat_id)
+    InlineKeyboardMarkup::Ptr create_user_start_kb(long chat_id, bool exists)
     {
         InlineKeyboardMarkup::Ptr keyboard(new InlineKeyboardMarkup);
         vector<InlineKeyboardButton::Ptr> row;
 
-        if (botUser::exists(chat_id))
+        if (exists)
         {
             InlineKeyboardButton::Ptr user_calendar_btn(new InlineKeyboardButton);
             user_calendar_btn->text = "Календарь";
-            user_calendar_btn->callbackData = "user calendar";
+            user_calendar_btn->callbackData = "calendar pupil";
             row.push_back(user_calendar_btn);
             keyboard->inlineKeyboard.push_back(row);
             return keyboard;

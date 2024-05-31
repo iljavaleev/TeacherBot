@@ -53,7 +53,7 @@ namespace teacherKeyboards
 
         InlineKeyboardButton::Ptr admin_calendar_btn(new InlineKeyboardButton);
         admin_calendar_btn->text = "Календарь";
-        admin_calendar_btn->callbackData = "calendar";
+        admin_calendar_btn->callbackData = "calendar teacher";
         row.push_back(admin_calendar_btn);
         keyboard->inlineKeyboard.push_back(row);
         row.clear();

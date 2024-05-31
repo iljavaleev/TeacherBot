@@ -66,14 +66,14 @@ void create_first_row(InlineKeyboardMarkup::Ptr& keyboard)
     keyboard->inlineKeyboard.push_back(week_days);  
 }
 
-void create_last_row(InlineKeyboardMarkup::Ptr& keyboard, int year, int month, bool update)
+void create_last_row(InlineKeyboardMarkup::Ptr& keyboard, int year, int month, const std::string& role, bool update)
 {
     auto ymd = get_curent_ymd();
     std::vector<InlineKeyboardButton::Ptr> row;
 
     InlineKeyboardButton::Ptr prev_month_btn(new InlineKeyboardButton);
     prev_month_btn->text = "<<";
-    prev_month_btn->callbackData = std::format("change_month << {} {} {}", year, month, update);
+    prev_month_btn->callbackData = std::format("change_month << {} {} {} {}", year, month, update, role);
     row.push_back(prev_month_btn);
 
     InlineKeyboardButton::Ptr current_btn(new InlineKeyboardButton);
@@ -83,7 +83,7 @@ void create_last_row(InlineKeyboardMarkup::Ptr& keyboard, int year, int month, b
     
     InlineKeyboardButton::Ptr next_month_btn(new InlineKeyboardButton);
     next_month_btn->text = ">>";
-    next_month_btn->callbackData = std::format("change_month >> {} {} {}", year, month, update);
+    next_month_btn->callbackData = std::format("change_month >> {} {} {} {}", year, month, update, role);
     row.push_back(next_month_btn);
 
     keyboard->inlineKeyboard.push_back(row);
@@ -95,9 +95,8 @@ bool is_admin(long chat_id)
     return std::stol(s_chat_id) == chat_id;
 }
 
-bool is_teacher(long chat_id)
+bool is_teacher(const botUser& user)
 {
-    botUser user = botUser::get(chat_id);
     return !user.empty() && user.is_active && (user.role == "teacher");
 }
 
@@ -152,14 +151,16 @@ std::string get_pupil_info(const botUser& u)
 {
     return std::format(
         "<b>{} {} {}</b>\n<b>Юзернэйм</b>: {}\n<b>Указан телефон</b>: {}\n<b>Адрес электронной почты</b>: {}\n<b>Комментарий:</b> {}", 
-        u.first_name, u.last_name, u.cls, u.tgusername, u.phone, u.email, u.comment);
+        u.first_name, u.last_name, u.cls, u.tgusername, u.phone, u.email, u.comment
+        );
 }
 
 std::string get_teacher_info(const botUser& u)
 {
     return std::format(
         "<b>{} {}</b>\n<b>Юзернэйм</b>: {}\n<b>Указан телефон</b>: {}\n<b>Адрес электронной почты</b>: {}\n<b>Комментарий:</b> {}", 
-        u.first_name, u.last_name,u.tgusername, u.phone, u.email, u.comment);
+        u.first_name, u.last_name,u.tgusername, u.phone, u.email, u.comment
+        );
 }
 
 
@@ -215,22 +216,15 @@ std::string get_user_lesson_info(long chat_id, int user_lesson_id, std::string r
     if (role == "teacher")
     {
         user = botUser::get(user_lesson.pupil);
-        std::cout << " asasas 3" << "\n";
         return std::format(
-            "<b>Ученик {} {}</b>\n\
-            <b>Время начачла занятия: {}</b>\n\
-            <b>Тема урока</b>: {}\n\
-            <b>Информация для преподователя</b>:\n{}", 
+            "<b>Ученик: {} {}</b>\n<b>Время начачла занятия: {}</b>\n<b>Тема урока</b>: {}\n<b>Информация для преподователя</b>: {}", 
             user.first_name, user.last_name, user_lesson.time, user_lesson.objectives, user_lesson.comment_for_teacher
             );
     }
     
     user =  botUser::get(user_lesson.teacher);
     return std::format(
-        "<b>Преподователь {} {}</b>\n\
-        <b>Время начачла занятия: {}</b>\n\
-        <b>Тема урока</b>: {}\n\
-        <b>Информация для ученика</b>:\n{}", 
+        "<b>Преподователь {} {}</b>\n<b>Время начачла занятия: {}</b>\n<b>Тема урока</b>: {}\n<b>Информация для ученика</b>: {}", 
         user.first_name, user.last_name, user_lesson.time, user_lesson.objectives, user_lesson.comment_for_pupil
         );
 }
@@ -238,11 +232,16 @@ std::string get_user_lesson_info(long chat_id, int user_lesson_id, std::string r
 std::vector<std::vector<std::string>> get_lessons_by_day(long chat_id, std::string role,  int year, int month, int day)
 {
     std::string date = std::format("{}-{}-{}", year, month, day);
+    std::string qrole{"teacher"};
+    
+    if (role == "teacher")
+        qrole = "pupil";
+
     std::string query = std::format(
-        "SELECT u.first_name, u.last_name, l.id, l.time\
-        FROM user_lesson as l \
-        JOIN bot_user as u ON l.{}=u.chat_id \
-        WHERE l.date='{}' AND u.chat_id={}", role, date, chat_id); 
+        "SELECT u.first_name, u.last_name, l.id, l.time \
+        FROM bot_user as u \
+        JOIN (SELECT {}, id, time FROM user_lesson WHERE {}={} AND date='{}') as l \
+        ON u.chat_id=l.{}", qrole, role, chat_id, date, qrole); 
     
     pqxx::result R = SQL::select_from_table(query);
     std::vector<std::vector<std::string>> result;

@@ -16,13 +16,11 @@ std::vector<int> get_curent_ymd();
 
 
 bool is_admin(long);
-bool is_teacher(long);
+bool is_teacher(const botUser&);
 std::unordered_set<int> get_lesson_days(int, int, long, const std::string&);
 
 void create_first_row(InlineKeyboardMarkup::Ptr&);
-void create_last_row(InlineKeyboardMarkup::Ptr&, int, int, bool);
-
-
+void create_last_row(InlineKeyboardMarkup::Ptr&, int, int, const std::string& role, bool);
 
 
 std::wstring utf8_to_wstring(const std::string& str);

@@ -12,8 +12,6 @@
 using namespace TgBot;
 using namespace std;
 
-// static unordered_map<long, StateInst<DayState, UserLesson>> dayState;
-
 
 namespace CommandHandlers
 {

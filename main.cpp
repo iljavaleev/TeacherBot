@@ -16,8 +16,6 @@
 using namespace TgBot;
 using namespace std;
 
-// редактирование
-// https://api.telegram.org/botYOUR-TOKEN/setWebhook?url=https://YOUR.DOMAIN:8443/YOUR-TOKEN/
 
 int main() {
     

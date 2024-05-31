@@ -88,7 +88,7 @@ void botUser::update()
 {
     std::string query = std::format("UPDATE bot_user SET teacher = '{}', tgusername = '{}',\
     first_name = '{}', last_name = '{}', phone = '{}', email = '{}', class = '{}', comment = '{}', \
-    role = '{}', is_active = {} \
+    user_role = '{}', is_active = {} \
     WHERE chat_id = {}",
     teacher, tgusername, first_name, last_name, phone, email, cls, comment, role, is_active, chat_id);
     SQL::update(query);
@@ -158,7 +158,7 @@ void UserLesson::destroy()
 
 void UserLesson::create()
 {
-    std::string query = std::format("INSERT INTO user_lesson VALUES (DEFAULT, '{}', '{}', {}, {}, '{}', '{}', '{}', {})",
+    std::string query = std::format("INSERT INTO user_lesson VALUES (DEFAULT, '{}', {}, {}, '{}', '{}', '{}', '{}', {})",
     date, teacher, pupil, time, objectives, comment_for_pupil, comment_for_teacher, is_paid);
     SQL::insert_into_table(query);
 }

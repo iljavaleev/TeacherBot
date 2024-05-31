@@ -27,6 +27,7 @@ namespace createLesson
             if(StringTools::startsWith(query->data, "create_lesson"))
             {   
                 
+                clear_lesson_state(query->message->chat->id);
                 auto info = StringTools::split(query->data, ' ');
                 year_month_day date{
                     year(stoi(info.at(1))), month(stoi(info.at(2))), day(stoi(info.at(3)))
@@ -154,7 +155,13 @@ namespace createLesson
                         "Выберите новую дату",
                         false,
                         0,
-                        Keyboards::create_calendar_kb(ymd[0], ymd[1], 1, query->message->chat->id, true)
+                        Keyboards::create_calendar_kb(
+                            ymd[0], 
+                            ymd[1], 
+                            1,
+                            "teacher", 
+                            query->message->chat->id, true
+                            )
                     );
                 }
                 else if (info.at(1) == "pupil")
@@ -347,16 +354,20 @@ Message::Ptr send_lesson_info_to_pupil(
 {
     botUser u = get_user(message->chat->id);
     std::string mess = std::format(
-            "<b>Преподователь {} {}</b>\n\
-            <b>Время начачла занятия: {} в {}</b>\n\
-            <b>Тема урока</b>: {}\n\
-            <b>Информация для ученика</b>:\n{}", 
+            "<b>Преподователь {} {}</b>\n<b>Время начачла занятия: {} в {}</b>\n<b>Тема урока</b>: {}\n<b>Информация для ученика</b>:\n{}", 
             u.first_name, u.last_name, lesson.date, lesson.time, lesson.objectives, lesson.comment_for_pupil
             );
 
     try
     {
-        return bot.getApi().sendMessage(lesson.pupil, mess);
+        return bot.getApi().sendMessage(
+            lesson.pupil, 
+            mess, 
+            false, 
+            0, 
+            nullptr,
+            "HTML"
+            );
     }
     catch (std::exception& e)
     {

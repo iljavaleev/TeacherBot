@@ -18,19 +18,19 @@ struct botUser{
     void update();
     void destroy();
     void create();   
-    long chat_id;
-    long teacher;
-    std::string tgusername;
-    std::string first_name;
-    std::string last_name;
-    std::string phone;
-    std::string email;
-    std::string cls;
-    std::string comment;
-    std::string role;
+    long chat_id{};
+    long teacher{};
+    std::string tgusername{};
+    std::string first_name{};
+    std::string last_name{};
+    std::string phone{};
+    std::string email{};
+    std::string cls{};
+    std::string comment{};
+    std::string role{};
     bool is_active{false};
 
-    bool empty()
+    bool empty() const
     {
         return !static_cast<bool>(chat_id);
     }
@@ -49,15 +49,15 @@ struct UserLesson{
     void update();
     void destroy();
     void create();   
-    int id;
-    std::chrono::year_month_day date;
-    std::string time;
-    long teacher;
-    long pupil;
-    std::string objectives;
-    std::string comment_for_pupil;
-    std::string comment_for_teacher;
-    bool is_paid;
+    int id{};
+    std::chrono::year_month_day date{};
+    std::string time{};
+    long teacher{};
+    long pupil{};
+    std::string objectives{};
+    std::string comment_for_pupil{};
+    std::string comment_for_teacher{};
+    bool is_paid{};
 };
 
 

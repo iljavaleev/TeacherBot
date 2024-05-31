@@ -3,9 +3,16 @@
 #include <iostream>
 #include <vector>
 #include "botstaff/database/psql.hpp"
+#include <format>
 
-
-const std::string URI = "postgresql://postgres:postgres@localhost:5432/cppbot"; 
+const std::string URI = std::format(
+    "dbname={} user={} password={} host={} port={}", 
+    std::getenv("POSTGRES_DB") ? std::getenv("POSTGRES_DB") : "cppbot", 
+    std::getenv("POSTGRES_USER") ? std::getenv("POSTGRES_USER") : "postgres", 
+    std::getenv("POSTGRES_PASSWORD") ? std::getenv("POSTGRES_PASSWORD") : "postgres",
+    std::getenv("POSTGRES_HOST") ? std::getenv("POSTGRES_HOST") : "localhost",
+    std::getenv("POSTGRES_PORT") ? std::getenv("POSTGRES_PORT") : "5432"
+    );
 
 namespace SQL
 {

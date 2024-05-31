@@ -49,7 +49,7 @@ namespace UserRegisterHandlers
                     userState.at(query->message->chat->id).inst.teacher = stol(info.at(1));    
                     userState.at(query->message->chat->id).state.first_name = true;
                     
-                    return bot.getApi().sendMessage(query->message->chat->id, "Введите имя");
+                    return bot.getApi().sendMessage(query->message->chat->id, "Введите ваше имя");
 
                 }            
             } 
@@ -79,7 +79,7 @@ namespace UserRegisterHandlers
 
                 return bot.getApi().sendMessage(
                     query->message->chat->id, 
-                    "Введите имя");  
+                    "Введите ваше имя");  
             } 
             else
                 return Message::Ptr(nullptr);
@@ -295,7 +295,8 @@ Message::Ptr user_first_name_handler(
 {
     userState.at(message->chat->id).state.first_name = false;
     userState.at(message->chat->id).inst.first_name = string_to_upper(message->text);
-    
+    if (update)
+        return send_update_kb(bot, message, update, userState.at(message->chat->id).inst.role);
     
     userState.at(message->chat->id).state.last_name = true;
     return bot.getApi().sendMessage(message->chat->id, "Введите фамилию");
@@ -311,7 +312,7 @@ Message::Ptr user_last_name_handler(
     userState.at(message->chat->id).state.last_name = false;
     userState.at(message->chat->id).inst.last_name = string_to_upper(message->text);
     if (update)
-        send_update_kb(bot, message, update, userState.at(message->chat->id).inst.role);
+        return send_update_kb(bot, message, update, userState.at(message->chat->id).inst.role);
     
     userState.at(message->chat->id).state.phone = true;
     return bot.getApi().sendMessage(message->chat->id, "Введите номер телефона"); 
@@ -326,7 +327,7 @@ Message::Ptr user_phone_handler(
     userState.at(message->chat->id).state.phone = false;
     userState.at(message->chat->id).inst.phone = message->text;
     if (update)
-        send_update_kb(bot, message, update, userState.at(message->chat->id).inst.role);
+        return send_update_kb(bot, message, update, userState.at(message->chat->id).inst.role);
    
     userState.at(message->chat->id).state.email = true;
     return bot.getApi().sendMessage(message->chat->id, "Введите адрес электронной почты");
@@ -343,7 +344,7 @@ Message::Ptr user_email_handler(
     userState.at(message->chat->id).state.email = false;
     userState.at(message->chat->id).inst.email = message->text;
     if (update)
-        send_update_kb(bot, message, update, userState.at(message->chat->id).inst.role);
+        return send_update_kb(bot, message, update, userState.at(message->chat->id).inst.role);
     
     if (userState.at(message->chat->id).inst.role == "pupil")
     {
@@ -370,7 +371,7 @@ Message::Ptr user_class_handler(
     userState.at(message->chat->id).state.user_class = false;
     userState.at(message->chat->id).inst.cls = message->text;
     if (update)
-        send_update_kb(bot, message, update, userState.at(message->chat->id).inst.role);
+        return send_update_kb(bot, message, update, userState.at(message->chat->id).inst.role);
     
     return bot.getApi().sendMessage(
         message->chat->id, 
