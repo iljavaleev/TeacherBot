@@ -86,11 +86,12 @@ std::vector<botUser> botUser::get_all(std::string& query)
 
 void botUser::update()
 {
-    std::string query = std::format("UPDATE bot_user SET teacher = '{}', tgusername = '{}',\
+        
+    std::string query = std::format("UPDATE bot_user SET teacher = {}, tgusername = '{}',\
     first_name = '{}', last_name = '{}', phone = '{}', email = '{}', class = '{}', comment = '{}', \
     user_role = '{}', is_active = {} \
     WHERE chat_id = {}",
-    teacher, tgusername, first_name, last_name, phone, email, cls, comment, role, is_active, chat_id);
+    teacher ? std::to_string(teacher) : "null", tgusername, first_name, last_name, phone, email, cls, comment, role, is_active, chat_id);
     SQL::update(query);
 }
 

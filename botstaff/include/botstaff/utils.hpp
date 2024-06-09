@@ -17,6 +17,7 @@ std::vector<int> get_curent_ymd();
 
 bool is_admin(long);
 bool is_teacher(const botUser&);
+bool is_teacher(long chat_id);
 std::unordered_set<int> get_lesson_days(int, int, long, const std::string&);
 
 void create_first_row(InlineKeyboardMarkup::Ptr&);
@@ -42,3 +43,6 @@ void delete_this_user(long chat_id);
 
 std::vector<std::string> split(const std::string&, char);
 std::chrono::year_month_day split_date(const std::string&, char);
+std::string lesson_delete_request_message(long, long*);
+
+std::vector<std::string> get_last_10_comments(long);

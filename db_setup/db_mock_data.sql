@@ -2,7 +2,7 @@
 -- INSERT INTO bot_user VALUES (893916191, null, 'admin', 'УЛЬЯНА АЛЕКСАНДРОВНА', 'ОМЕЛЬЧЕНКО', '+7(922)054-83-77', 'abra@kadab1.ru', null, 'no comments', 'teacher', TRUE);
 
 -- INSERT INTO bot_user VALUES (89391619, null, 'ut1name', 'pahant', 'вы', '89220000231', 'aabra@kadab1.ru', null, 'no comments', 'teacher', TRUE);
--- INSERT INTO bot_user VALUES (141312113, null, 'ut2name', 'pahant', 'вы', '892200001231', 'babra@kadab1.ru', null, 'no comments', 'teacher', TRUE);
+INSERT INTO bot_user VALUES (141312113, null, 'ut2name', 'pahant', 'вы', '892200001231', 'babra@kadab1.ru', null, 'no comments', 'teacher', TRUE);
 
 -- INSERT INTO bot_user VALUES (123451, 893916191, 'u1name', 'pahan', 'вы', '89221121231', 'abra@kadab1.ru', '7в', 'no comments', 'pupil', TRUE);
 -- INSERT INTO bot_user VALUES (123452, 893916191, 'u2name', 'гусь', 'мвум', '89221121232', 'abra@kadab2.ru', '7в', 'no comments', 'pupil', TRUE);
@@ -23,7 +23,7 @@
 -- SELECT * FROM bot_user;
 -- SELECT * FROM  user_lesson;
 
--- DELETE FROM bot_user WHERE chat_id=141312113;
+--DELETE FROM bot_user WHERE chat_id=141312113;
 -- INSERT INTO bot_user VALUES (141312113, null, 'ut2name', 'pahant', 'вы', '892200001231', 'babra@kadab1.ru', null, 'no comments', 'teacher', TRUE);
 -- SELECT l.id, TO_CHAR(l.date, 'dd/mm/yyyy'), l.comment_for_teacher, u.first_name, u.last_name FROM user_lesson as l  JOIN bot_user as u ON l.pupil=u.chat_id WHERE l.teacher=141312113 ORDER BY date DESC LIMIT 10
 -- SELECT * FROM bot_user WHERE user_role='teacher' AND is_active=false ORDER BY last_name;
@@ -31,4 +31,11 @@
 
 -- SELECT UPPER(LEFT(last_name, 1) COLLATE "C") FROM bot_user WHERE is_active=true;
 
-SELECT u.first_name, u.last_name FROM bot_user as u JOIN (SELECT teacher as id FROM user_lesson WHERE pupil=141312113) as a ON u.chat_id = a.id;
+-- SELECT u.first_name, u.last_name FROM bot_user as u JOIN (SELECT teacher as id FROM user_lesson WHERE pupil=141312113) as a ON u.chat_id = a.id;
+
+
+-- Admin data
+
+INSERT INTO bot_user VALUES (12, null, 'uname@1', 'ВЕНЕРА', 'ЮНИРОВНА', '8922000001', 'mail@mail.ru', null, 'no comments', 'teacher', TRUE);
+INSERT INTO bot_user VALUES (13, null, 'uname@2', 'СВЕТЛАНА', 'ИВАНОВНА', '8922000002', 'mail@mail1.ru', null, 'no comments', 'teacher', FALSE);
+INSERT INTO bot_user VALUES (11, null, 'uname@3', 'ТАТЬЯНА', 'ПАВЛОВНА', '8922000003', 'mail@mail2.ru', null, 'no comments', 'teacher', FALSE);

@@ -128,6 +128,15 @@ namespace createLesson
                 if (info.at(1) == "finish_lesson_update")
                 {
                     lessonState.at(teacher_chat_id).inst.update();
+                    auto lesson = lessonState.at(teacher_chat_id).inst;
+                    botUser teacher = get_user(query->message->chat->id);
+                    std::string mess = std::format(
+                        "<b>Некоторая данные по вашему занятию были изменены</b>\n\
+                        <b>Преподователь {} {}</b>\n<b>Время начачла занятия: {} в {}</b>\n<b>Тема урока</b>: {}\n<b>Информация для ученика</b>:\n{}", 
+                        teacher.first_name, teacher.last_name, lesson.date, lesson.time, lesson.objectives, lesson.comment_for_pupil
+                    );
+
+                    send_lesson_info_to_pupil(bot, mess, lesson.pupil);
                     clear_user_state(teacher_chat_id);
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
@@ -210,6 +219,43 @@ namespace createLesson
             } 
             else
                 return Message::Ptr(nullptr);
+        };
+    }
+
+    std::function<Message::Ptr (CallbackQuery::Ptr)> lesson_delete_request(TgBot::Bot& bot)
+    {
+        return [&bot](CallbackQuery::Ptr query)
+        {   
+            if (StringTools::split(query->data, ' ').at(0) == "change_lesson_date")
+            {   
+                long lesson_id = stol(StringTools::split(query->data, ' ').at(1));
+                long teacher_id;
+                std::string mess = lesson_delete_request_message(lesson_id, &teacher_id);
+
+                try
+                {
+                    bot.getApi().sendMessage(
+                                teacher_id,
+                                mess,
+                                false, 
+                                0, 
+                                nullptr,
+                                "HTML"
+                            );
+                }
+                catch (std::exception& e)
+                {
+                    std::cerr << e.what() << std::endl;
+                
+                }    
+
+                return bot.getApi().sendMessage(
+                        query->message->chat->id, 
+                        "Мы отправили ваш запрос преподователю"
+                    );
+
+            }
+            return Message::Ptr(nullptr);
         };
     }
 
@@ -337,8 +383,14 @@ Message::Ptr lesson_comment_for_teacher_handler(
     UserLesson lesson = lessonState.at(message->chat->id).inst;
     clear_lesson_state(message->chat->id);
    
+    botUser teacher = get_user(message->chat->id);
+    std::string mess = std::format(
+            "<b>Преподователь {} {}</b>\n<b>Время начачла занятия: {} в {}</b>\n<b>Тема урока</b>: {}\n<b>Информация для ученика</b>:\n{}", 
+            teacher.first_name, teacher.last_name, lesson.date, lesson.time, lesson.objectives, lesson.comment_for_pupil
+            );
 
-    send_lesson_info_to_pupil(bot, message, lesson);
+
+    send_lesson_info_to_pupil(bot, mess, lesson.pupil);
     return bot.getApi().sendMessage(
         message->chat->id, 
         "Вы успешно создали. Вашему ученику отправлено сообщение"
@@ -348,21 +400,15 @@ Message::Ptr lesson_comment_for_teacher_handler(
 
 Message::Ptr send_lesson_info_to_pupil(
     TgBot::Bot& bot,
-    const Message::Ptr message,
-    UserLesson& lesson
+    std::string& message,
+    long pupil_id
     )
 {
-    botUser u = get_user(message->chat->id);
-    std::string mess = std::format(
-            "<b>Преподователь {} {}</b>\n<b>Время начачла занятия: {} в {}</b>\n<b>Тема урока</b>: {}\n<b>Информация для ученика</b>:\n{}", 
-            u.first_name, u.last_name, lesson.date, lesson.time, lesson.objectives, lesson.comment_for_pupil
-            );
-
     try
     {
         return bot.getApi().sendMessage(
-            lesson.pupil, 
-            mess, 
+            pupil_id, 
+            message, 
             false, 
             0, 
             nullptr,

@@ -1,21 +1,22 @@
 #include "botstaff/utils.hpp"
+#include <boost/locale/encoding_utf.hpp>
+#include "botstaff/database/psql.hpp"
+#include "botstaff/database/CRUD.hpp"
+#include "botstaff/handlers/handlers.hpp"
 #include <vector>
 #include <string>
 #include <chrono>
 #include <utility>
 #include <format>
 #include <unordered_set>
-#include "botstaff/database/psql.hpp"
-#include "botstaff/database/CRUD.hpp"
-#include "botstaff/handlers/handlers.hpp"
 #include <pqxx/pqxx>
 #include <cstdlib>
 #include <iostream>
 #include <locale>
-#include <boost/locale/encoding_utf.hpp>
 #include <sstream>
 #include <chrono>
-
+// список желающих обучаться - если нет таких - сообщение
+// после редактирования вернуть данные ученика 
 using namespace TgBot;
 
 int dayNumber(int year, int month, int day) 
@@ -97,7 +98,15 @@ bool is_admin(long chat_id)
 
 bool is_teacher(const botUser& user)
 {
-    return !user.empty() && user.is_active && (user.role == "teacher");
+    return is_admin(user.chat_id) || (!user.empty() && user.is_active && (user.role == "teacher"));
+}
+
+bool is_teacher(long chat_id)
+{
+    if (is_admin(chat_id))
+        return true;
+    botUser user = botUser::get(chat_id);
+    return  !user.empty() && user.is_active && (user.role == "teacher");
 }
 
 std::unordered_set<int> get_lesson_days(int year, int month, long chat_id, const std::string& role)
@@ -150,7 +159,7 @@ botUser get_user(long chat_id)
 std::string get_pupil_info(const botUser& u)
 {
     return std::format(
-        "<b>{} {} {}</b>\n<b>Юзернэйм</b>: {}\n<b>Указан телефон</b>: {}\n<b>Адрес электронной почты</b>: {}\n<b>Комментарий:</b> {}", 
+        "<b>{} {}. Класс: {}</b>\n<b>Юзернэйм</b>: @{}\n<b>Указан телефон</b>: {}\n<b>Адрес электронной почты</b>: {}\n<b>Комментарий:</b> {}", 
         u.first_name, u.last_name, u.cls, u.tgusername, u.phone, u.email, u.comment
         );
 }
@@ -291,3 +300,53 @@ std::chrono::year_month_day split_date(const std::string &s, char delim) {
         );
 }
 
+std::string lesson_delete_request_message(long lesson_id, long* teacher_id)
+{
+    std::string query = std::format(
+        "SELECT l.teacher, u.first_name, u.last_name, l.date, l.time \
+        FROM bot_user as u \
+        JOIN (SELECT pupil, teacher, date, time FROM user_lesson WHERE id={}) as l \
+        ON u.chat_id=l.pupil", lesson_id); 
+    
+    pqxx::result R = SQL::select_from_table(query); 
+    auto it = R.begin();
+    *teacher_id = it->at(0).as<long>();
+    return std::format("Ученик {} {} сделал запрос на отмену занятия {} в {}", 
+        it->at(1).as<std::string>(),
+        it->at(2).as<std::string>(),
+        it->at(3).as<std::string>(),
+        it->at(4).as<std::string>()
+    );
+}
+
+std::vector<std::string> get_last_10_comments(long teacher_id)
+{
+    std::string query = std::format(
+        "SELECT l.date, l.time, u.first_name, u.last_name, l.c \
+        FROM bot_user as u \
+        JOIN (SELECT pupil, date, time, comment_for_pupil as c FROM user_lesson WHERE teacher={} ORDER BY date LIMIT 10 DESC) as l \
+        ON u.chat_id=l.pupil", teacher_id);
+    
+    pqxx::result R = SQL::select_from_table(query);
+    std::vector<std::string> result;
+    int count{};
+    for (auto it{R.begin()}; it != R.end(); ++it)
+    {
+        
+        result.push_back(
+            std::format("{}. <b>Занятие {} в {}</b>\n\
+                <b>Ученик {} {}</b>\n\
+                <b>Комментарий {}\n\n",
+                ++count,
+                it->at(0).as<std::string>(),
+                it->at(1).as<std::string>(),
+                it->at(2).as<std::string>(),
+                it->at(3).as<std::string>(),
+                it->at(4).as<std::string>()
+            )
+        );
+    }
+
+    return result;
+    
+}

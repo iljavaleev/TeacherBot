@@ -44,8 +44,8 @@ Message::Ptr lesson_comment_for_teacher_handler(
 
 Message::Ptr send_lesson_info_to_pupil(
     TgBot::Bot& bot,
-    const Message::Ptr message,
-    UserLesson& lesson
+    std::string& message,
+    long pupil_id
     );
 
 Message::Ptr send_lesson_update_kb(

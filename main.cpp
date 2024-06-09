@@ -63,7 +63,7 @@ int main() {
     bot.getEvents().onCallbackQuery(createLesson::lesson_pupil_handler(bot));
     bot.getEvents().onCallbackQuery(createLesson::lesson_day_date_handler(bot));
     bot.getEvents().onCallbackQuery(createLesson::update_lesson_pupil_handler(bot));
-
+    bot.getEvents().onCallbackQuery(createLesson::lesson_delete_request(bot));
 
 
     signal(SIGINT, [](int s) { printf("SIGINT got\n"); exit(0);});

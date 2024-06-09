@@ -140,19 +140,24 @@ namespace UserRegisterHandlers
     {
         return [&bot](CallbackQuery::Ptr query) 
         {
-            if (StringTools::startsWith(query->data, "update_user_field") && is_admin(query->message->chat->id)) 
+            if (StringTools::startsWith(query->data, "update_user_field") && is_teacher(query->message->chat->id)) 
             {
-                
                 std::vector<std::string> info = StringTools::split(query->data, ' ');
                 long admin_chat_id{query->message->chat->id};
                 
                 if (info.at(1) == "finish")
                 {
                     userState.at(admin_chat_id).inst.update();
+                    botUser tmp = userState.at(admin_chat_id).inst;
                     clear_user_state(admin_chat_id);
+
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
-                        "Вы закончили редактирование"
+                        tmp.role == "user" ? get_pupil_info(tmp) : get_teacher_info(tmp),
+                        false,
+                        0,
+                        teacherKeyboards::create_user_info_kb(tmp),
+                        "HTML"
                     );  
                 }
                     

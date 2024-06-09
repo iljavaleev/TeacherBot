@@ -1,6 +1,7 @@
 #include "botstaff/handlers/handlers.hpp"
 #include "botstaff/states.hpp"
 #include "botstaff/utils.hpp"
+#include "botstaff/vocabular.hpp"
 #include "botstaff/keyboards/teacher_keyboards/teacherKeyboards.hpp"
 #include "botstaff/keyboards/user_keyboards/userKeyboards.hpp"
 #include "botstaff/keyboards/keyboards.hpp"
@@ -111,10 +112,12 @@ namespace Handlers
                 std::string role = StringTools::split(query->data, ' ').at(1);
                 return bot.getApi().sendMessage(
                     query->message->chat->id, 
-                    "Здесь вы можете посмотреть расписание", 
+                    std::format("<b><i>Расписание на {}</i></b>", MONTHS_RU.at(ymd[1]-1)), 
                     false, 
                     0, 
-                    Keyboards::create_calendar_kb(ymd[0], ymd[1], 1, role, query->message->chat->id));  
+                    Keyboards::create_calendar_kb(ymd[0], ymd[1], 1, role, query->message->chat->id),
+                    "HTML"
+                    );  
             }
              else
                 return Message::Ptr(nullptr); 
@@ -142,10 +145,11 @@ namespace Handlers
                 }
                 return bot.getApi().sendMessage(
                     query->message->chat->id, 
-                    "Здесь вы можете посмотреть расписание", 
+                    std::format("<b><i>Расписание на {}</i></b>", MONTHS_RU.at(month-1)),
                     false, 
                     0, 
-                    Keyboards::create_calendar_kb(year, month, 1, role, query->message->chat->id, update)
+                    Keyboards::create_calendar_kb(year, month, 1, role, query->message->chat->id, update),
+                    "HTML"
                     );  
             }
              else
