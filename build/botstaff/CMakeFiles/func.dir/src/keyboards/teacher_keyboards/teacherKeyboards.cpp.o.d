@@ -1583,22 +1583,19 @@ botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cp
   /opt/homebrew/include/boost/multi_index/detail/serialization_version.hpp \
   /opt/homebrew/include/boost/multi_index/sequenced_index.hpp \
   /opt/homebrew/include/boost/bind/bind.hpp \
-  /opt/homebrew/include/boost/bind/detail/requires_cxx11.hpp \
   /opt/homebrew/include/boost/bind/mem_fn.hpp \
   /opt/homebrew/include/boost/get_pointer.hpp \
   /opt/homebrew/include/boost/config/no_tr1/memory.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_template.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_cc.hpp \
-  /opt/homebrew/include/boost/is_placeholder.hpp \
   /opt/homebrew/include/boost/bind/arg.hpp \
-  /opt/homebrew/include/boost/bind/detail/result_traits.hpp \
+  /opt/homebrew/include/boost/is_placeholder.hpp \
   /opt/homebrew/include/boost/bind/std_placeholders.hpp \
+  /opt/homebrew/include/boost/bind/detail/result_traits.hpp \
+  /opt/homebrew/include/boost/bind/detail/tuple_for_each.hpp \
+  /opt/homebrew/include/boost/bind/detail/integer_sequence.hpp \
   /opt/homebrew/include/boost/visit_each.hpp \
-  /opt/homebrew/include/boost/bind/detail/is_same.hpp \
-  /opt/homebrew/include/boost/bind/storage.hpp \
-  /opt/homebrew/include/boost/bind/bind_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf2_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf2_cc.hpp \
   /opt/homebrew/include/boost/bind/placeholders.hpp \
   /opt/homebrew/include/boost/call_traits.hpp \
   /opt/homebrew/include/boost/detail/call_traits.hpp \
@@ -1754,36 +1751,9 @@ botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cp
   /opt/homebrew/include/boost/lexical_cast/try_lexical_convert.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/is_character.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/converter_numeric.hpp \
+  /opt/homebrew/include/boost/core/cmath.hpp \
   /opt/homebrew/include/boost/type_traits/is_float.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/cast.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/converter.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/conversion_traits.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/detail/conversion_traits.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/detail/meta.hpp \
-  /opt/homebrew/include/boost/mpl/equal_to.hpp \
-  /opt/homebrew/include/boost/mpl/aux_/preprocessed/gcc/equal_to.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/detail/int_float_mixture.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/int_float_mixture_enum.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/detail/sign_mixture.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/sign_mixture_enum.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/detail/udt_builtin_mixture.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/udt_builtin_mixture_enum.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/detail/is_subranged.hpp \
-  /opt/homebrew/include/boost/mpl/multiplies.hpp \
-  /opt/homebrew/include/boost/mpl/times.hpp \
-  /opt/homebrew/include/boost/mpl/aux_/preprocessed/gcc/times.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/converter_policies.hpp \
-  /opt/homebrew/include/boost/config/no_tr1/cmath.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/detail/converter.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/bounds.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/detail/bounds.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/numeric_cast_traits.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/detail/numeric_cast_traits.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_common.hpp \
-  /opt/homebrew/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_long_long.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/converter_lexical.hpp \
-  /opt/homebrew/include/boost/type_traits/has_left_shift.hpp \
-  /opt/homebrew/include/boost/type_traits/has_right_shift.hpp \
   /opt/homebrew/include/boost/detail/lcast_precision.hpp \
   /opt/homebrew/include/boost/integer_traits.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/widest_char.hpp \
@@ -1795,11 +1765,11 @@ botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cp
   /opt/homebrew/include/boost/core/snprintf.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_char_constants.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_unsigned_converters.hpp \
-  /opt/homebrew/include/boost/lexical_cast/detail/inf_nan.hpp \
-  /opt/homebrew/include/boost/core/cmath.hpp \
+  /opt/homebrew/include/boost/lexical_cast/detail/lcast_basic_unlockedbuf.hpp \
+  /opt/homebrew/include/boost/detail/basic_pointerbuf.hpp \
   /opt/homebrew/include/boost/integer.hpp \
   /opt/homebrew/include/boost/integer_fwd.hpp \
-  /opt/homebrew/include/boost/detail/basic_pointerbuf.hpp \
+  /opt/homebrew/include/boost/lexical_cast/detail/inf_nan.hpp \
   /usr/local/include/tgbot/tools/StringTools.h \
   /opt/homebrew/include/boost/variant.hpp \
   /opt/homebrew/include/boost/variant/variant.hpp \
@@ -1881,10 +1851,6 @@ botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cp
   /opt/homebrew/include/boost/variant/detail/enable_recursive.hpp \
   /opt/homebrew/include/boost/variant/detail/substitute.hpp \
   /opt/homebrew/include/boost/mpl/aux_/preprocessor/repeat.hpp \
-  /opt/homebrew/include/boost/preprocessor/iterate.hpp \
-  /opt/homebrew/include/boost/preprocessor/iteration/iterate.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/slot.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/detail/def.hpp \
   /opt/homebrew/include/boost/variant/recursive_wrapper.hpp \
   /opt/homebrew/include/boost/mpl/equal.hpp \
   /opt/homebrew/include/boost/variant/get.hpp \
@@ -1961,7 +1927,6 @@ botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cp
   /opt/homebrew/include/boost/system/is_error_code_enum.hpp \
   /opt/homebrew/include/boost/system/detail/error_category.hpp \
   /opt/homebrew/include/boost/system/detail/config.hpp \
-  /opt/homebrew/include/boost/system/detail/requires_cxx11.hpp \
   /opt/homebrew/include/boost/system/detail/error_condition.hpp \
   /opt/homebrew/include/boost/system/detail/generic_category.hpp \
   /opt/homebrew/include/boost/system/detail/generic_category_message.hpp \
@@ -2240,6 +2205,7 @@ botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cp
   /opt/homebrew/include/boost/date_time/posix_time/ptime.hpp \
   /opt/homebrew/include/boost/date_time/posix_time/posix_time_system.hpp \
   /opt/homebrew/include/boost/date_time/posix_time/posix_time_config.hpp \
+  /opt/homebrew/include/boost/config/no_tr1/cmath.hpp \
   /opt/homebrew/include/boost/date_time/time_duration.hpp \
   /opt/homebrew/include/boost/date_time/special_defs.hpp \
   /opt/homebrew/include/boost/date_time/time_defs.hpp \
@@ -2275,6 +2241,31 @@ botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cp
   /opt/homebrew/include/boost/date_time/time.hpp \
   /opt/homebrew/include/boost/date_time/posix_time/date_duration_operators.hpp \
   /opt/homebrew/include/boost/date_time/posix_time/posix_time_duration.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/cast.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/converter.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/conversion_traits.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/detail/conversion_traits.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/detail/meta.hpp \
+  /opt/homebrew/include/boost/mpl/equal_to.hpp \
+  /opt/homebrew/include/boost/mpl/aux_/preprocessed/gcc/equal_to.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/detail/int_float_mixture.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/int_float_mixture_enum.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/detail/sign_mixture.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/sign_mixture_enum.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/detail/udt_builtin_mixture.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/udt_builtin_mixture_enum.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/detail/is_subranged.hpp \
+  /opt/homebrew/include/boost/mpl/multiplies.hpp \
+  /opt/homebrew/include/boost/mpl/times.hpp \
+  /opt/homebrew/include/boost/mpl/aux_/preprocessed/gcc/times.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/converter_policies.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/detail/converter.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/bounds.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/detail/bounds.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/numeric_cast_traits.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/detail/numeric_cast_traits.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_common.hpp \
+  /opt/homebrew/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_long_long.hpp \
   /opt/homebrew/include/boost/date_time/posix_time/time_period.hpp \
   /opt/homebrew/include/boost/date_time/time_iterator.hpp \
   /opt/homebrew/include/boost/date_time/dst_rules.hpp \

@@ -1444,18 +1444,15 @@ botstaff/CMakeFiles/func.dir/src/commands.cpp.o: /Users/ilavaleev/Dev/TeacherBot
   /opt/homebrew/include/boost/assert/source_location.hpp \
   /opt/homebrew/include/boost/bind/arg.hpp \
   /opt/homebrew/include/boost/bind/bind.hpp \
-  /opt/homebrew/include/boost/bind/bind_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf2_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf_cc.hpp \
-  /opt/homebrew/include/boost/bind/detail/is_same.hpp \
-  /opt/homebrew/include/boost/bind/detail/requires_cxx11.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf2_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/integer_sequence.hpp \
   /opt/homebrew/include/boost/bind/detail/result_traits.hpp \
+  /opt/homebrew/include/boost/bind/detail/tuple_for_each.hpp \
   /opt/homebrew/include/boost/bind/mem_fn.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_cc.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_template.hpp \
   /opt/homebrew/include/boost/bind/placeholders.hpp \
   /opt/homebrew/include/boost/bind/std_placeholders.hpp \
-  /opt/homebrew/include/boost/bind/storage.hpp \
   /opt/homebrew/include/boost/blank.hpp \
   /opt/homebrew/include/boost/blank_fwd.hpp \
   /opt/homebrew/include/boost/call_traits.hpp \
@@ -1593,6 +1590,7 @@ botstaff/CMakeFiles/func.dir/src/commands.cpp.o: /Users/ilavaleev/Dev/TeacherBot
   /opt/homebrew/include/boost/lexical_cast/detail/converter_numeric.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/inf_nan.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/is_character.hpp \
+  /opt/homebrew/include/boost/lexical_cast/detail/lcast_basic_unlockedbuf.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_char_constants.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_unsigned_converters.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/widest_char.hpp \
@@ -2054,8 +2052,6 @@ botstaff/CMakeFiles/func.dir/src/commands.cpp.o: /Users/ilavaleev/Dev/TeacherBot
   /opt/homebrew/include/boost/preprocessor/facilities/overload.hpp \
   /opt/homebrew/include/boost/preprocessor/identity.hpp \
   /opt/homebrew/include/boost/preprocessor/inc.hpp \
-  /opt/homebrew/include/boost/preprocessor/iterate.hpp \
-  /opt/homebrew/include/boost/preprocessor/iteration/iterate.hpp \
   /opt/homebrew/include/boost/preprocessor/list/adt.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_left.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_right.hpp \
@@ -2102,8 +2098,6 @@ botstaff/CMakeFiles/func.dir/src/commands.cpp.o: /Users/ilavaleev/Dev/TeacherBot
   /opt/homebrew/include/boost/preprocessor/seq/seq.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/size.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/transform.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/detail/def.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/slot.hpp \
   /opt/homebrew/include/boost/preprocessor/stringize.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/detail/is_single_return.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/eat.hpp \
@@ -2200,7 +2194,6 @@ botstaff/CMakeFiles/func.dir/src/commands.cpp.o: /Users/ilavaleev/Dev/TeacherBot
   /opt/homebrew/include/boost/system/detail/interop_category.hpp \
   /opt/homebrew/include/boost/system/detail/is_same.hpp \
   /opt/homebrew/include/boost/system/detail/mutex.hpp \
-  /opt/homebrew/include/boost/system/detail/requires_cxx11.hpp \
   /opt/homebrew/include/boost/system/detail/snprintf.hpp \
   /opt/homebrew/include/boost/system/detail/std_category.hpp \
   /opt/homebrew/include/boost/system/detail/std_category_impl.hpp \
@@ -2250,7 +2243,6 @@ botstaff/CMakeFiles/func.dir/src/commands.cpp.o: /Users/ilavaleev/Dev/TeacherBot
   /opt/homebrew/include/boost/type_traits/disjunction.hpp \
   /opt/homebrew/include/boost/type_traits/enable_if.hpp \
   /opt/homebrew/include/boost/type_traits/function_traits.hpp \
-  /opt/homebrew/include/boost/type_traits/has_left_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus_assign.hpp \
   /opt/homebrew/include/boost/type_traits/has_nothrow_assign.hpp \
@@ -2258,7 +2250,6 @@ botstaff/CMakeFiles/func.dir/src/commands.cpp.o: /Users/ilavaleev/Dev/TeacherBot
   /opt/homebrew/include/boost/type_traits/has_nothrow_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus_assign.hpp \
-  /opt/homebrew/include/boost/type_traits/has_right_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_constructor.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_destructor.hpp \
@@ -4028,18 +4019,15 @@ botstaff/CMakeFiles/func.dir/src/database/CRUD.cpp.o: /Users/ilavaleev/Dev/Teach
   /opt/homebrew/include/boost/assert/source_location.hpp \
   /opt/homebrew/include/boost/bind/arg.hpp \
   /opt/homebrew/include/boost/bind/bind.hpp \
-  /opt/homebrew/include/boost/bind/bind_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf2_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf_cc.hpp \
-  /opt/homebrew/include/boost/bind/detail/is_same.hpp \
-  /opt/homebrew/include/boost/bind/detail/requires_cxx11.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf2_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/integer_sequence.hpp \
   /opt/homebrew/include/boost/bind/detail/result_traits.hpp \
+  /opt/homebrew/include/boost/bind/detail/tuple_for_each.hpp \
   /opt/homebrew/include/boost/bind/mem_fn.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_cc.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_template.hpp \
   /opt/homebrew/include/boost/bind/placeholders.hpp \
   /opt/homebrew/include/boost/bind/std_placeholders.hpp \
-  /opt/homebrew/include/boost/bind/storage.hpp \
   /opt/homebrew/include/boost/blank.hpp \
   /opt/homebrew/include/boost/blank_fwd.hpp \
   /opt/homebrew/include/boost/call_traits.hpp \
@@ -4177,6 +4165,7 @@ botstaff/CMakeFiles/func.dir/src/database/CRUD.cpp.o: /Users/ilavaleev/Dev/Teach
   /opt/homebrew/include/boost/lexical_cast/detail/converter_numeric.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/inf_nan.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/is_character.hpp \
+  /opt/homebrew/include/boost/lexical_cast/detail/lcast_basic_unlockedbuf.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_char_constants.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_unsigned_converters.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/widest_char.hpp \
@@ -4638,8 +4627,6 @@ botstaff/CMakeFiles/func.dir/src/database/CRUD.cpp.o: /Users/ilavaleev/Dev/Teach
   /opt/homebrew/include/boost/preprocessor/facilities/overload.hpp \
   /opt/homebrew/include/boost/preprocessor/identity.hpp \
   /opt/homebrew/include/boost/preprocessor/inc.hpp \
-  /opt/homebrew/include/boost/preprocessor/iterate.hpp \
-  /opt/homebrew/include/boost/preprocessor/iteration/iterate.hpp \
   /opt/homebrew/include/boost/preprocessor/list/adt.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_left.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_right.hpp \
@@ -4686,8 +4673,6 @@ botstaff/CMakeFiles/func.dir/src/database/CRUD.cpp.o: /Users/ilavaleev/Dev/Teach
   /opt/homebrew/include/boost/preprocessor/seq/seq.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/size.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/transform.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/detail/def.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/slot.hpp \
   /opt/homebrew/include/boost/preprocessor/stringize.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/detail/is_single_return.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/eat.hpp \
@@ -4784,7 +4769,6 @@ botstaff/CMakeFiles/func.dir/src/database/CRUD.cpp.o: /Users/ilavaleev/Dev/Teach
   /opt/homebrew/include/boost/system/detail/interop_category.hpp \
   /opt/homebrew/include/boost/system/detail/is_same.hpp \
   /opt/homebrew/include/boost/system/detail/mutex.hpp \
-  /opt/homebrew/include/boost/system/detail/requires_cxx11.hpp \
   /opt/homebrew/include/boost/system/detail/snprintf.hpp \
   /opt/homebrew/include/boost/system/detail/std_category.hpp \
   /opt/homebrew/include/boost/system/detail/std_category_impl.hpp \
@@ -4834,7 +4818,6 @@ botstaff/CMakeFiles/func.dir/src/database/CRUD.cpp.o: /Users/ilavaleev/Dev/Teach
   /opt/homebrew/include/boost/type_traits/disjunction.hpp \
   /opt/homebrew/include/boost/type_traits/enable_if.hpp \
   /opt/homebrew/include/boost/type_traits/function_traits.hpp \
-  /opt/homebrew/include/boost/type_traits/has_left_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus_assign.hpp \
   /opt/homebrew/include/boost/type_traits/has_nothrow_assign.hpp \
@@ -4842,7 +4825,6 @@ botstaff/CMakeFiles/func.dir/src/database/CRUD.cpp.o: /Users/ilavaleev/Dev/Teach
   /opt/homebrew/include/boost/type_traits/has_nothrow_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus_assign.hpp \
-  /opt/homebrew/include/boost/type_traits/has_right_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_constructor.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_destructor.hpp \
@@ -7296,6 +7278,7 @@ botstaff/CMakeFiles/func.dir/src/handlers/handlers.cpp.o: /Users/ilavaleev/Dev/T
   /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/keyboards/user_keyboards/userKeyboards.hpp \
   /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/states.hpp \
   /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/utils.hpp \
+  /Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/vocabular.hpp \
   /opt/homebrew/include/boost/align/aligned_alloc.hpp \
   /opt/homebrew/include/boost/align/detail/aligned_alloc_posix.hpp \
   /opt/homebrew/include/boost/align/detail/is_alignment.hpp \
@@ -7720,18 +7703,15 @@ botstaff/CMakeFiles/func.dir/src/handlers/handlers.cpp.o: /Users/ilavaleev/Dev/T
   /opt/homebrew/include/boost/assert/source_location.hpp \
   /opt/homebrew/include/boost/bind/arg.hpp \
   /opt/homebrew/include/boost/bind/bind.hpp \
-  /opt/homebrew/include/boost/bind/bind_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf2_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf_cc.hpp \
-  /opt/homebrew/include/boost/bind/detail/is_same.hpp \
-  /opt/homebrew/include/boost/bind/detail/requires_cxx11.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf2_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/integer_sequence.hpp \
   /opt/homebrew/include/boost/bind/detail/result_traits.hpp \
+  /opt/homebrew/include/boost/bind/detail/tuple_for_each.hpp \
   /opt/homebrew/include/boost/bind/mem_fn.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_cc.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_template.hpp \
   /opt/homebrew/include/boost/bind/placeholders.hpp \
   /opt/homebrew/include/boost/bind/std_placeholders.hpp \
-  /opt/homebrew/include/boost/bind/storage.hpp \
   /opt/homebrew/include/boost/blank.hpp \
   /opt/homebrew/include/boost/blank_fwd.hpp \
   /opt/homebrew/include/boost/call_traits.hpp \
@@ -7869,6 +7849,7 @@ botstaff/CMakeFiles/func.dir/src/handlers/handlers.cpp.o: /Users/ilavaleev/Dev/T
   /opt/homebrew/include/boost/lexical_cast/detail/converter_numeric.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/inf_nan.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/is_character.hpp \
+  /opt/homebrew/include/boost/lexical_cast/detail/lcast_basic_unlockedbuf.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_char_constants.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_unsigned_converters.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/widest_char.hpp \
@@ -8330,8 +8311,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/handlers.cpp.o: /Users/ilavaleev/Dev/T
   /opt/homebrew/include/boost/preprocessor/facilities/overload.hpp \
   /opt/homebrew/include/boost/preprocessor/identity.hpp \
   /opt/homebrew/include/boost/preprocessor/inc.hpp \
-  /opt/homebrew/include/boost/preprocessor/iterate.hpp \
-  /opt/homebrew/include/boost/preprocessor/iteration/iterate.hpp \
   /opt/homebrew/include/boost/preprocessor/list/adt.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_left.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_right.hpp \
@@ -8378,8 +8357,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/handlers.cpp.o: /Users/ilavaleev/Dev/T
   /opt/homebrew/include/boost/preprocessor/seq/seq.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/size.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/transform.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/detail/def.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/slot.hpp \
   /opt/homebrew/include/boost/preprocessor/stringize.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/detail/is_single_return.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/eat.hpp \
@@ -8476,7 +8453,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/handlers.cpp.o: /Users/ilavaleev/Dev/T
   /opt/homebrew/include/boost/system/detail/interop_category.hpp \
   /opt/homebrew/include/boost/system/detail/is_same.hpp \
   /opt/homebrew/include/boost/system/detail/mutex.hpp \
-  /opt/homebrew/include/boost/system/detail/requires_cxx11.hpp \
   /opt/homebrew/include/boost/system/detail/snprintf.hpp \
   /opt/homebrew/include/boost/system/detail/std_category.hpp \
   /opt/homebrew/include/boost/system/detail/std_category_impl.hpp \
@@ -8526,7 +8502,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/handlers.cpp.o: /Users/ilavaleev/Dev/T
   /opt/homebrew/include/boost/type_traits/disjunction.hpp \
   /opt/homebrew/include/boost/type_traits/enable_if.hpp \
   /opt/homebrew/include/boost/type_traits/function_traits.hpp \
-  /opt/homebrew/include/boost/type_traits/has_left_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus_assign.hpp \
   /opt/homebrew/include/boost/type_traits/has_nothrow_assign.hpp \
@@ -8534,7 +8509,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/handlers.cpp.o: /Users/ilavaleev/Dev/T
   /opt/homebrew/include/boost/type_traits/has_nothrow_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus_assign.hpp \
-  /opt/homebrew/include/boost/type_traits/has_right_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_constructor.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_destructor.hpp \
@@ -10361,18 +10335,15 @@ botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/createLessonHandlers.
   /opt/homebrew/include/boost/assert/source_location.hpp \
   /opt/homebrew/include/boost/bind/arg.hpp \
   /opt/homebrew/include/boost/bind/bind.hpp \
-  /opt/homebrew/include/boost/bind/bind_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf2_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf_cc.hpp \
-  /opt/homebrew/include/boost/bind/detail/is_same.hpp \
-  /opt/homebrew/include/boost/bind/detail/requires_cxx11.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf2_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/integer_sequence.hpp \
   /opt/homebrew/include/boost/bind/detail/result_traits.hpp \
+  /opt/homebrew/include/boost/bind/detail/tuple_for_each.hpp \
   /opt/homebrew/include/boost/bind/mem_fn.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_cc.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_template.hpp \
   /opt/homebrew/include/boost/bind/placeholders.hpp \
   /opt/homebrew/include/boost/bind/std_placeholders.hpp \
-  /opt/homebrew/include/boost/bind/storage.hpp \
   /opt/homebrew/include/boost/blank.hpp \
   /opt/homebrew/include/boost/blank_fwd.hpp \
   /opt/homebrew/include/boost/call_traits.hpp \
@@ -10510,6 +10481,7 @@ botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/createLessonHandlers.
   /opt/homebrew/include/boost/lexical_cast/detail/converter_numeric.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/inf_nan.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/is_character.hpp \
+  /opt/homebrew/include/boost/lexical_cast/detail/lcast_basic_unlockedbuf.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_char_constants.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_unsigned_converters.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/widest_char.hpp \
@@ -10971,8 +10943,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/createLessonHandlers.
   /opt/homebrew/include/boost/preprocessor/facilities/overload.hpp \
   /opt/homebrew/include/boost/preprocessor/identity.hpp \
   /opt/homebrew/include/boost/preprocessor/inc.hpp \
-  /opt/homebrew/include/boost/preprocessor/iterate.hpp \
-  /opt/homebrew/include/boost/preprocessor/iteration/iterate.hpp \
   /opt/homebrew/include/boost/preprocessor/list/adt.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_left.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_right.hpp \
@@ -11019,8 +10989,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/createLessonHandlers.
   /opt/homebrew/include/boost/preprocessor/seq/seq.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/size.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/transform.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/detail/def.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/slot.hpp \
   /opt/homebrew/include/boost/preprocessor/stringize.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/detail/is_single_return.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/eat.hpp \
@@ -11117,7 +11085,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/createLessonHandlers.
   /opt/homebrew/include/boost/system/detail/interop_category.hpp \
   /opt/homebrew/include/boost/system/detail/is_same.hpp \
   /opt/homebrew/include/boost/system/detail/mutex.hpp \
-  /opt/homebrew/include/boost/system/detail/requires_cxx11.hpp \
   /opt/homebrew/include/boost/system/detail/snprintf.hpp \
   /opt/homebrew/include/boost/system/detail/std_category.hpp \
   /opt/homebrew/include/boost/system/detail/std_category_impl.hpp \
@@ -11167,7 +11134,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/createLessonHandlers.
   /opt/homebrew/include/boost/type_traits/disjunction.hpp \
   /opt/homebrew/include/boost/type_traits/enable_if.hpp \
   /opt/homebrew/include/boost/type_traits/function_traits.hpp \
-  /opt/homebrew/include/boost/type_traits/has_left_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus_assign.hpp \
   /opt/homebrew/include/boost/type_traits/has_nothrow_assign.hpp \
@@ -11175,7 +11141,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/createLessonHandlers.
   /opt/homebrew/include/boost/type_traits/has_nothrow_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus_assign.hpp \
-  /opt/homebrew/include/boost/type_traits/has_right_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_constructor.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_destructor.hpp \
@@ -13002,18 +12967,15 @@ botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/teacherHandlers.cpp.o
   /opt/homebrew/include/boost/assert/source_location.hpp \
   /opt/homebrew/include/boost/bind/arg.hpp \
   /opt/homebrew/include/boost/bind/bind.hpp \
-  /opt/homebrew/include/boost/bind/bind_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf2_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf_cc.hpp \
-  /opt/homebrew/include/boost/bind/detail/is_same.hpp \
-  /opt/homebrew/include/boost/bind/detail/requires_cxx11.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf2_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/integer_sequence.hpp \
   /opt/homebrew/include/boost/bind/detail/result_traits.hpp \
+  /opt/homebrew/include/boost/bind/detail/tuple_for_each.hpp \
   /opt/homebrew/include/boost/bind/mem_fn.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_cc.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_template.hpp \
   /opt/homebrew/include/boost/bind/placeholders.hpp \
   /opt/homebrew/include/boost/bind/std_placeholders.hpp \
-  /opt/homebrew/include/boost/bind/storage.hpp \
   /opt/homebrew/include/boost/blank.hpp \
   /opt/homebrew/include/boost/blank_fwd.hpp \
   /opt/homebrew/include/boost/call_traits.hpp \
@@ -13151,6 +13113,7 @@ botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/teacherHandlers.cpp.o
   /opt/homebrew/include/boost/lexical_cast/detail/converter_numeric.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/inf_nan.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/is_character.hpp \
+  /opt/homebrew/include/boost/lexical_cast/detail/lcast_basic_unlockedbuf.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_char_constants.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_unsigned_converters.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/widest_char.hpp \
@@ -13612,8 +13575,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/teacherHandlers.cpp.o
   /opt/homebrew/include/boost/preprocessor/facilities/overload.hpp \
   /opt/homebrew/include/boost/preprocessor/identity.hpp \
   /opt/homebrew/include/boost/preprocessor/inc.hpp \
-  /opt/homebrew/include/boost/preprocessor/iterate.hpp \
-  /opt/homebrew/include/boost/preprocessor/iteration/iterate.hpp \
   /opt/homebrew/include/boost/preprocessor/list/adt.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_left.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_right.hpp \
@@ -13660,8 +13621,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/teacherHandlers.cpp.o
   /opt/homebrew/include/boost/preprocessor/seq/seq.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/size.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/transform.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/detail/def.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/slot.hpp \
   /opt/homebrew/include/boost/preprocessor/stringize.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/detail/is_single_return.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/eat.hpp \
@@ -13758,7 +13717,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/teacherHandlers.cpp.o
   /opt/homebrew/include/boost/system/detail/interop_category.hpp \
   /opt/homebrew/include/boost/system/detail/is_same.hpp \
   /opt/homebrew/include/boost/system/detail/mutex.hpp \
-  /opt/homebrew/include/boost/system/detail/requires_cxx11.hpp \
   /opt/homebrew/include/boost/system/detail/snprintf.hpp \
   /opt/homebrew/include/boost/system/detail/std_category.hpp \
   /opt/homebrew/include/boost/system/detail/std_category_impl.hpp \
@@ -13808,7 +13766,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/teacherHandlers.cpp.o
   /opt/homebrew/include/boost/type_traits/disjunction.hpp \
   /opt/homebrew/include/boost/type_traits/enable_if.hpp \
   /opt/homebrew/include/boost/type_traits/function_traits.hpp \
-  /opt/homebrew/include/boost/type_traits/has_left_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus_assign.hpp \
   /opt/homebrew/include/boost/type_traits/has_nothrow_assign.hpp \
@@ -13816,7 +13773,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/teacher_handlers/teacherHandlers.cpp.o
   /opt/homebrew/include/boost/type_traits/has_nothrow_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus_assign.hpp \
-  /opt/homebrew/include/boost/type_traits/has_right_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_constructor.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_destructor.hpp \
@@ -15640,18 +15596,15 @@ botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userHandlers.cpp.o: /Use
   /opt/homebrew/include/boost/assert/source_location.hpp \
   /opt/homebrew/include/boost/bind/arg.hpp \
   /opt/homebrew/include/boost/bind/bind.hpp \
-  /opt/homebrew/include/boost/bind/bind_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf2_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf_cc.hpp \
-  /opt/homebrew/include/boost/bind/detail/is_same.hpp \
-  /opt/homebrew/include/boost/bind/detail/requires_cxx11.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf2_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/integer_sequence.hpp \
   /opt/homebrew/include/boost/bind/detail/result_traits.hpp \
+  /opt/homebrew/include/boost/bind/detail/tuple_for_each.hpp \
   /opt/homebrew/include/boost/bind/mem_fn.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_cc.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_template.hpp \
   /opt/homebrew/include/boost/bind/placeholders.hpp \
   /opt/homebrew/include/boost/bind/std_placeholders.hpp \
-  /opt/homebrew/include/boost/bind/storage.hpp \
   /opt/homebrew/include/boost/blank.hpp \
   /opt/homebrew/include/boost/blank_fwd.hpp \
   /opt/homebrew/include/boost/call_traits.hpp \
@@ -15789,6 +15742,7 @@ botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userHandlers.cpp.o: /Use
   /opt/homebrew/include/boost/lexical_cast/detail/converter_numeric.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/inf_nan.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/is_character.hpp \
+  /opt/homebrew/include/boost/lexical_cast/detail/lcast_basic_unlockedbuf.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_char_constants.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_unsigned_converters.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/widest_char.hpp \
@@ -16250,8 +16204,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userHandlers.cpp.o: /Use
   /opt/homebrew/include/boost/preprocessor/facilities/overload.hpp \
   /opt/homebrew/include/boost/preprocessor/identity.hpp \
   /opt/homebrew/include/boost/preprocessor/inc.hpp \
-  /opt/homebrew/include/boost/preprocessor/iterate.hpp \
-  /opt/homebrew/include/boost/preprocessor/iteration/iterate.hpp \
   /opt/homebrew/include/boost/preprocessor/list/adt.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_left.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_right.hpp \
@@ -16298,8 +16250,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userHandlers.cpp.o: /Use
   /opt/homebrew/include/boost/preprocessor/seq/seq.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/size.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/transform.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/detail/def.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/slot.hpp \
   /opt/homebrew/include/boost/preprocessor/stringize.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/detail/is_single_return.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/eat.hpp \
@@ -16396,7 +16346,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userHandlers.cpp.o: /Use
   /opt/homebrew/include/boost/system/detail/interop_category.hpp \
   /opt/homebrew/include/boost/system/detail/is_same.hpp \
   /opt/homebrew/include/boost/system/detail/mutex.hpp \
-  /opt/homebrew/include/boost/system/detail/requires_cxx11.hpp \
   /opt/homebrew/include/boost/system/detail/snprintf.hpp \
   /opt/homebrew/include/boost/system/detail/std_category.hpp \
   /opt/homebrew/include/boost/system/detail/std_category_impl.hpp \
@@ -16446,7 +16395,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userHandlers.cpp.o: /Use
   /opt/homebrew/include/boost/type_traits/disjunction.hpp \
   /opt/homebrew/include/boost/type_traits/enable_if.hpp \
   /opt/homebrew/include/boost/type_traits/function_traits.hpp \
-  /opt/homebrew/include/boost/type_traits/has_left_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus_assign.hpp \
   /opt/homebrew/include/boost/type_traits/has_nothrow_assign.hpp \
@@ -16454,7 +16402,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userHandlers.cpp.o: /Use
   /opt/homebrew/include/boost/type_traits/has_nothrow_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus_assign.hpp \
-  /opt/homebrew/include/boost/type_traits/has_right_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_constructor.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_destructor.hpp \
@@ -18279,18 +18226,15 @@ botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userRegistration.cpp.o: 
   /opt/homebrew/include/boost/assert/source_location.hpp \
   /opt/homebrew/include/boost/bind/arg.hpp \
   /opt/homebrew/include/boost/bind/bind.hpp \
-  /opt/homebrew/include/boost/bind/bind_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf2_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf_cc.hpp \
-  /opt/homebrew/include/boost/bind/detail/is_same.hpp \
-  /opt/homebrew/include/boost/bind/detail/requires_cxx11.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf2_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/integer_sequence.hpp \
   /opt/homebrew/include/boost/bind/detail/result_traits.hpp \
+  /opt/homebrew/include/boost/bind/detail/tuple_for_each.hpp \
   /opt/homebrew/include/boost/bind/mem_fn.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_cc.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_template.hpp \
   /opt/homebrew/include/boost/bind/placeholders.hpp \
   /opt/homebrew/include/boost/bind/std_placeholders.hpp \
-  /opt/homebrew/include/boost/bind/storage.hpp \
   /opt/homebrew/include/boost/blank.hpp \
   /opt/homebrew/include/boost/blank_fwd.hpp \
   /opt/homebrew/include/boost/call_traits.hpp \
@@ -18428,6 +18372,7 @@ botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userRegistration.cpp.o: 
   /opt/homebrew/include/boost/lexical_cast/detail/converter_numeric.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/inf_nan.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/is_character.hpp \
+  /opt/homebrew/include/boost/lexical_cast/detail/lcast_basic_unlockedbuf.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_char_constants.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_unsigned_converters.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/widest_char.hpp \
@@ -18889,8 +18834,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userRegistration.cpp.o: 
   /opt/homebrew/include/boost/preprocessor/facilities/overload.hpp \
   /opt/homebrew/include/boost/preprocessor/identity.hpp \
   /opt/homebrew/include/boost/preprocessor/inc.hpp \
-  /opt/homebrew/include/boost/preprocessor/iterate.hpp \
-  /opt/homebrew/include/boost/preprocessor/iteration/iterate.hpp \
   /opt/homebrew/include/boost/preprocessor/list/adt.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_left.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_right.hpp \
@@ -18937,8 +18880,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userRegistration.cpp.o: 
   /opt/homebrew/include/boost/preprocessor/seq/seq.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/size.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/transform.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/detail/def.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/slot.hpp \
   /opt/homebrew/include/boost/preprocessor/stringize.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/detail/is_single_return.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/eat.hpp \
@@ -19035,7 +18976,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userRegistration.cpp.o: 
   /opt/homebrew/include/boost/system/detail/interop_category.hpp \
   /opt/homebrew/include/boost/system/detail/is_same.hpp \
   /opt/homebrew/include/boost/system/detail/mutex.hpp \
-  /opt/homebrew/include/boost/system/detail/requires_cxx11.hpp \
   /opt/homebrew/include/boost/system/detail/snprintf.hpp \
   /opt/homebrew/include/boost/system/detail/std_category.hpp \
   /opt/homebrew/include/boost/system/detail/std_category_impl.hpp \
@@ -19085,7 +19025,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userRegistration.cpp.o: 
   /opt/homebrew/include/boost/type_traits/disjunction.hpp \
   /opt/homebrew/include/boost/type_traits/enable_if.hpp \
   /opt/homebrew/include/boost/type_traits/function_traits.hpp \
-  /opt/homebrew/include/boost/type_traits/has_left_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus_assign.hpp \
   /opt/homebrew/include/boost/type_traits/has_nothrow_assign.hpp \
@@ -19093,7 +19032,6 @@ botstaff/CMakeFiles/func.dir/src/handlers/user_handlers/userRegistration.cpp.o: 
   /opt/homebrew/include/boost/type_traits/has_nothrow_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus_assign.hpp \
-  /opt/homebrew/include/boost/type_traits/has_right_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_constructor.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_destructor.hpp \
@@ -20919,18 +20857,15 @@ botstaff/CMakeFiles/func.dir/src/keyboards/keyboards.cpp.o: /Users/ilavaleev/Dev
   /opt/homebrew/include/boost/assert/source_location.hpp \
   /opt/homebrew/include/boost/bind/arg.hpp \
   /opt/homebrew/include/boost/bind/bind.hpp \
-  /opt/homebrew/include/boost/bind/bind_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf2_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf_cc.hpp \
-  /opt/homebrew/include/boost/bind/detail/is_same.hpp \
-  /opt/homebrew/include/boost/bind/detail/requires_cxx11.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf2_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/integer_sequence.hpp \
   /opt/homebrew/include/boost/bind/detail/result_traits.hpp \
+  /opt/homebrew/include/boost/bind/detail/tuple_for_each.hpp \
   /opt/homebrew/include/boost/bind/mem_fn.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_cc.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_template.hpp \
   /opt/homebrew/include/boost/bind/placeholders.hpp \
   /opt/homebrew/include/boost/bind/std_placeholders.hpp \
-  /opt/homebrew/include/boost/bind/storage.hpp \
   /opt/homebrew/include/boost/blank.hpp \
   /opt/homebrew/include/boost/blank_fwd.hpp \
   /opt/homebrew/include/boost/call_traits.hpp \
@@ -21068,6 +21003,7 @@ botstaff/CMakeFiles/func.dir/src/keyboards/keyboards.cpp.o: /Users/ilavaleev/Dev
   /opt/homebrew/include/boost/lexical_cast/detail/converter_numeric.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/inf_nan.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/is_character.hpp \
+  /opt/homebrew/include/boost/lexical_cast/detail/lcast_basic_unlockedbuf.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_char_constants.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_unsigned_converters.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/widest_char.hpp \
@@ -21529,8 +21465,6 @@ botstaff/CMakeFiles/func.dir/src/keyboards/keyboards.cpp.o: /Users/ilavaleev/Dev
   /opt/homebrew/include/boost/preprocessor/facilities/overload.hpp \
   /opt/homebrew/include/boost/preprocessor/identity.hpp \
   /opt/homebrew/include/boost/preprocessor/inc.hpp \
-  /opt/homebrew/include/boost/preprocessor/iterate.hpp \
-  /opt/homebrew/include/boost/preprocessor/iteration/iterate.hpp \
   /opt/homebrew/include/boost/preprocessor/list/adt.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_left.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_right.hpp \
@@ -21577,8 +21511,6 @@ botstaff/CMakeFiles/func.dir/src/keyboards/keyboards.cpp.o: /Users/ilavaleev/Dev
   /opt/homebrew/include/boost/preprocessor/seq/seq.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/size.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/transform.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/detail/def.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/slot.hpp \
   /opt/homebrew/include/boost/preprocessor/stringize.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/detail/is_single_return.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/eat.hpp \
@@ -21675,7 +21607,6 @@ botstaff/CMakeFiles/func.dir/src/keyboards/keyboards.cpp.o: /Users/ilavaleev/Dev
   /opt/homebrew/include/boost/system/detail/interop_category.hpp \
   /opt/homebrew/include/boost/system/detail/is_same.hpp \
   /opt/homebrew/include/boost/system/detail/mutex.hpp \
-  /opt/homebrew/include/boost/system/detail/requires_cxx11.hpp \
   /opt/homebrew/include/boost/system/detail/snprintf.hpp \
   /opt/homebrew/include/boost/system/detail/std_category.hpp \
   /opt/homebrew/include/boost/system/detail/std_category_impl.hpp \
@@ -21725,7 +21656,6 @@ botstaff/CMakeFiles/func.dir/src/keyboards/keyboards.cpp.o: /Users/ilavaleev/Dev
   /opt/homebrew/include/boost/type_traits/disjunction.hpp \
   /opt/homebrew/include/boost/type_traits/enable_if.hpp \
   /opt/homebrew/include/boost/type_traits/function_traits.hpp \
-  /opt/homebrew/include/boost/type_traits/has_left_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus_assign.hpp \
   /opt/homebrew/include/boost/type_traits/has_nothrow_assign.hpp \
@@ -21733,7 +21663,6 @@ botstaff/CMakeFiles/func.dir/src/keyboards/keyboards.cpp.o: /Users/ilavaleev/Dev
   /opt/homebrew/include/boost/type_traits/has_nothrow_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus_assign.hpp \
-  /opt/homebrew/include/boost/type_traits/has_right_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_constructor.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_destructor.hpp \
@@ -23560,18 +23489,15 @@ botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cp
   /opt/homebrew/include/boost/assert/source_location.hpp \
   /opt/homebrew/include/boost/bind/arg.hpp \
   /opt/homebrew/include/boost/bind/bind.hpp \
-  /opt/homebrew/include/boost/bind/bind_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf2_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf_cc.hpp \
-  /opt/homebrew/include/boost/bind/detail/is_same.hpp \
-  /opt/homebrew/include/boost/bind/detail/requires_cxx11.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf2_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/integer_sequence.hpp \
   /opt/homebrew/include/boost/bind/detail/result_traits.hpp \
+  /opt/homebrew/include/boost/bind/detail/tuple_for_each.hpp \
   /opt/homebrew/include/boost/bind/mem_fn.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_cc.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_template.hpp \
   /opt/homebrew/include/boost/bind/placeholders.hpp \
   /opt/homebrew/include/boost/bind/std_placeholders.hpp \
-  /opt/homebrew/include/boost/bind/storage.hpp \
   /opt/homebrew/include/boost/blank.hpp \
   /opt/homebrew/include/boost/blank_fwd.hpp \
   /opt/homebrew/include/boost/call_traits.hpp \
@@ -23709,6 +23635,7 @@ botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cp
   /opt/homebrew/include/boost/lexical_cast/detail/converter_numeric.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/inf_nan.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/is_character.hpp \
+  /opt/homebrew/include/boost/lexical_cast/detail/lcast_basic_unlockedbuf.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_char_constants.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_unsigned_converters.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/widest_char.hpp \
@@ -24170,8 +24097,6 @@ botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cp
   /opt/homebrew/include/boost/preprocessor/facilities/overload.hpp \
   /opt/homebrew/include/boost/preprocessor/identity.hpp \
   /opt/homebrew/include/boost/preprocessor/inc.hpp \
-  /opt/homebrew/include/boost/preprocessor/iterate.hpp \
-  /opt/homebrew/include/boost/preprocessor/iteration/iterate.hpp \
   /opt/homebrew/include/boost/preprocessor/list/adt.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_left.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_right.hpp \
@@ -24218,8 +24143,6 @@ botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cp
   /opt/homebrew/include/boost/preprocessor/seq/seq.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/size.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/transform.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/detail/def.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/slot.hpp \
   /opt/homebrew/include/boost/preprocessor/stringize.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/detail/is_single_return.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/eat.hpp \
@@ -24316,7 +24239,6 @@ botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cp
   /opt/homebrew/include/boost/system/detail/interop_category.hpp \
   /opt/homebrew/include/boost/system/detail/is_same.hpp \
   /opt/homebrew/include/boost/system/detail/mutex.hpp \
-  /opt/homebrew/include/boost/system/detail/requires_cxx11.hpp \
   /opt/homebrew/include/boost/system/detail/snprintf.hpp \
   /opt/homebrew/include/boost/system/detail/std_category.hpp \
   /opt/homebrew/include/boost/system/detail/std_category_impl.hpp \
@@ -24366,7 +24288,6 @@ botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cp
   /opt/homebrew/include/boost/type_traits/disjunction.hpp \
   /opt/homebrew/include/boost/type_traits/enable_if.hpp \
   /opt/homebrew/include/boost/type_traits/function_traits.hpp \
-  /opt/homebrew/include/boost/type_traits/has_left_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus_assign.hpp \
   /opt/homebrew/include/boost/type_traits/has_nothrow_assign.hpp \
@@ -24374,7 +24295,6 @@ botstaff/CMakeFiles/func.dir/src/keyboards/teacher_keyboards/teacherKeyboards.cp
   /opt/homebrew/include/boost/type_traits/has_nothrow_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus_assign.hpp \
-  /opt/homebrew/include/boost/type_traits/has_right_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_constructor.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_destructor.hpp \
@@ -26200,18 +26120,15 @@ botstaff/CMakeFiles/func.dir/src/keyboards/user_keyboards/userKeyboards.cpp.o: /
   /opt/homebrew/include/boost/assert/source_location.hpp \
   /opt/homebrew/include/boost/bind/arg.hpp \
   /opt/homebrew/include/boost/bind/bind.hpp \
-  /opt/homebrew/include/boost/bind/bind_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf2_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf_cc.hpp \
-  /opt/homebrew/include/boost/bind/detail/is_same.hpp \
-  /opt/homebrew/include/boost/bind/detail/requires_cxx11.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf2_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/integer_sequence.hpp \
   /opt/homebrew/include/boost/bind/detail/result_traits.hpp \
+  /opt/homebrew/include/boost/bind/detail/tuple_for_each.hpp \
   /opt/homebrew/include/boost/bind/mem_fn.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_cc.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_template.hpp \
   /opt/homebrew/include/boost/bind/placeholders.hpp \
   /opt/homebrew/include/boost/bind/std_placeholders.hpp \
-  /opt/homebrew/include/boost/bind/storage.hpp \
   /opt/homebrew/include/boost/blank.hpp \
   /opt/homebrew/include/boost/blank_fwd.hpp \
   /opt/homebrew/include/boost/call_traits.hpp \
@@ -26349,6 +26266,7 @@ botstaff/CMakeFiles/func.dir/src/keyboards/user_keyboards/userKeyboards.cpp.o: /
   /opt/homebrew/include/boost/lexical_cast/detail/converter_numeric.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/inf_nan.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/is_character.hpp \
+  /opt/homebrew/include/boost/lexical_cast/detail/lcast_basic_unlockedbuf.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_char_constants.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_unsigned_converters.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/widest_char.hpp \
@@ -26810,8 +26728,6 @@ botstaff/CMakeFiles/func.dir/src/keyboards/user_keyboards/userKeyboards.cpp.o: /
   /opt/homebrew/include/boost/preprocessor/facilities/overload.hpp \
   /opt/homebrew/include/boost/preprocessor/identity.hpp \
   /opt/homebrew/include/boost/preprocessor/inc.hpp \
-  /opt/homebrew/include/boost/preprocessor/iterate.hpp \
-  /opt/homebrew/include/boost/preprocessor/iteration/iterate.hpp \
   /opt/homebrew/include/boost/preprocessor/list/adt.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_left.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_right.hpp \
@@ -26858,8 +26774,6 @@ botstaff/CMakeFiles/func.dir/src/keyboards/user_keyboards/userKeyboards.cpp.o: /
   /opt/homebrew/include/boost/preprocessor/seq/seq.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/size.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/transform.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/detail/def.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/slot.hpp \
   /opt/homebrew/include/boost/preprocessor/stringize.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/detail/is_single_return.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/eat.hpp \
@@ -26956,7 +26870,6 @@ botstaff/CMakeFiles/func.dir/src/keyboards/user_keyboards/userKeyboards.cpp.o: /
   /opt/homebrew/include/boost/system/detail/interop_category.hpp \
   /opt/homebrew/include/boost/system/detail/is_same.hpp \
   /opt/homebrew/include/boost/system/detail/mutex.hpp \
-  /opt/homebrew/include/boost/system/detail/requires_cxx11.hpp \
   /opt/homebrew/include/boost/system/detail/snprintf.hpp \
   /opt/homebrew/include/boost/system/detail/std_category.hpp \
   /opt/homebrew/include/boost/system/detail/std_category_impl.hpp \
@@ -27006,7 +26919,6 @@ botstaff/CMakeFiles/func.dir/src/keyboards/user_keyboards/userKeyboards.cpp.o: /
   /opt/homebrew/include/boost/type_traits/disjunction.hpp \
   /opt/homebrew/include/boost/type_traits/enable_if.hpp \
   /opt/homebrew/include/boost/type_traits/function_traits.hpp \
-  /opt/homebrew/include/boost/type_traits/has_left_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus_assign.hpp \
   /opt/homebrew/include/boost/type_traits/has_nothrow_assign.hpp \
@@ -27014,7 +26926,6 @@ botstaff/CMakeFiles/func.dir/src/keyboards/user_keyboards/userKeyboards.cpp.o: /
   /opt/homebrew/include/boost/type_traits/has_nothrow_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus_assign.hpp \
-  /opt/homebrew/include/boost/type_traits/has_right_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_constructor.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_destructor.hpp \
@@ -28842,18 +28753,15 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
   /opt/homebrew/include/boost/assert/source_location.hpp \
   /opt/homebrew/include/boost/bind/arg.hpp \
   /opt/homebrew/include/boost/bind/bind.hpp \
-  /opt/homebrew/include/boost/bind/bind_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf2_cc.hpp \
-  /opt/homebrew/include/boost/bind/bind_mf_cc.hpp \
-  /opt/homebrew/include/boost/bind/detail/is_same.hpp \
-  /opt/homebrew/include/boost/bind/detail/requires_cxx11.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf2_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/bind_mf_cc.hpp \
+  /opt/homebrew/include/boost/bind/detail/integer_sequence.hpp \
   /opt/homebrew/include/boost/bind/detail/result_traits.hpp \
+  /opt/homebrew/include/boost/bind/detail/tuple_for_each.hpp \
   /opt/homebrew/include/boost/bind/mem_fn.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_cc.hpp \
-  /opt/homebrew/include/boost/bind/mem_fn_template.hpp \
   /opt/homebrew/include/boost/bind/placeholders.hpp \
   /opt/homebrew/include/boost/bind/std_placeholders.hpp \
-  /opt/homebrew/include/boost/bind/storage.hpp \
   /opt/homebrew/include/boost/blank.hpp \
   /opt/homebrew/include/boost/blank_fwd.hpp \
   /opt/homebrew/include/boost/call_traits.hpp \
@@ -28992,6 +28900,7 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
   /opt/homebrew/include/boost/lexical_cast/detail/converter_numeric.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/inf_nan.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/is_character.hpp \
+  /opt/homebrew/include/boost/lexical_cast/detail/lcast_basic_unlockedbuf.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_char_constants.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/lcast_unsigned_converters.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/widest_char.hpp \
@@ -29458,8 +29367,6 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
   /opt/homebrew/include/boost/preprocessor/facilities/overload.hpp \
   /opt/homebrew/include/boost/preprocessor/identity.hpp \
   /opt/homebrew/include/boost/preprocessor/inc.hpp \
-  /opt/homebrew/include/boost/preprocessor/iterate.hpp \
-  /opt/homebrew/include/boost/preprocessor/iteration/iterate.hpp \
   /opt/homebrew/include/boost/preprocessor/list/adt.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_left.hpp \
   /opt/homebrew/include/boost/preprocessor/list/detail/fold_right.hpp \
@@ -29506,8 +29413,6 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
   /opt/homebrew/include/boost/preprocessor/seq/seq.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/size.hpp \
   /opt/homebrew/include/boost/preprocessor/seq/transform.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/detail/def.hpp \
-  /opt/homebrew/include/boost/preprocessor/slot/slot.hpp \
   /opt/homebrew/include/boost/preprocessor/stringize.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/detail/is_single_return.hpp \
   /opt/homebrew/include/boost/preprocessor/tuple/eat.hpp \
@@ -29604,7 +29509,6 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
   /opt/homebrew/include/boost/system/detail/interop_category.hpp \
   /opt/homebrew/include/boost/system/detail/is_same.hpp \
   /opt/homebrew/include/boost/system/detail/mutex.hpp \
-  /opt/homebrew/include/boost/system/detail/requires_cxx11.hpp \
   /opt/homebrew/include/boost/system/detail/snprintf.hpp \
   /opt/homebrew/include/boost/system/detail/std_category.hpp \
   /opt/homebrew/include/boost/system/detail/std_category_impl.hpp \
@@ -29654,7 +29558,6 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
   /opt/homebrew/include/boost/type_traits/disjunction.hpp \
   /opt/homebrew/include/boost/type_traits/enable_if.hpp \
   /opt/homebrew/include/boost/type_traits/function_traits.hpp \
-  /opt/homebrew/include/boost/type_traits/has_left_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus.hpp \
   /opt/homebrew/include/boost/type_traits/has_minus_assign.hpp \
   /opt/homebrew/include/boost/type_traits/has_nothrow_assign.hpp \
@@ -29662,7 +29565,6 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
   /opt/homebrew/include/boost/type_traits/has_nothrow_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus.hpp \
   /opt/homebrew/include/boost/type_traits/has_plus_assign.hpp \
-  /opt/homebrew/include/boost/type_traits/has_right_shift.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_constructor.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_copy.hpp \
   /opt/homebrew/include/boost/type_traits/has_trivial_destructor.hpp \
@@ -30237,6 +30139,8 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 
 /usr/local/include/tgbot/types/InlineKeyboardMarkup.h:
 
+/usr/local/include/tgbot/types/GeneralForumTopicHidden.h:
+
 /usr/local/include/tgbot/types/GameHighScore.h:
 
 /usr/local/include/tgbot/types/Game.h:
@@ -30405,6 +30309,8 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 
 /opt/homebrew/include/boost/type_traits/is_class.hpp:
 
+/opt/homebrew/include/boost/type_traits/is_base_and_derived.hpp:
+
 /opt/homebrew/include/boost/type_traits/is_abstract.hpp:
 
 /opt/homebrew/include/boost/type_traits/intrinsics.hpp:
@@ -30414,10 +30320,6 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 /opt/homebrew/include/boost/type_traits/has_trivial_move_assign.hpp:
 
 /opt/homebrew/include/boost/type_traits/has_trivial_constructor.hpp:
-
-/opt/homebrew/include/boost/type_traits/is_base_and_derived.hpp:
-
-/opt/homebrew/include/boost/type_traits/has_right_shift.hpp:
 
 /opt/homebrew/include/boost/type_traits/has_nothrow_copy.hpp:
 
@@ -30430,8 +30332,6 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 /opt/homebrew/include/boost/type_traits/function_traits.hpp:
 
 /opt/homebrew/include/boost/type_traits/detail/yes_no_type.hpp:
-
-/opt/homebrew/include/boost/type_traits/detail/is_member_function_pointer_cxx_11.hpp:
 
 /opt/homebrew/include/boost/type_traits/detail/config.hpp:
 
@@ -30579,6 +30479,8 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 
 /opt/homebrew/include/boost/property_tree/json_parser.hpp:
 
+/opt/homebrew/include/boost/property_tree/id_translator.hpp:
+
 /opt/homebrew/include/boost/property_tree/exceptions.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__ranges/drop_while_view.h:
@@ -30593,9 +30495,7 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 
 /opt/homebrew/include/boost/preprocessor/tuple/rem.hpp:
 
-/opt/homebrew/include/boost/preprocessor/slot/slot.hpp:
-
-/opt/homebrew/include/boost/preprocessor/slot/detail/def.hpp:
+/opt/homebrew/include/boost/preprocessor/tuple/detail/is_single_return.hpp:
 
 /usr/local/include/tgbot/types/ProximityAlertTriggered.h:
 
@@ -30659,10 +30559,6 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 
 /opt/homebrew/include/boost/preprocessor/list/detail/fold_left.hpp:
 
-/opt/homebrew/include/boost/preprocessor/iteration/iterate.hpp:
-
-/opt/homebrew/include/boost/preprocessor/iterate.hpp:
-
 /opt/homebrew/include/boost/type_traits/has_minus_assign.hpp:
 
 /opt/homebrew/include/boost/preprocessor/identity.hpp:
@@ -30718,6 +30614,8 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 /opt/homebrew/include/boost/type_traits/is_constructible.hpp:
 
 /opt/homebrew/include/boost/preprocessor/arithmetic/mod.hpp:
+
+/opt/homebrew/include/boost/preprocessor/arithmetic/limits/dec_256.hpp:
 
 /opt/homebrew/include/boost/preprocessor/arithmetic/inc.hpp:
 
@@ -30839,8 +30737,6 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 
 /opt/homebrew/include/boost/multi_index/detail/index_access_sequence.hpp:
 
-/opt/homebrew/include/boost/system/detail/requires_cxx11.hpp:
-
 /opt/homebrew/include/boost/multi_index/detail/duplicates_iterator.hpp:
 
 /opt/homebrew/include/boost/multi_index/detail/define_if_constexpr_macro.hpp:
@@ -30852,8 +30748,6 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 /opt/homebrew/include/boost/multi_index/detail/bidir_node_iterator.hpp:
 
 /opt/homebrew/include/boost/multi_index/detail/bad_archive_exception.hpp:
-
-/opt/homebrew/include/boost/type_traits/has_left_shift.hpp:
 
 /opt/homebrew/include/boost/multi_index/detail/auto_space.hpp:
 
@@ -31189,6 +31083,8 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 
 /opt/homebrew/include/boost/mpl/aux_/include_preprocessed.hpp:
 
+/opt/homebrew/include/boost/mpl/aux_/has_type.hpp:
+
 /opt/homebrew/include/boost/mpl/aux_/has_size.hpp:
 
 /opt/homebrew/include/boost/mpl/aux_/has_begin.hpp:
@@ -31308,8 +31204,6 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 /opt/homebrew/include/boost/move/detail/config_end.hpp:
 
 /opt/homebrew/include/boost/move/detail/addressof.hpp:
-
-/opt/homebrew/include/boost/move/core.hpp:
 
 /opt/homebrew/include/boost/limits.hpp:
 
@@ -31493,23 +31387,9 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 
 /opt/homebrew/include/boost/blank_fwd.hpp:
 
-/usr/local/include/tgbot/types/GeneralForumTopicHidden.h:
-
-/opt/homebrew/include/boost/bind/mem_fn_template.hpp:
-
-/opt/homebrew/include/boost/preprocessor/arithmetic/limits/dec_256.hpp:
-
-/opt/homebrew/include/boost/bind/mem_fn_cc.hpp:
-
 /opt/homebrew/include/boost/bind/detail/result_traits.hpp:
 
-/opt/homebrew/include/boost/preprocessor/tuple/detail/is_single_return.hpp:
-
-/opt/homebrew/include/boost/bind/detail/requires_cxx11.hpp:
-
-/opt/homebrew/include/boost/property_tree/id_translator.hpp:
-
-/opt/homebrew/include/boost/bind/bind_mf2_cc.hpp:
+/opt/homebrew/include/boost/bind/detail/bind_mf_cc.hpp:
 
 /opt/homebrew/include/boost/bind/bind.hpp:
 
@@ -32017,10 +31897,6 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 
 /opt/homebrew/include/boost/asio/detail/initiate_defer.hpp:
 
-/opt/homebrew/include/boost/mpl/aux_/has_type.hpp:
-
-/opt/homebrew/include/boost/bind/detail/is_same.hpp:
-
 /opt/homebrew/include/boost/asio/detail/impl/timer_queue_set.ipp:
 
 /opt/homebrew/include/boost/multi_index/detail/ord_index_ops.hpp:
@@ -32226,6 +32102,8 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 /opt/homebrew/include/boost/asio/impl/awaitable.hpp:
 
 /opt/homebrew/include/boost/asio/bind_allocator.hpp:
+
+/opt/homebrew/include/boost/lexical_cast/detail/lcast_basic_unlockedbuf.hpp:
 
 /opt/homebrew/include/boost/preprocessor/config/config.hpp:
 
@@ -32444,8 +32322,6 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/_types/_u_int.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/_types/_timeval64.h:
-
-/opt/homebrew/include/boost/bind/storage.hpp:
 
 /opt/homebrew/include/boost/type_traits/is_convertible.hpp:
 
@@ -32709,8 +32585,6 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/machine/endian.h:
 
-/opt/homebrew/include/boost/bind/bind_cc.hpp:
-
 /opt/homebrew/include/boost/asio/use_future.hpp:
 
 /opt/homebrew/include/boost/asio/traits/query_free.hpp:
@@ -32824,6 +32698,8 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/typeinfo:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/type_traits:
+
+/opt/homebrew/include/boost/move/core.hpp:
 
 /opt/homebrew/include/boost/mpl/O1_size.hpp:
 
@@ -33585,6 +33461,8 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__mutex/tag_types.h:
 
+/Users/ilavaleev/Dev/TeacherBot/botstaff/include/botstaff/vocabular.hpp:
+
 /opt/homebrew/include/boost/asio/generic/datagram_protocol.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__charconv/chars_format.h:
@@ -33827,6 +33705,8 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__charconv/to_chars_base_10.h:
 
+/opt/homebrew/include/boost/bind/detail/bind_mf2_cc.hpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/signal.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__iterator/concepts.h:
@@ -33924,6 +33804,8 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__ranges/access.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__functional/pointer_to_binary_function.h:
+
+/opt/homebrew/include/boost/bind/detail/bind_cc.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__charconv/tables.h:
 
@@ -34251,8 +34133,6 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 
 /opt/homebrew/include/boost/asio/detail/posix_mutex.hpp:
 
-/opt/homebrew/include/boost/bind/bind_mf_cc.hpp:
-
 /opt/homebrew/include/boost/asio/buffered_stream.hpp:
 
 /opt/homebrew/include/boost/asio/async_result.hpp:
@@ -34578,6 +34458,10 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__algorithm/ranges_unique.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__algorithm/ranges_starts_with.h:
+
+/opt/homebrew/include/boost/type_traits/detail/is_member_function_pointer_cxx_11.hpp:
+
+/opt/homebrew/include/boost/bind/detail/integer_sequence.hpp:
 
 /opt/homebrew/include/boost/asio/detail/future.hpp:
 
@@ -35160,6 +35044,8 @@ botstaff/CMakeFiles/func.dir/src/utils.cpp.o: /Users/ilavaleev/Dev/TeacherBot/bo
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__algorithm/is_sorted_until.h:
 
 /opt/homebrew/include/boost/asio/detail/op_queue.hpp:
+
+/opt/homebrew/include/boost/bind/detail/tuple_for_each.hpp:
 
 /opt/homebrew/include/boost/mpl/list/aux_/size.hpp:
 

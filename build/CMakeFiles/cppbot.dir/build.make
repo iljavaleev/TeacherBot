@@ -44,10 +44,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.29.2/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.29.4/bin/cmake
 
 # The command to remove a file.
-RM = /opt/homebrew/Cellar/cmake/3.29.2/bin/cmake -E rm -f
+RM = /opt/homebrew/Cellar/cmake/3.29.4/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -95,8 +95,8 @@ cppbot: CMakeFiles/cppbot.dir/build.make
 cppbot: botstaff/libfunc.a
 cppbot: /usr/local/lib/libTgBot.a
 cppbot: /opt/homebrew/lib/libpqxx.dylib
-cppbot: /opt/homebrew/Cellar/openssl@3/3.3.0/lib/libssl.dylib
-cppbot: /opt/homebrew/Cellar/openssl@3/3.3.0/lib/libcrypto.dylib
+cppbot: /opt/homebrew/Cellar/openssl@3/3.3.1/lib/libssl.dylib
+cppbot: /opt/homebrew/Cellar/openssl@3/3.3.1/lib/libcrypto.dylib
 cppbot: /opt/homebrew/lib/libboost_system-mt.dylib
 cppbot: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/lib/libcurl.tbd
 cppbot: CMakeFiles/cppbot.dir/link.txt

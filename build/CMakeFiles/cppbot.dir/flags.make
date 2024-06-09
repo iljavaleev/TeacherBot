@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/clang
 CXX_DEFINES = -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DHAVE_CURL
 
-CXX_INCLUDES = -I/usr/local/include -I/opt/homebrew/Cellar/openssl@3/3.3.0/include -I/Users/ilavaleev/Dev/TeacherBot/botstaff/include -isystem /opt/homebrew/include
+CXX_INCLUDES = -I/usr/local/include -I/opt/homebrew/Cellar/openssl@3/3.3.1/include -I/Users/ilavaleev/Dev/TeacherBot/botstaff/include -isystem /opt/homebrew/include
 
 CXX_FLAGSarm64 =  -Wall -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk
 
