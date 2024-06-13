@@ -48,7 +48,7 @@ struct UserLesson{
     static bool exists(long id);
     void update();
     void destroy();
-    void create();   
+    int create();   
     int id{};
     std::chrono::year_month_day date{};
     std::string time{};

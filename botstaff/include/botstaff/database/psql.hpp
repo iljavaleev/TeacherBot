@@ -7,7 +7,7 @@
 
 namespace SQL
 {
-void insert_into_table(const std::string&);
+pqxx::result insert_into_table(const std::string&);
 
 void update(const std::string&);
 

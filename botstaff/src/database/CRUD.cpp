@@ -157,9 +157,9 @@ void UserLesson::destroy()
     SQL::destroy(query);
 }
 
-void UserLesson::create()
+int UserLesson::create()
 {
-    std::string query = std::format("INSERT INTO user_lesson VALUES (DEFAULT, '{}', {}, {}, '{}', '{}', '{}', '{}', {})",
+    std::string query = std::format("INSERT INTO user_lesson VALUES (DEFAULT, '{}', {}, {}, '{}', '{}', '{}', '{}', {}) RETURNING id",
     date, teacher, pupil, time, objectives, comment_for_pupil, comment_for_teacher, is_paid);
-    SQL::insert_into_table(query);
+    return SQL::insert_into_table(query).begin()->at(0).as<int>();
 }

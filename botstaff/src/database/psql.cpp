@@ -16,9 +16,9 @@ const std::string URI = std::format(
 
 namespace SQL
 {
-void insert_into_table(const std::string& query)
+pqxx::result insert_into_table(const std::string& query)
 {   
-
+    pqxx::result R;
     try
     {
         pqxx::connection c{URI};
@@ -34,15 +34,17 @@ void insert_into_table(const std::string& query)
 
         pqxx::work wrk(c);
 
-        wrk.exec(query);
+        R = wrk.exec(query);
         wrk.commit();
         std::cout << "Records created successfully" << std::endl;
         c.close();
+        return R;
 
     }   
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
+        return R;
     }    
 }
 

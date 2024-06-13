@@ -2,7 +2,7 @@
 -- INSERT INTO bot_user VALUES (893916191, null, 'admin', 'УЛЬЯНА АЛЕКСАНДРОВНА', 'ОМЕЛЬЧЕНКО', '+7(922)054-83-77', 'abra@kadab1.ru', null, 'no comments', 'teacher', TRUE);
 
 -- INSERT INTO bot_user VALUES (89391619, null, 'ut1name', 'pahant', 'вы', '89220000231', 'aabra@kadab1.ru', null, 'no comments', 'teacher', TRUE);
-INSERT INTO bot_user VALUES (141312113, null, 'ut2name', 'pahant', 'вы', '892200001231', 'babra@kadab1.ru', null, 'no comments', 'teacher', TRUE);
+INSERT INTO bot_user VALUES (141312113, null, 'ut2name', 'Искандер', 'Фармльдегидович', '892200001231', 'babra@kadab1.ru', null, 'no comments', 'teacher', TRUE);
 
 -- INSERT INTO bot_user VALUES (123451, 893916191, 'u1name', 'pahan', 'вы', '89221121231', 'abra@kadab1.ru', '7в', 'no comments', 'pupil', TRUE);
 -- INSERT INTO bot_user VALUES (123452, 893916191, 'u2name', 'гусь', 'мвум', '89221121232', 'abra@kadab2.ru', '7в', 'no comments', 'pupil', TRUE);
@@ -36,6 +36,22 @@ INSERT INTO bot_user VALUES (141312113, null, 'ut2name', 'pahant', 'вы', '8922
 
 -- Admin data
 
-INSERT INTO bot_user VALUES (12, null, 'uname@1', 'ВЕНЕРА', 'ЮНИРОВНА', '8922000001', 'mail@mail.ru', null, 'no comments', 'teacher', TRUE);
-INSERT INTO bot_user VALUES (13, null, 'uname@2', 'СВЕТЛАНА', 'ИВАНОВНА', '8922000002', 'mail@mail1.ru', null, 'no comments', 'teacher', FALSE);
-INSERT INTO bot_user VALUES (11, null, 'uname@3', 'ТАТЬЯНА', 'ПАВЛОВНА', '8922000003', 'mail@mail2.ru', null, 'no comments', 'teacher', FALSE);
+-- INSERT INTO bot_user VALUES (12, null, 'uname@1', 'ВЕНЕРА', 'ЮНИРОВНА', '8922000001', 'mail@mail.ru', null, 'no comments', 'teacher', TRUE);
+-- INSERT INTO bot_user VALUES (13, null, 'uname@2', 'СВЕТЛАНА', 'ИВАНОВНА', '8922000002', 'mail@mail1.ru', null, 'no comments', 'teacher', FALSE);
+-- INSERT INTO bot_user VALUES (11, null, 'uname@3', 'ТАТЬЯНА', 'ПАВЛОВНА', '8922000003', 'mail@mail2.ru', null, 'no comments', 'teacher', FALSE);
+
+INSERT INTO bot_user VALUES (121, 141312113, 'uname@1', 'Абдул', 'Рахим', '8922----', 'yandex@mail.ru', '7f', 'no comments', 'pupil', TRUE);
+INSERT INTO bot_user VALUES (131, 141312113, 'uname@2', 'Гамарджоба', 'Игнат', '8999----', 'rambler@mail1.ru', '8c', 'no comments', 'pupil', FALSE);
+INSERT INTO bot_user VALUES (141, 141312113, 'uname@2', 'Афтаген', 'Батыр', '8789----', 'proton@mail1.ru', '9a', 'no comments', 'pupil', FALSE);
+
+
+INSERT INTO bot_user VALUES (121332, null, 'uname@1', 'Абдул', 'Рахим', '8931----', 'yandex1@mail.ru', null, 'no comments', 'teacher', TRUE);
+INSERT INTO bot_user VALUES (131442, null, 'uname@2', 'Гамарджоба', 'Игнат', '8932----', 'rambler1@mail1.ru', null, 'no comments', 'teacher', FALSE);
+
+-- DELETE FROM bot_user WHERE chat_id=121332;
+-- DELETE FROM bot_user WHERE chat_id=131442;
+-- DELETE FROM bot_user WHERE chat_id=141;
+
+INSERT INTO user_lesson VALUES (DEFAULT, '2014-11-19', 141312113, 121, '12', 'русский', 'рахмат', 'он Абдул ', false);
+INSERT INTO user_lesson VALUES (DEFAULT, '2024-10-19', 141312113, 131, '13.00', 'русский1', 'шалом православные', 'он Гамарджоба', true);
+INSERT INTO user_lesson VALUES (DEFAULT, '2023-10-19', 141312113, 141, '18', 'русский2', 'плохой баланс', 'он Афтаген', true);

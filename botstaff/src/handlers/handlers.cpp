@@ -128,7 +128,7 @@ namespace Handlers
     {
         return [&bot](CallbackQuery::Ptr query) 
         {
-            if (StringTools::startsWith(query->data, "change_month")) 
+            if (StringTools::split(query->data, ' ').at(0) == "change_month")
             {
                 auto info = StringTools::split(query->data, ' ');
                 int year = stoi(info.at(2));
@@ -188,7 +188,7 @@ namespace Handlers
     {
          return [&bot](CallbackQuery::Ptr query) 
         {
-            if (StringTools::startsWith(query->data, "user_lesson")) 
+            if (StringTools::split(query->data, ' ').at(0) == "user_lesson")
             {
                 auto info = StringTools::split(query->data, ' ');
                 int user_lesson_id = stoi(info.at(1));

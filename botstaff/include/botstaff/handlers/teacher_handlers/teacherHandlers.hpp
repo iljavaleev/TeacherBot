@@ -31,6 +31,7 @@ namespace createLesson
     extern std::function<Message::Ptr (CallbackQuery::Ptr)> lesson_day_date_handler(TgBot::Bot& bot);
     extern std::function<Message::Ptr (CallbackQuery::Ptr)> update_lesson_pupil_handler(TgBot::Bot& bot);
     extern std::function<Message::Ptr (CallbackQuery::Ptr)> lesson_delete_request(TgBot::Bot& bot);
+    extern std::function<Message::Ptr (CallbackQuery::Ptr)> delete_lesson_handler(TgBot::Bot& bot);
 }
 
 

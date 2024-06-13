@@ -32,7 +32,7 @@ namespace teacherHandlers
     {
         return [&bot](CallbackQuery::Ptr query) 
         {
-            if (StringTools::startsWith(query->data, "comment_for_teacher"))
+            if (StringTools::split(query->data, ' ').at(0) == "comment_for_teacher")
             {
                     int lesson_id(std::stoi(StringTools::split(query->data, ' ').at(1)));
                     return bot.getApi().sendMessage(
@@ -143,7 +143,7 @@ namespace teacherHandlers
     {
          return [&bot](CallbackQuery::Ptr query)
         {   
-            if(StringTools::startsWith(query->data, "user_info"))
+            if(StringTools::split(query->data, ' ').at(0) == "user_info")
             {   
                 std::string pupil_id{StringTools::split(query->data, ' ').at(1)};
                 botUser u = get_user(std::stol(pupil_id));
@@ -174,10 +174,21 @@ namespace teacherHandlers
     {
          return [&bot](CallbackQuery::Ptr query)
         {   
-            if(StringTools::startsWith(query->data, "activate_user"))
+            if(StringTools::split(query->data, ' ').at(0) == "activate_user")
             {   
                 std::string pupil_id{StringTools::split(query->data, ' ').at(1)};
                 activate_this_user(std::stol(pupil_id));
+                try
+                {
+                    bot.getApi().sendMessage(
+                    pupil_id, 
+                    "Вы зарегестрированы");
+                }
+                catch(const std::exception& e)
+                {
+                    std::cerr << e.what() << '\n';
+                }
+                
                 return bot.getApi().sendMessage(
                     query->message->chat->id, 
                     "Вы добавили пользователя"
@@ -192,7 +203,7 @@ namespace teacherHandlers
     {
          return [&bot](CallbackQuery::Ptr query)
         {   
-            if(StringTools::startsWith(query->data, "delete_user"))
+            if(StringTools::split(query->data,' ').at(0) == "delete_user")
             {   
                 std::string pupil_id{StringTools::split(query->data, ' ').at(1)};
                 delete_this_user(std::stol(pupil_id));
@@ -210,7 +221,7 @@ namespace teacherHandlers
     {
          return [&bot](CallbackQuery::Ptr query)
         {   
-            if(StringTools::startsWith(query->data, "update_user "))
+            if(StringTools::split(query->data, ' ').at(0) == "update_user")
             {   
                 auto info = StringTools::split(query->data, ' ');
                 long user_id{std::stol(info.at(2))};

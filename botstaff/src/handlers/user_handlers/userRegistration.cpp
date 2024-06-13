@@ -20,7 +20,7 @@ namespace UserRegisterHandlers
     {
         return [&bot](CallbackQuery::Ptr query) 
         {
-            if (StringTools::startsWith(query->data, "register_pupil")) 
+            if (StringTools::split(query->data, ' ').at(0) == "register_pupil") 
             {
                 auto info = StringTools::split(query->data, ' ');
                 if (info.size() == 1)
@@ -91,7 +91,7 @@ namespace UserRegisterHandlers
     {
         return [&bot](CallbackQuery::Ptr query) 
         {
-            if (StringTools::startsWith(query->data, "agreement")) 
+            if (StringTools::split(query->data, ' ').at(0) == "agreement")
             {   
                 std::string message{};
                 if(StringTools::split(query->data, ' ').at(1) == "yes")
@@ -140,7 +140,7 @@ namespace UserRegisterHandlers
     {
         return [&bot](CallbackQuery::Ptr query) 
         {
-            if (StringTools::startsWith(query->data, "update_user_field") && is_teacher(query->message->chat->id)) 
+            if ((StringTools::split(query->data, ' ').at(0) == "update_user_field") && is_teacher(query->message->chat->id))
             {
                 std::vector<std::string> info = StringTools::split(query->data, ' ');
                 long admin_chat_id{query->message->chat->id};

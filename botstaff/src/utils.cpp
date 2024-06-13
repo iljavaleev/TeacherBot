@@ -102,9 +102,10 @@ bool is_teacher(const botUser& user)
 }
 
 bool is_teacher(long chat_id)
-{
+{   
     if (is_admin(chat_id))
         return true;
+    
     botUser user = botUser::get(chat_id);
     return  !user.empty() && user.is_active && (user.role == "teacher");
 }
@@ -159,7 +160,9 @@ botUser get_user(long chat_id)
 std::string get_pupil_info(const botUser& u)
 {
     return std::format(
-        "<b>{} {}. Класс: {}</b>\n<b>Юзернэйм</b>: @{}\n<b>Указан телефон</b>: {}\n<b>Адрес электронной почты</b>: {}\n<b>Комментарий:</b> {}", 
+        "<b>{} {}. Класс: {}</b>\n<b>Юзернэйм</b>: @{}\n"
+        "<b>Указан телефон</b>: {}\n<b>Адрес электронной почты</b>: {}\n"
+        "<b>Комментарий:</b> {}", 
         u.first_name, u.last_name, u.cls, u.tgusername, u.phone, u.email, u.comment
         );
 }
@@ -167,7 +170,10 @@ std::string get_pupil_info(const botUser& u)
 std::string get_teacher_info(const botUser& u)
 {
     return std::format(
-        "<b>{} {}</b>\n<b>Юзернэйм</b>: {}\n<b>Указан телефон</b>: {}\n<b>Адрес электронной почты</b>: {}\n<b>Комментарий:</b> {}", 
+        "<b>{} {}</b>\n<b>Юзернэйм</b>: {}\n"
+        "<b>Указан телефон</b>: {}\n"
+        "<b>Адрес электронной почты</b>: {}\n"
+        "<b>Комментарий:</b> {}", 
         u.first_name, u.last_name,u.tgusername, u.phone, u.email, u.comment
         );
 }
@@ -189,7 +195,7 @@ std::string get_comment_text(int id)
     std::string comment_for_teacher{it->at(3).as<std::string>()};
     
     return std::format(
-        "<b>{}</b>\n<b>{} {}</b>\n\n<b>Ваш комментарий</b>: {}\n", 
+        "<b>Ученик: {} {}</b>\n<b>Дата: {}</b>\n\n<b>Ваш комментарий</b>: {}\n", 
         date, first_name, last_name, comment_for_teacher);
 }
 
@@ -216,6 +222,12 @@ void delete_this_user(long chat_id)
     SQL::destroy(query);
 }
 
+void delete_lesson(int lesson_id)
+{
+    std::string query = std::format("DELETE FROM user_lesson WHERE id={}", lesson_id);
+    SQL::destroy(query);
+}
+
 std::string get_user_lesson_info(long chat_id, int user_lesson_id, std::string role)
 {   
     UserLesson user_lesson = UserLesson::get(user_lesson_id);
@@ -226,14 +238,20 @@ std::string get_user_lesson_info(long chat_id, int user_lesson_id, std::string r
     {
         user = botUser::get(user_lesson.pupil);
         return std::format(
-            "<b>Ученик: {} {}</b>\n<b>Время начачла занятия: {}</b>\n<b>Тема урока</b>: {}\n<b>Информация для преподователя</b>: {}", 
+            "<b>Ученик: {} {}</b>\n"
+            "<b>Время начачла занятия: {}</b>\n"
+            "<b>Тема урока</b>: {}\n"
+            "<b>Информация для преподователя</b>: {}", 
             user.first_name, user.last_name, user_lesson.time, user_lesson.objectives, user_lesson.comment_for_teacher
             );
     }
     
     user =  botUser::get(user_lesson.teacher);
     return std::format(
-        "<b>Преподователь {} {}</b>\n<b>Время начачла занятия: {}</b>\n<b>Тема урока</b>: {}\n<b>Информация для ученика</b>: {}", 
+        "<b>Преподователь {} {}</b>\n"
+        "<b>Время начачла занятия: {}</b>\n"
+        "<b>Тема урока</b>: {}\n"
+        "<b>Информация для ученика</b>: {}", 
         user.first_name, user.last_name, user_lesson.time, user_lesson.objectives, user_lesson.comment_for_pupil
         );
 }

@@ -40,6 +40,7 @@ std::string get_user_lesson_info(long chat_id, int user_lesson_id, std::string r
 
 void activate_this_user(long chat_id);
 void delete_this_user(long chat_id);
+void delete_lesson(int lesson_id);
 
 std::vector<std::string> split(const std::string&, char);
 std::chrono::year_month_day split_date(const std::string&, char);
