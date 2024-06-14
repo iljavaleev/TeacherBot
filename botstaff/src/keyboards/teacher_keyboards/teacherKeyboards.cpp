@@ -135,9 +135,10 @@ namespace teacherKeyboards
         else
         {
             query = std::format(
-                "SELECT * FROM bot_user WHERE teacher is null AND NOT chat_id={} AND is_active={} ORDER BY last_name", std::getenv("ADMIN_CHAT_ID"), is_active);
+                "SELECT * FROM bot_user WHERE teacher is null AND NOT chat_id={} AND is_active={} ORDER BY last_name", 
+                std::getenv("ADMIN_CHAT_ID"), is_active);
         }
-        std::cout << query << std::endl;
+        
         std::vector<botUser> user_list = botUser::get_all(query);
         for (auto it{user_list.begin()}; it!=user_list.end(); ++it)
         {

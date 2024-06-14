@@ -15,8 +15,7 @@
 #include <locale>
 #include <sstream>
 #include <chrono>
-// список желающих обучаться - если нет таких - сообщение
-// после редактирования вернуть данные ученика 
+
 using namespace TgBot;
 
 int dayNumber(int year, int month, int day) 

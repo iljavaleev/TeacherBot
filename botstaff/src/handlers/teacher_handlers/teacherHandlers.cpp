@@ -119,16 +119,26 @@ namespace teacherHandlers
                 long teacher_id(query->message->chat->id);
                 if (StringTools::startsWith(query->data, "pupils_list_active"))
                 {
+                    auto kb = teacherKeyboards::create_list_users_kb(teacher_id);
+                    std::string message = kb->inlineKeyboard.empty() ? "Здесь пока никого" : "Список учеников по фамилии";
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
-                        "Список учеников по фамилии", false, 0, teacherKeyboards::create_list_users_kb(teacher_id)
+                        message,
+                        false, 
+                        0,
+                        kb 
                         );
                 }
                 else
-                {
+                {   
+                    auto kb = teacherKeyboards::create_list_users_kb(teacher_id, false);
+                    std::string message = kb->inlineKeyboard.empty() ? "Здесь пока никого" : "Список желающих обучаться по фамилии";
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
-                        "Список желающих обучаться по фамилии", false, 0, teacherKeyboards::create_list_users_kb(teacher_id, false)
+                        message, 
+                        false, 
+                        0,
+                        kb
                         );
                 }
                     

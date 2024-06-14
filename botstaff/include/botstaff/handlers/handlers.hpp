@@ -29,8 +29,6 @@ namespace Handlers
     extern std::function<Message::Ptr (CallbackQuery::Ptr)> day_info_handler(TgBot::Bot& bot);
 };
 
-
-void startPolling(TgBot::Bot& bot);
 void startWebhook(TgBot::Bot& bot, std::string& webhookUrl);
 
 #endif

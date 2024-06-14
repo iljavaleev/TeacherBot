@@ -50,15 +50,6 @@ namespace CommandHandlers
             return bot.getApi().sendMessage(message->chat->id, "Cancel command");
         };
     }
-
-    std::function<Message::Ptr (Message::Ptr)> helpCommand(TgBot::Bot& bot)
-    {
-        return [&bot](Message::Ptr message) 
-        {
-            return bot.getApi().sendMessage(message->chat->id, "Help command");
-        };
-    }
-
 }
 
 namespace Handlers
@@ -170,13 +161,15 @@ namespace Handlers
                 int month = stoi(info.at(3));
                 int day = stoi(info.at(4));
 
+                
+                auto kb = Keyboards::lessons_list_kb(query->message->chat->id, role, year, month, day);
                 return bot.getApi().sendMessage(
                     query->message->chat->id, 
-                    "Занятия сегодня",
+                    kb->inlineKeyboard.empty() ? "Сегодня нет занятий" : "Занятия сегодня",
                     false, 
                     0, 
-                    Keyboards::lessons_list_kb(query->message->chat->id, role, year, month, day)
-                    );
+                    kb
+                );
 
             }
              else
@@ -207,26 +200,6 @@ namespace Handlers
              else
                 return Message::Ptr(nullptr); 
         };
-    }
-}
-
-
-void startPolling(TgBot::Bot& bot )
-{
-     try {
-        printf("Bot username: %s\n", bot.getApi().getMe()->username.c_str());
-        bot.getApi().deleteWebhook();
-
-        TgLongPoll longPoll(bot);
-        while (true) 
-        {
-            printf("Long poll started\n");
-            longPoll.start();
-        }
-    } 
-    catch (exception& e) 
-    {
-        printf("error: %s\n", e.what());
     }
 }
 

@@ -253,7 +253,7 @@ namespace createLesson
                 long lesson_id = stol(StringTools::split(query->data, ' ').at(1));
                 long teacher_id;
                 std::string mess = lesson_delete_request_message(lesson_id, &teacher_id);
-
+                teacher_id = 141312113; //DEBUG
                 try
                 {
                     bot.getApi().sendMessage(

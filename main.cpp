@@ -29,7 +29,6 @@ int main() {
     bot.getApi().setMyCommands(commands);
 
     bot.getEvents().onCommand("start", CommandHandlers::startCommand(bot));
-    bot.getEvents().onCommand("help", CommandHandlers::helpCommand(bot));
     bot.getEvents().onCommand("cancel", CommandHandlers::cancelCommand(bot));
     bot.getEvents().onAnyMessage(Handlers::any_message_handler(bot));
     bot.getEvents().onCallbackQuery(Handlers::calendar_handler(bot));
