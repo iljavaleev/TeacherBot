@@ -47,3 +47,4 @@ std::chrono::year_month_day split_date(const std::string&, char);
 std::string lesson_delete_request_message(long, long*);
 
 std::vector<std::string> get_last_10_comments(long);
+

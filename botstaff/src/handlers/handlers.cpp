@@ -40,6 +40,7 @@ namespace CommandHandlers
         };
     }
 
+
     std::function<Message::Ptr (Message::Ptr)> cancelCommand(TgBot::Bot& bot)
     {
         return [&bot](Message::Ptr message) 
@@ -60,8 +61,7 @@ namespace Handlers
         {
             if (
                 StringTools::startsWith(message->text, "/start") 
-                || StringTools::startsWith(message->text, "/cancel") 
-                || StringTools::startsWith(message->text, "/help")
+                || StringTools::startsWith(message->text, "/cancel")
                 ) 
             {
                 return Message::Ptr(nullptr);
