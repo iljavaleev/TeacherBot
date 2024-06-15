@@ -37,6 +37,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
+          cd ${{ secrets.DEPLOY_PATH }}
           sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/cppbot:v1
           sudo docker-compose down
           touch .env
@@ -60,4 +61,3 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: ${{ github.workflow }} успешно выполнен!
 
-        
