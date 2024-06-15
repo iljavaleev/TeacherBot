@@ -44,8 +44,8 @@ namespace createLesson
                 return bot.getApi().sendMessage(
                     query->message->chat->id, 
                     "Выберите ученика",
-                    false, 
-                    0,
+                    nullptr, 
+                    nullptr,
                     teacherKeyboards::create_list_pupils_kb(query->message->chat->id)
                 );
 
@@ -184,8 +184,8 @@ namespace createLesson
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
                         "Выберите новую дату",
-                        false,
-                        0,
+                        nullptr,
+                        nullptr,
                         Keyboards::create_calendar_kb(
                             ymd[0], 
                             ymd[1], 
@@ -201,8 +201,8 @@ namespace createLesson
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
                         "Выберите ученика",
-                        false,
-                        0,
+                        nullptr,
+                        nullptr,
                         teacherKeyboards::create_list_pupils_kb(query->message->chat->id, true, true)
                     );
                 }
@@ -258,8 +258,8 @@ namespace createLesson
                     bot.getApi().sendMessage(
                                 teacher_id,
                                 mess,
-                                false, 
-                                0, 
+                                nullptr, 
+                                nullptr, 
                                 nullptr,
                                 "HTML"
                             );
@@ -332,8 +332,8 @@ Message::Ptr send_lesson_update_kb(
     return bot.getApi().sendMessage(
             message->chat->id, 
             "Редактирование. Нажмите Завершить, чтобы сохранить изменения",
-            false,
-            0,
+            nullptr,
+            nullptr,
             teacherKeyboards::update_lesson_info_kb(lesson_id)
         ); 
 }
@@ -420,8 +420,8 @@ Message::Ptr lesson_comment_for_teacher_handler(
                     "Вы успешно создали занятие.\nУченику отправлено сообщение\n\n{}", 
                     get_user_lesson_info(message->chat->id, user_lesson_id, teacher.role)
                     ),
-                false, 
-                0, 
+                nullptr, 
+                nullptr, 
                 Keyboards::day_info_kb(user_lesson_id, teacher.role),
                 "HTML"
                 );
@@ -440,8 +440,8 @@ Message::Ptr send_lesson_info_to_pupil(
         return bot.getApi().sendMessage(
             pupil_id, 
             message, 
-            false, 
-            0, 
+            nullptr, 
+            nullptr, 
             nullptr,
             "HTML"
             );

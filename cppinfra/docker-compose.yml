@@ -19,6 +19,8 @@ services:
     restart: always
     container_name: dbcpp
     env_file: ../.env
+    ports:
+      - ${POSTGRES_PORT}:5432
     environment:
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
@@ -27,18 +29,13 @@ services:
     volumes:
       - ../data/db:/var/lib/postgresql/data
       - ../db_setup:/db_setup
-    # command: /bin/sh -c  "chmod +x db_setup/db_setup.sql && psql -U postgres -d cppbot -a -f db_setup/db_setup.sql"
-    ports:
-      - ${POSTGRES_PORT}:5432
     networks:
       - services
 
+
   cppbot:
-    build:
-      context: ../
-      dockerfile: ./Dockerfile
+    image: valeevilja/cppbot:v1
     container_name: botcpp
-    platform: linux/amd64
     restart: always
     ports:
       - 8080:8080
@@ -54,6 +51,7 @@ services:
       - services 
     depends_on:
       - dbcpp
+
 
 volumes:
   bot_volume:

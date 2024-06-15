@@ -25,15 +25,15 @@ namespace CommandHandlers
             clear_lesson_state(chat_id);
             botUser user = botUser::get(chat_id);
             if (is_admin(chat_id))
-                return bot.getApi().sendMessage(chat_id, "Вход для админа", false, 0, teacherKeyboards::create_teacher_start_kb(true)); 
+                return bot.getApi().sendMessage(chat_id, "Вход для админа", nullptr, nullptr, teacherKeyboards::create_teacher_start_kb(true)); 
             else if(is_teacher(user))
-                return bot.getApi().sendMessage(chat_id, "Вход для учителя", false, 0, teacherKeyboards::create_teacher_start_kb(false));
+                return bot.getApi().sendMessage(chat_id, "Вход для учителя", nullptr, nullptr, teacherKeyboards::create_teacher_start_kb(false));
             else
                 return bot.getApi().sendMessage(
                     chat_id, 
                     "Вход для пользователя", 
-                    false, 
-                    0, 
+                    nullptr, 
+                    nullptr, 
                     UserKeyboards::create_user_start_kb(chat_id, !user.empty())
                     );  
                           
@@ -104,8 +104,8 @@ namespace Handlers
                 return bot.getApi().sendMessage(
                     query->message->chat->id, 
                     std::format("<b><i>Расписание на {}</i></b>", MONTHS_RU.at(ymd[1]-1)), 
-                    false, 
-                    0, 
+                    nullptr, 
+                    nullptr, 
                     Keyboards::create_calendar_kb(ymd[0], ymd[1], 1, role, query->message->chat->id),
                     "HTML"
                     );  
@@ -137,8 +137,8 @@ namespace Handlers
                 return bot.getApi().sendMessage(
                     query->message->chat->id, 
                     std::format("<b><i>Расписание на {}</i></b>", MONTHS_RU.at(month-1)),
-                    false, 
-                    0, 
+                    nullptr, 
+                    nullptr, 
                     Keyboards::create_calendar_kb(year, month, 1, role, query->message->chat->id, update),
                     "HTML"
                     );  
@@ -166,8 +166,8 @@ namespace Handlers
                 return bot.getApi().sendMessage(
                     query->message->chat->id, 
                     kb->inlineKeyboard.empty() ? "Сегодня нет занятий" : "Занятия сегодня",
-                    false, 
-                    0, 
+                    nullptr, 
+                    nullptr, 
                     kb
                 );
 
@@ -190,8 +190,8 @@ namespace Handlers
                 return bot.getApi().sendMessage(
                     query->message->chat->id, 
                     get_user_lesson_info(query->message->chat->id, user_lesson_id, role),
-                    false, 
-                    0, 
+                    nullptr, 
+                    nullptr, 
                     Keyboards::day_info_kb(user_lesson_id, role),
                     "HTML"
                     );

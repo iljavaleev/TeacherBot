@@ -38,8 +38,8 @@ namespace UserRegisterHandlers
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
                         "Выберите учителя",
-                        false,
-                        0,
+                        nullptr,
+                        nullptr,
                         UserKeyboards::create_list_teachers_kb()
                     ); 
                 }
@@ -110,8 +110,8 @@ namespace UserRegisterHandlers
                             bot.getApi().sendMessage(
                                 userState.at(query->message->chat->id).inst.teacher, 
                                 text,
-                                false,
-                                0,
+                                nullptr,
+                                nullptr,
                                 nullptr,
                                 "HTML"
                                 );
@@ -154,8 +154,8 @@ namespace UserRegisterHandlers
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
                         tmp.role == "user" ? get_pupil_info(tmp) : get_teacher_info(tmp),
-                        false,
-                        0,
+                        nullptr,
+                        nullptr,
                         teacherKeyboards::create_user_info_kb(tmp),
                         "HTML"
                     );  
@@ -282,8 +282,8 @@ Message::Ptr send_update_kb(
     return bot.getApi().sendMessage(
                     message->chat->id, 
                     "Редактирование",
-                    false,
-                    0,
+                    nullptr,
+                    nullptr,
                     teacherKeyboards::update_user_info_kb(role, message->chat->id)
                 ); 
 }
@@ -360,8 +360,8 @@ Message::Ptr user_email_handler(
     return bot.getApi().sendMessage(
         message->chat->id, 
         "Нам нужно ваше согласие на хранение и обработку введенной информации",
-        false,
-        0, 
+        nullptr,
+        nullptr, 
         Keyboards::agreement_kb()
         );
 }
@@ -381,8 +381,8 @@ Message::Ptr user_class_handler(
     return bot.getApi().sendMessage(
         message->chat->id, 
         "Нам нужно ваше согласие на хранение и обработку введенной информации",
-        false,
-        0, 
+        nullptr,
+        nullptr, 
         Keyboards::agreement_kb()
         );
 }

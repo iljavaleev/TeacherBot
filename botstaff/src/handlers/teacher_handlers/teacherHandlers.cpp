@@ -20,7 +20,7 @@ namespace teacherHandlers
             {
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
-                        "Ваши недавние комметарии", false, 0,  teacherKeyboards::create_comments_kb(query->message->chat->id)
+                        "Ваши недавние комметарии", nullptr, nullptr,  teacherKeyboards::create_comments_kb(query->message->chat->id)
                         );
             }
             return Message::Ptr(nullptr);
@@ -38,8 +38,8 @@ namespace teacherHandlers
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
                         get_comment_text(lesson_id),
-                        false, 
-                        0, 
+                        nullptr, 
+                        nullptr, 
                         nullptr,
                         "HTML"
                         );
@@ -58,7 +58,7 @@ namespace teacherHandlers
             {
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
-                        "Выберите категорию", false, 0,  teacherKeyboards::create_teachers_kb()
+                        "Выберите категорию", nullptr, nullptr,  teacherKeyboards::create_teachers_kb()
                         );
             }
             return Message::Ptr(nullptr);
@@ -76,14 +76,14 @@ namespace teacherHandlers
                 {
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
-                        "Список педагогов по фамилии", false, 0, teacherKeyboards::create_list_users_kb(0)
+                        "Список педагогов по фамилии", nullptr, nullptr, teacherKeyboards::create_list_users_kb(0)
                         );
                 }
                 else
                 {
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
-                        "Список кандидатов по фамилии", false, 0, teacherKeyboards::create_list_users_kb(0, false)
+                        "Список кандидатов по фамилии", nullptr, nullptr, teacherKeyboards::create_list_users_kb(0, false)
                         );
                 }
                     
@@ -102,7 +102,7 @@ namespace teacherHandlers
             {
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
-                        "Выберите категорию", false, 0, teacherKeyboards::create_pupils_kb(query->message->chat->id)
+                        "Выберите категорию", nullptr, nullptr, teacherKeyboards::create_pupils_kb(query->message->chat->id)
                         );
             }
             return Message::Ptr(nullptr);
@@ -124,8 +124,8 @@ namespace teacherHandlers
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
                         message,
-                        false, 
-                        0,
+                        nullptr, 
+                        nullptr,
                         kb 
                         );
                 }
@@ -136,8 +136,8 @@ namespace teacherHandlers
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
                         message, 
-                        false, 
-                        0,
+                        nullptr, 
+                        nullptr,
                         kb
                         );
                 }
@@ -169,8 +169,8 @@ namespace teacherHandlers
                 return bot.getApi().sendMessage(
                     query->message->chat->id, 
                     info,
-                    false, 
-                    0, 
+                    nullptr, 
+                    nullptr, 
                     teacherKeyboards::create_user_info_kb(u),
                     "HTML"
                 );
@@ -239,8 +239,8 @@ namespace teacherHandlers
                 return bot.getApi().sendMessage(
                     query->message->chat->id, 
                     "Что вы хотите изменить?",
-                    false, 
-                    0, 
+                    nullptr, 
+                    nullptr, 
                     teacherKeyboards::update_user_info_kb(role, user_id)
                 );
 

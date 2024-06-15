@@ -13,5 +13,6 @@
 
 build/
 data/
+cppinfra/
 .env
 todo.txt

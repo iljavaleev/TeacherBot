@@ -22,8 +22,8 @@ namespace UserHandlers
                 return bot.getApi().sendMessage(
                         query->message->chat->id, 
                         "Выберите роль",
-                        false, 
-                        0, 
+                        nullptr, 
+                        nullptr, 
                         UserKeyboards::choose_role_kb()
                         );
                 
