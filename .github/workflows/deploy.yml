@@ -38,7 +38,7 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          source: "infra/docker-compose.yml"
+          source: "cppinfra/docker-compose.yml"
           target: ${{ secrets.DEPLOY_PATH }}
           overwrite: true
           strip_components: 1
