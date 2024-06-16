@@ -29,28 +29,43 @@ jobs:
     runs-on: ubuntu-latest
     needs: build_and_push
     steps:
-    - name: executing remote ssh commands to deploy
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USER }}
-        key: ${{ secrets.SSH_KEY }}
-        passphrase: ${{ secrets.PASSPHRASE }}
-        script: |
-          touch .env
-          cd ${{ secrets.DEPLOY_PATH }}
-          echo "BOT_TOKEN=${{ secrets.BOT_TOKEN }}" > .env
-          echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
-          echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
-          echo POSTGRES_DB=${{ secrets.POSTGRES_DB }} >> .env
-          echo POSTGRES_PORT=${{ secrets.POSTGRES_PORT }} >> .env
-          echo POSTGRES_HOST=${{ secrets.POSTGRES_HOST }} >> .env
-          echo ADMIN_CHAT_ID=${{ secrets.ADMIN_CHAT_ID }} >> .env
-          echo ADMIN_CHAT_ID=${{ secrets.NGROK_AUTHTOKEN }} >> .env
-          echo ADMIN_CHAT_ID=${{ secrets.BASE_WEBHOOK_URL }} >> .env
-          sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/cppbot:v1
-          sudo docker-compose down
-          sudo docker-compose up -d --build
+      - name: Checkout code
+        uses: actions/checkout@v4.1.1
+      - name: Copy infra files to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          source: "infra/docker-compose.yml"
+          target: ${{ secrets.DEPLOY_PATH }}
+          overwrite: true
+          strip_components: 1
+    
+      - name: executing remote ssh commands to deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          script: |
+            touch .env
+            cd ${{ secrets.DEPLOY_PATH }}
+            echo "BOT_TOKEN=${{ secrets.BOT_TOKEN }}" > .env
+            echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
+            echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
+            echo POSTGRES_DB=${{ secrets.POSTGRES_DB }} >> .env
+            echo POSTGRES_PORT=${{ secrets.POSTGRES_PORT }} >> .env
+            echo POSTGRES_HOST=${{ secrets.POSTGRES_HOST }} >> .env
+            echo ADMIN_CHAT_ID=${{ secrets.ADMIN_CHAT_ID }} >> .env
+            echo NGROK_AUTHTOKEN=${{ secrets.NGROK_AUTHTOKEN }} >> .env
+            echo BASE_WEBHOOK_URL=${{ secrets.BASE_WEBHOOK_URL }} >> .env
+            sudo docker-compose down
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/cppbot:v1
+            sudo docker-compose up -d --build
+            sudo docker system prune -af
   
   send_message:
     runs-on: ubuntu-latest
