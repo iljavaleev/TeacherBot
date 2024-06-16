@@ -25,3 +25,4 @@ endif()
 add_subdirectory(botstaff)
 add_executable(cppbot main.cpp)
 target_link_libraries(cppbot func /usr/local/lib/libTgBot.a stdc++ ${PQXX_LIB} ${CMAKE_THREAD_LIBS_INIT} ${OPENSSL_LIBRARIES} ${Boost_LIBRARIES} ${CURL_LIBRARIES})
+ 
