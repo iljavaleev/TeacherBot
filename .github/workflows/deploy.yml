@@ -52,7 +52,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             touch .env
-            cd ${{ secrets.DEPLOY_PATH }}
+            cd /home/iljavaleev
             echo "BOT_TOKEN=${{ secrets.BOT_TOKEN }}" > .env
             echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
             echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
@@ -62,9 +62,9 @@ jobs:
             echo ADMIN_CHAT_ID=${{ secrets.ADMIN_CHAT_ID }} >> .env
             echo NGROK_AUTHTOKEN=${{ secrets.NGROK_AUTHTOKEN }} >> .env
             echo BASE_WEBHOOK_URL=${{ secrets.BASE_WEBHOOK_URL }} >> .env
-            sudo docker-compose down
+            sudo docker compose down
             sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/cppbot:v1
-            sudo docker-compose up -d --build
+            sudo docker compose up -d --build
             sudo docker system prune -af
   
   send_message:
