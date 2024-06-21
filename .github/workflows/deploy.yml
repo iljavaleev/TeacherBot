@@ -31,7 +31,22 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4.1.1
-    
+
+      - name: Checkout code
+        uses: actions/checkout@v4.1.1
+      - name: Copy infra files to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          source: "cppinfra/docker-compose.yml,cppinfra/swag_nginx.conf"
+          target: ${{ secrets.DEPLOY_PATH }}
+          overwrite: true
+          strip_components: 1
+
+
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
         with:
