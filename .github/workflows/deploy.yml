@@ -48,9 +48,7 @@ jobs:
             echo POSTGRES_PORT=${{ secrets.POSTGRES_PORT }} >> .env
             echo POSTGRES_HOST=${{ secrets.POSTGRES_HOST }} >> .env
             echo ADMIN_CHAT_ID=${{ secrets.ADMIN_CHAT_ID }} >> .env
-            echo NGROK_AUTHTOKEN=${{ secrets.NGROK_AUTHTOKEN }} >> .env
             echo BASE_WEBHOOK_URL=${{ secrets.BASE_WEBHOOK_URL }} >> .env
-            echo NGROK_URL=${{ secrets.NGROK_URL }} >> .env
             sudo docker compose down
             sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/cppbot:v1
             sudo docker compose up -d --build

@@ -22,7 +22,7 @@ int main() {
     std::string bot_token = std::string(std::getenv("BOT_TOKEN"));
     std::string base_webhook_url = std::string(std::getenv("BASE_WEBHOOK_URL"));
     std::string TEL = std::format("https://api.telegram.org/bot{}/setWebhook?url=", bot_token);
-    std::string WEBHOOK_URL =base_webhook_url + std::format("/{}", bot_token);    
+    std::string WEBHOOK_URL = base_webhook_url + std::format("/{}", bot_token);    
     
     TgBot::Bot bot(std::getenv("BOT_TOKEN"));
     std::vector<BotCommand::Ptr> commands = create_commands();
