@@ -1,12 +1,12 @@
 #ifndef states_hpp
 #define states_hpp
 #include <unordered_map>
+
 #include "botstaff/database/CRUD.hpp"
 
 struct LessonState{
     LessonState(){};
     bool update{false};
-
     bool date{false};
     bool pupil{false};
     bool time{false};
@@ -19,7 +19,6 @@ struct LessonState{
 struct BotUserState{
     BotUserState(){};
     bool update{false};
-
     bool teacher{false};
     bool first_name{false};
     bool last_name{false};
@@ -31,26 +30,27 @@ struct BotUserState{
 
 
 struct StateForUser{
-    StateForUser(BotUserState& state, botUser& inst): inst(inst), state(state){}
+    StateForUser(BotUserState& state, BotUser& inst): inst(inst), state(state){}
     StateForUser(const StateForUser& from)
     {
         inst = from.inst;
         state = from.state;
     }
-    botUser inst;
+    BotUser inst;
     BotUserState state;
 };
 
 struct DayForLesson{
-    DayForLesson(LessonState& state, UserLesson& inst): inst(inst), state(state){}
+    DayForLesson(LessonState& state, UserLesson& inst): 
+    inst(inst), 
+    state(state){}
     DayForLesson(const DayForLesson& from)
     {
         inst = from.inst;
         state = from.state;
     }
-     UserLesson inst;
+    UserLesson inst;
     LessonState state;
-   
 };
 
 #endif

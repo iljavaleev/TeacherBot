@@ -6,14 +6,16 @@
 #include <vector>
 #include <string>
 #include <chrono>
+#include <memory>
 
+std::shared_ptr<BotUser> construct_user(const pqxx::row& res);
+std::shared_ptr<UserLesson> construct_user_lesson(const pqxx::row& res);
 
-
-struct botUser{
-    botUser(){}
-    botUser(long chat_id):chat_id(chat_id){}
-    static botUser get(long);
-    static std::vector<botUser> get_all(std::string&);
+struct BotUser{
+    BotUser(){}
+    BotUser(long chat_id):chat_id(chat_id){}
+    static std::shared_ptr<BotUser> get(long);
+    static std::vector<std::shared_ptr<BotUser>> get_all(std::string&);
     static bool exists(long id);
     void update();
     void destroy();
@@ -41,10 +43,12 @@ struct UserLesson{
     UserLesson()
     {
         const std::chrono::time_point now{std::chrono::system_clock::now()};
-        date = std::chrono::year_month_day{std::chrono::floor<std::chrono::days>(now)};
+        date = std::chrono::year_month_day{
+            std::chrono::floor<std::chrono::days>(now)
+        };
     }
-    static UserLesson get(int);
-    static std::vector<UserLesson> get_all(std::string&);
+    static std::shared_ptr<UserLesson> get(int);
+    static std::vector<std::shared_ptr<UserLesson>> get_all(std::string&);
     static bool exists(long id);
     void update();
     void destroy();

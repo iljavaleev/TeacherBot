@@ -30,7 +30,9 @@ namespace createLesson
                 clear_lesson_state(query->message->chat->id);
                 auto info = StringTools::split(query->data, ' ');
                 year_month_day date{
-                    year(stoi(info.at(1))), month(stoi(info.at(2))), day(stoi(info.at(3)))
+                    year(stoi(info.at(1))),
+                    month(stoi(info.at(2))), 
+                    day(stoi(info.at(3)))
                 };
                 UserLesson lesson;
                 lesson.teacher = query->message->chat->id;
@@ -46,7 +48,9 @@ namespace createLesson
                     "Выберите ученика",
                     nullptr, 
                     nullptr,
-                    teacherKeyboards::create_list_pupils_kb(query->message->chat->id)
+                    teacherKeyboards::create_list_pupils_kb(
+                        query->message->chat->id
+                    )
                 );
 
             }
@@ -62,7 +66,9 @@ namespace createLesson
             if(StringTools::split(query->data, ' ').at(0) == "delete_lesson")
             {   
                 
-                int lesson_id = stoi(StringTools::split(query->data, ' ').at(1));
+                int lesson_id = stoi(
+                    StringTools::split(query->data, ' ').at(1)
+                );
                 delete_lesson(lesson_id);
                 
                 return bot.getApi().sendMessage(
@@ -102,7 +108,8 @@ namespace createLesson
     {
         return [&bot](CallbackQuery::Ptr query)
         {   
-            if(StringTools::split(query->data, ' ').at(0) == "update_lesson_pupil")
+            if(StringTools::split(query->data, ' ').at(0) == 
+            "update_lesson_pupil")
             {   
                 
                 long id = stoi(StringTools::split(query->data, ' ').at(1));
@@ -118,10 +125,13 @@ namespace createLesson
     {
         return [&bot](CallbackQuery::Ptr query)
         {   
-            if (StringTools::split(query->data, ' ').at(0) == "update_lesson_day_date")
+            if (StringTools::split(query->data, ' ').at(0) == 
+            "update_lesson_day_date")
             {   
                 
-                std::vector<std::string> info = StringTools::split(query->data, ' ');
+                std::vector<std::string> info = StringTools::split(
+                    query->data, ' '
+                );
                 std::chrono::year_month_day ymd(
                     std::chrono::year(stoi(info.at(2))),
                     std::chrono::month(stoi(info.at(3))),
@@ -140,22 +150,35 @@ namespace createLesson
     {
         return [&bot](CallbackQuery::Ptr query) 
         {
-            if (StringTools::split(query->data, ' ').at(0) == "update_lesson_field") 
+            if (StringTools::split(query->data, ' ').at(0) == 
+            "update_lesson_field") 
             {
                 
-                std::vector<std::string> info = StringTools::split(query->data, ' ');
+                std::vector<std::string> info = StringTools::split(
+                    query->data, ' '
+                );
                 long teacher_chat_id{query->message->chat->id};
                 
                 if (info.at(1) == "finish_lesson_update")
                 {
                     lessonState.at(teacher_chat_id).inst.update();
                     auto lesson = lessonState.at(teacher_chat_id).inst;
-                    botUser teacher = get_user(query->message->chat->id);
+                    std::shared_ptr<BotUser> teacher = get_user(
+                        query->message->chat->id
+                    );
                     std::string mess = std::format(
-                        "<b>Некоторая данные по вашему занятию были изменены</b>\n\n"
-                        "<b>Преподователь {} {}</b>\n<b>Время начачла занятия: {} в {}</b>\n"
-                        "<b>Тема урока</b>: {}\n<b>Информация для ученика</b>:\n{}", 
-                        teacher.first_name, teacher.last_name, lesson.date, lesson.time, lesson.objectives, lesson.comment_for_pupil
+                        "<b>Некоторыя данные по вашему" 
+                        " занятию были изменены</b>\n\n"
+                        "<b>Преподователь {} {}</b>\n"
+                        "<b>Время начачла занятия: {} в {}</b>\n"
+                        "<b>Тема урока</b>: {}\n"
+                        "<b>Информация для ученика</b>:\n{}", 
+                        teacher->first_name, 
+                        teacher->last_name, 
+                        lesson->date, 
+                        lesson->time, 
+                        lesson->objectives, 
+                        lesson->comment_for_pupil
                     );
 
                     send_lesson_info_to_pupil(bot, mess, lesson.pupil);
@@ -169,7 +192,7 @@ namespace createLesson
                 if (!lessonState.contains(teacher_chat_id))
                 {
                     
-                    UserLesson lesson = UserLesson::get(std::stol(info.at(1)));;
+                    UserLesson lesson = UserLesson::get(std::stol(info.at(1)));
                     LessonState state;
                     state.update = true;
                     DayForLesson dfl{state, lesson}; 
@@ -203,7 +226,11 @@ namespace createLesson
                         "Выберите ученика",
                         nullptr,
                         nullptr,
-                        teacherKeyboards::create_list_pupils_kb(query->message->chat->id, true, true)
+                        teacherKeyboards::create_list_pupils_kb(
+                            query->message->chat->id, 
+                            true, 
+                            true
+                        )
                     );
                 }
                 else if (info.at(1) == "time")
@@ -224,7 +251,8 @@ namespace createLesson
                 }
                 else if (info.at(1) == "comment_for_pupil")
                 {
-                    lessonState.at(teacher_chat_id).state.comment_for_pupil = true;
+                    lessonState.at(teacher_chat_id).state.comment_for_pupil = 
+                    true;
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
                         "Введите комментарий для учащегося"
@@ -232,7 +260,8 @@ namespace createLesson
                 }
                 else
                 {
-                    lessonState.at(teacher_chat_id).state.comment_for_teacher = true;
+                    lessonState.at(teacher_chat_id).state.comment_for_teacher = 
+                    true;
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
                         "Введите комментарий для учителя"
@@ -248,11 +277,17 @@ namespace createLesson
     {
         return [&bot](CallbackQuery::Ptr query)
         {   
-            if (StringTools::split(query->data, ' ').at(0) == "change_lesson_date")
+            if (StringTools::split(query->data, ' ').at(0) == 
+            "change_lesson_date")
             {   
-                long lesson_id = stol(StringTools::split(query->data, ' ').at(1));
+                long lesson_id = stol(
+                    StringTools::split(query->data, ' ').at(1)
+                );
                 long teacher_id;
-                std::string mess = lesson_delete_request_message(lesson_id, &teacher_id);
+                std::string mess = lesson_delete_request_message(
+                    lesson_id, 
+                    &teacher_id
+                );
                 try
                 {
                     bot.getApi().sendMessage(
@@ -367,7 +402,10 @@ Message::Ptr lesson_objectives_handler(
         return send_lesson_update_kb(bot, message);
     
     lessonState.at(message->chat->id).state.comment_for_pupil = true;
-    return bot.getApi().sendMessage(message->chat->id, "Введите комментарии для ученика (полезная информация)"); 
+    return bot.getApi().sendMessage(
+        message->chat->id, 
+        "Введите комментарии для ученика (полезная информация)"
+    ); 
 }
 
 
@@ -383,7 +421,10 @@ Message::Ptr lesson_comment_for_pupil_handler(
         return send_lesson_update_kb(bot, message);
    
     lessonState.at(message->chat->id).state.comment_for_teacher = true;
-    return bot.getApi().sendMessage(message->chat->id, "Введите информацию для себя (служебные пометки)");
+    return bot.getApi().sendMessage(
+        message->chat->id, 
+        "Введите информацию для себя (служебные пометки)"
+    );
   
         
 }
@@ -404,27 +445,37 @@ Message::Ptr lesson_comment_for_teacher_handler(
     UserLesson lesson = lessonState.at(message->chat->id).inst;
     clear_lesson_state(message->chat->id);
    
-    botUser teacher = get_user(message->chat->id);
+    std::shared_ptr<BotUser> teacher = get_user(message->chat->id);
     std::string mess = std::format(
             "<b>Преподователь {} {}</b>\n"
             "<b>Время начачла занятия: {} в {}</b>\n"
             "<b>Тема урока</b>: {}\n<b>Информация для ученика</b>:\n{}", 
-            teacher.first_name, teacher.last_name, lesson.date, lesson.time, lesson.objectives, lesson.comment_for_pupil
-            );
+            teacher->first_name, 
+            teacher->last_name, 
+            lesson->date, 
+            lesson->time, 
+            lesson->objectives, 
+            lesson->comment_for_pupil
+        );
 
 
     send_lesson_info_to_pupil(bot, mess, lesson.pupil);
     return bot.getApi().sendMessage(
                 message->chat->id, 
                 std::format(
-                    "Вы успешно создали занятие.\nУченику отправлено сообщение\n\n{}", 
-                    get_user_lesson_info(message->chat->id, user_lesson_id, teacher.role)
-                    ),
+                    "Вы успешно создали занятие.\n"
+                    "Ученику отправлено сообщение\n\n{}", 
+                    get_user_lesson_info(
+                        message->chat->id, 
+                        user_lesson_id, 
+                        teacher.role
+                    )
+                ),
                 nullptr, 
                 nullptr, 
                 Keyboards::day_info_kb(user_lesson_id, teacher.role),
                 "HTML"
-                );
+            );
 
 }   
 

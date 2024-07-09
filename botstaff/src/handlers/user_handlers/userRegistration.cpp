@@ -1,17 +1,19 @@
 #include "botstaff/handlers/user_handlers/userRegistration.hpp"
+
+#include <unordered_map>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <stdexcept>
+#include <memory>
+
 #include "botstaff/database/CRUD.hpp"
 #include "botstaff/handlers/handlers.hpp"
 #include "botstaff/keyboards/teacher_keyboards/teacherKeyboards.hpp"
 #include "botstaff/keyboards/user_keyboards/userKeyboards.hpp"
 #include "botstaff/keyboards/keyboards.hpp"
-#include "botstaff/states.hpp"
-#include <unordered_map>
 #include "botstaff/utils.hpp"
-#include <iostream>
-#include <vector>
-#include <string>
-#include <stdexcept>
-
+#include "botstaff/states.hpp"
 
 namespace UserRegisterHandlers
 {
@@ -26,7 +28,7 @@ namespace UserRegisterHandlers
                 if (info.size() == 1)
                 {
                     clear_user_state(query->message->chat->id);
-                    botUser current_user(query->message->chat->id);
+                    BotUser current_user(query->message->chat->id);
                     current_user.tgusername = query->message->chat->username;
                     current_user.role = "pupil";
                     
@@ -45,11 +47,17 @@ namespace UserRegisterHandlers
                 }
                 else
                 {
-                    userState.at(query->message->chat->id).state.teacher = false;
-                    userState.at(query->message->chat->id).inst.teacher = stol(info.at(1));    
-                    userState.at(query->message->chat->id).state.first_name = true;
+                    userState.at(query->message->chat->id).state.teacher = 
+                    false;
+                    userState.at(query->message->chat->id).inst.teacher = 
+                    stol(info.at(1));    
+                    userState.at(query->message->chat->id).state.first_name = 
+                    true;
                     
-                    return bot.getApi().sendMessage(query->message->chat->id, "Введите ваше имя");
+                    return bot.getApi().sendMessage(
+                        query->message->chat->id, 
+                        "Введите ваше имя"
+                    );
 
                 }            
             } 
@@ -66,7 +74,7 @@ namespace UserRegisterHandlers
             {
                 clear_user_state(query->message->chat->id);
 
-                botUser current_user(query->message->chat->id);
+                BotUser current_user(query->message->chat->id);
                 current_user.tgusername = query->message->chat->username;
                 current_user.role = "teacher";
                 
@@ -100,15 +108,20 @@ namespace UserRegisterHandlers
                     if (userState.at(query->message->chat->id).inst.role == "pupil")
                     {
                         std::string text = std::format(
-                            "Запрос от ученика:\n\n{}\n\nВы можете принять его в списке учеников бота", 
-                            get_pupil_info(userState.at(query->message->chat->id).inst)
-                            );
+                            "Запрос от ученика:\n\n{}\n\n"
+                            "Вы можете принять его в списке учеников бота", 
+                            get_pupil_info(
+                                userState.at(query->message->chat->id).inst
+                            )
+                        );
                         query->data = " ";
                         
                         try
                         {
                             bot.getApi().sendMessage(
-                                userState.at(query->message->chat->id).inst.teacher, 
+                                userState.at(
+                                    query->message->chat->id
+                                ).inst.teacher, 
                                 text,
                                 nullptr,
                                 nullptr,
@@ -124,9 +137,13 @@ namespace UserRegisterHandlers
                     message = "Вы успешно прошли регистрацию";
                 }
                 else
-                    message = "Извините, вы не сможете пользоваться нашим ботом";
+                    message = "Извините, вы не сможете "
+                    "пользоваться нашим ботом";
                 clear_user_state(query->message->chat->id);
-                return  bot.getApi().sendMessage(query->message->chat->id, message);
+                return  bot.getApi().sendMessage(
+                    query->message->chat->id, 
+                    message
+                );
             } 
             else
                 return Message::Ptr(nullptr);
@@ -140,9 +157,12 @@ namespace UserRegisterHandlers
     {
         return [&bot](CallbackQuery::Ptr query) 
         {
-            if ((StringTools::split(query->data, ' ').at(0) == "update_user_field") && is_teacher(query->message->chat->id))
+            if ((StringTools::split(query->data, ' ').at(0) == 
+            "update_user_field") && is_teacher(query->message->chat->id))
             {
-                std::vector<std::string> info = StringTools::split(query->data, ' ');
+                std::vector<std::string> info = StringTools::split(
+                    query->data, ' '
+                );
                 long admin_chat_id{query->message->chat->id};
                 
                 if (info.at(1) == "finish")
@@ -153,7 +173,8 @@ namespace UserRegisterHandlers
 
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
-                        tmp.role == "user" ? get_pupil_info(tmp) : get_teacher_info(tmp),
+                        tmp.role == "user" ? get_pupil_info(tmp) : 
+                        get_teacher_info(tmp),
                         nullptr,
                         nullptr,
                         teacherKeyboards::create_user_info_kb(tmp),
@@ -163,9 +184,11 @@ namespace UserRegisterHandlers
                     
                 if (!userState.contains(admin_chat_id))
                 {
-                    botUser user = botUser::get(std::stol(info.at(2)));
+                    std::shared_ptr<BotUser> user = botUser::get(
+                        std::stol(info.at(2))
+                    );
                     BotUserState user_state;
-                    StateForUser state_inst(user_state, user);
+                    StateForUser state_inst(user_state, *user);
                     userState.insert({admin_chat_id, state_inst});
                 }
                 
@@ -284,12 +307,12 @@ Message::Ptr send_update_kb(
                     "Редактирование",
                     nullptr,
                     nullptr,
-                    teacherKeyboards::update_user_info_kb(role, message->chat->id)
+                    teacherKeyboards::update_user_info_kb(
+                        role, 
+                        message->chat->id
+                    )
                 ); 
 }
-
-
-
 
 
 Message::Ptr user_first_name_handler(
@@ -299,9 +322,16 @@ Message::Ptr user_first_name_handler(
     )
 {
     userState.at(message->chat->id).state.first_name = false;
-    userState.at(message->chat->id).inst.first_name = string_to_upper(message->text);
+    userState.at(message->chat->id).inst.first_name = string_to_upper(
+        message->text
+    );
     if (update)
-        return send_update_kb(bot, message, update, userState.at(message->chat->id).inst.role);
+        return send_update_kb(
+            bot, 
+            message, 
+            update, 
+            userState.at(message->chat->id).inst.role
+        );
     
     userState.at(message->chat->id).state.last_name = true;
     return bot.getApi().sendMessage(message->chat->id, "Введите фамилию");
@@ -315,12 +345,22 @@ Message::Ptr user_last_name_handler(
     )
 {   
     userState.at(message->chat->id).state.last_name = false;
-    userState.at(message->chat->id).inst.last_name = string_to_upper(message->text);
+    userState.at(message->chat->id).inst.last_name = string_to_upper(
+        message->text
+    );
     if (update)
-        return send_update_kb(bot, message, update, userState.at(message->chat->id).inst.role);
+        return send_update_kb(
+            bot, 
+            message, 
+            update, 
+            userState.at(message->chat->id).inst.role
+        );
     
     userState.at(message->chat->id).state.phone = true;
-    return bot.getApi().sendMessage(message->chat->id, "Введите номер телефона"); 
+    return bot.getApi().sendMessage(
+        message->chat->id, 
+        "Введите номер телефона"
+    ); 
 }
 
 Message::Ptr user_phone_handler(
@@ -332,12 +372,16 @@ Message::Ptr user_phone_handler(
     userState.at(message->chat->id).state.phone = false;
     userState.at(message->chat->id).inst.phone = message->text;
     if (update)
-        return send_update_kb(bot, message, update, userState.at(message->chat->id).inst.role);
+        return send_update_kb(bot, message, update, userState.at(
+            message->chat->id
+        ).inst.role
+    );
    
     userState.at(message->chat->id).state.email = true;
-    return bot.getApi().sendMessage(message->chat->id, "Введите адрес электронной почты");
-  
-        
+    return bot.getApi().sendMessage(
+        message->chat->id, 
+        "Введите адрес электронной почты"
+    );
 }
 
 Message::Ptr user_email_handler(
@@ -349,12 +393,20 @@ Message::Ptr user_email_handler(
     userState.at(message->chat->id).state.email = false;
     userState.at(message->chat->id).inst.email = message->text;
     if (update)
-        return send_update_kb(bot, message, update, userState.at(message->chat->id).inst.role);
+        return send_update_kb(
+            bot, 
+            message, 
+            update, 
+            userState.at(message->chat->id).inst.role
+        );
     
     if (userState.at(message->chat->id).inst.role == "pupil")
     {
          userState.at(message->chat->id).state.user_class = true;
-        return bot.getApi().sendMessage(message->chat->id, "Введите класс обучения");   
+        return bot.getApi().sendMessage(
+            message->chat->id, 
+            "Введите класс обучения"
+        );   
     }
     
     return bot.getApi().sendMessage(
@@ -376,7 +428,12 @@ Message::Ptr user_class_handler(
     userState.at(message->chat->id).state.user_class = false;
     userState.at(message->chat->id).inst.cls = message->text;
     if (update)
-        return send_update_kb(bot, message, update, userState.at(message->chat->id).inst.role);
+        return send_update_kb(
+            bot, 
+            message, 
+            update, 
+            userState.at(message->chat->id).inst.role
+        );
     
     return bot.getApi().sendMessage(
         message->chat->id, 
@@ -395,5 +452,10 @@ Message::Ptr user_comment_handler(
 {
     userState.at(message->chat->id).state.comment = false;
     userState.at(message->chat->id).inst.comment = message->text;
-    return send_update_kb(bot, message, update, userState.at(message->chat->id).inst.role);
+    return send_update_kb(
+        bot, 
+        message, 
+        update, 
+        userState.at(message->chat->id).inst.role
+    );
 }

@@ -13,5 +13,4 @@ namespace UserKeyboards
     InlineKeyboardMarkup::Ptr create_list_teachers_kb();
 }
 
-
 #endif

@@ -1,15 +1,16 @@
 #include "botstaff/keyboards/keyboards.hpp"
-#include "botstaff/utils.hpp"
-#include "botstaff/database/CRUD.hpp"
+
 #include <tgbot/tgbot.h>
 #include <vector>
 #include <utility>
 #include <format>
 #include <unordered_set>
 
+#include "botstaff/utils.hpp"
+#include "botstaff/database/CRUD.hpp"
+
 using namespace std;
 using namespace TgBot;
-
 
 
 namespace Keyboards
@@ -24,7 +25,12 @@ namespace Keyboards
         )
     {
         
-        std::unordered_set<int> lesson_days = get_lesson_days(year, month, chat_id, role);
+        std::unordered_set<int> lesson_days = get_lesson_days(
+            year, 
+            month, 
+            chat_id, 
+            role
+        );
         
         int first_day_number = dayNumber(year, month, day);
         int month_day_number = num_days(month, year);
@@ -64,7 +70,10 @@ namespace Keyboards
                 else
                     cal_btn->text = std::format("{}", count);
                 
-                cal_btn->callbackData = std::vformat(callback_data, std::make_format_args(role, year, month, count));
+                cal_btn->callbackData = std::vformat(
+                    callback_data, 
+                    std::make_format_args(role, year, month, count)
+                );
                 
                 row.at(j) = cal_btn;
                 count++;
@@ -121,25 +130,53 @@ namespace Keyboards
         return keyboard;
     }
 
-    InlineKeyboardMarkup::Ptr lessons_list_kb(long chat_id, std::string role, int year, int month, int day)
+    InlineKeyboardMarkup::Ptr lessons_list_kb(
+        long chat_id, 
+        std::string role, 
+        int year, 
+        int month, 
+        int day
+    )
     {
         InlineKeyboardMarkup::Ptr keyboard(new InlineKeyboardMarkup);
-        std::vector<std::vector<std::string>> info = get_lessons_by_day(chat_id, role, year, month, day);
+        std::vector<std::vector<std::string>> info = get_lessons_by_day(
+            chat_id, 
+            role, 
+            year, 
+            month, 
+            day
+        );
         for (auto it{info.begin()}; it != info.end(); ++it)
         {
             vector<InlineKeyboardButton::Ptr> row;
             InlineKeyboardButton::Ptr user_btn(new InlineKeyboardButton);
-            user_btn->text = std::format("{} {} {}", it->at(0), it->at(1), it->at(3));
-            user_btn->callbackData = std::format("user_lesson {} {}", it->at(2), role);
+            user_btn->text = std::format(
+                "{} {} {}", 
+                it->at(0), 
+                it->at(1), 
+                it->at(3)
+            );
+            user_btn->callbackData = std::format(
+                "user_lesson {} {}", 
+                it->at(2), 
+                role
+            );
             row.push_back(user_btn);
             keyboard->inlineKeyboard.push_back(row);
         }
         if (role == "teacher")
         {
             vector<InlineKeyboardButton::Ptr> row;
-            InlineKeyboardButton::Ptr create_lesson_btn(new InlineKeyboardButton);
+            InlineKeyboardButton::Ptr create_lesson_btn(
+                new InlineKeyboardButton
+            );
             create_lesson_btn->text = "Создать новое занятие";
-            create_lesson_btn->callbackData = std::format("create_lesson {} {} {}", year, month, day);
+            create_lesson_btn->callbackData = std::format(
+                "create_lesson {} {} {}", 
+                year, 
+                month, 
+                day
+            );
             row.push_back(create_lesson_btn);
             keyboard->inlineKeyboard.push_back(row);
         }
@@ -156,19 +193,32 @@ namespace Keyboards
         {
             InlineKeyboardButton::Ptr change_date_btn(new InlineKeyboardButton);
             change_date_btn->text = "Запрос на перенос занятия";
-            change_date_btn->callbackData = std::format("change_lesson_date {}", lesson_id);
+            change_date_btn->callbackData = std::format(
+                "change_lesson_date {}", 
+                lesson_id
+            );
             row.push_back(change_date_btn);
         }
         else
         {
-            InlineKeyboardButton::Ptr update_lesson_btn(new InlineKeyboardButton);
+            InlineKeyboardButton::Ptr update_lesson_btn(
+                new InlineKeyboardButton
+            );
             update_lesson_btn->text = "Редактировать занятие";
-            update_lesson_btn->callbackData = std::format("update_lesson_field {}", lesson_id);
+            update_lesson_btn->callbackData = std::format(
+                "update_lesson_field {}", 
+                lesson_id
+            );
             row.push_back(update_lesson_btn);
 
-            InlineKeyboardButton::Ptr delete_lesson_btn(new InlineKeyboardButton);
+            InlineKeyboardButton::Ptr delete_lesson_btn(
+                new InlineKeyboardButton
+            );
             delete_lesson_btn->text = "Отменить занятие";
-            delete_lesson_btn->callbackData = std::format("delete_lesson {}", lesson_id);
+            delete_lesson_btn->callbackData = std::format(
+                "delete_lesson {}", 
+                lesson_id
+            );
             row.push_back(delete_lesson_btn);
         }
         
@@ -176,6 +226,3 @@ namespace Keyboards
         return keyboard;
     }
 }
-
-
-

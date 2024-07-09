@@ -20,8 +20,11 @@ namespace teacherHandlers
             {
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
-                        "Ваши недавние комметарии", nullptr, nullptr,  teacherKeyboards::create_comments_kb(query->message->chat->id)
-                        );
+                        "Ваши недавние комметарии", 
+                        nullptr, 
+                        nullptr,  
+                        teacherKeyboards::create_comments_kb(query->message->chat->id)
+                    );
             }
             return Message::Ptr(nullptr);
         };
@@ -42,7 +45,7 @@ namespace teacherHandlers
                         nullptr, 
                         nullptr,
                         "HTML"
-                        );
+                    );
             }
             return Message::Ptr(nullptr);
         };
@@ -58,8 +61,11 @@ namespace teacherHandlers
             {
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
-                        "Выберите категорию", nullptr, nullptr,  teacherKeyboards::create_teachers_kb()
-                        );
+                        "Выберите категорию", 
+                        nullptr, 
+                        nullptr,  
+                        teacherKeyboards::create_teachers_kb()
+                    );
             }
             return Message::Ptr(nullptr);
         };
@@ -76,15 +82,21 @@ namespace teacherHandlers
                 {
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
-                        "Список педагогов по фамилии", nullptr, nullptr, teacherKeyboards::create_list_users_kb(0)
-                        );
+                        "Список педагогов по фамилии", 
+                        nullptr, 
+                        nullptr, 
+                        teacherKeyboards::create_list_users_kb(0)
+                    );
                 }
                 else
                 {
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
-                        "Список кандидатов по фамилии", nullptr, nullptr, teacherKeyboards::create_list_users_kb(0, false)
-                        );
+                        "Список кандидатов по фамилии", 
+                        nullptr, 
+                        nullptr, 
+                        teacherKeyboards::create_list_users_kb(0, false)
+                    );
                 }
                     
             }
@@ -102,8 +114,11 @@ namespace teacherHandlers
             {
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
-                        "Выберите категорию", nullptr, nullptr, teacherKeyboards::create_pupils_kb(query->message->chat->id)
-                        );
+                        "Выберите категорию", 
+                        nullptr, 
+                        nullptr, 
+                        teacherKeyboards::create_pupils_kb(query->message->chat->id)
+                    );
             }
             return Message::Ptr(nullptr);
         };
@@ -156,7 +171,7 @@ namespace teacherHandlers
             if(StringTools::split(query->data, ' ').at(0) == "user_info")
             {   
                 std::string pupil_id{StringTools::split(query->data, ' ').at(1)};
-                botUser u = get_user(std::stol(pupil_id));
+                std::shared_ptr<BotUser> u = get_user(std::stol(pupil_id));
                 std::string info;
                 if (u.role == "teacher")
                 {

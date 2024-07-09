@@ -1,4 +1,11 @@
 #include "botstaff/handlers/handlers.hpp"
+
+#include <unordered_map>
+#include <string>
+#include <exception>
+#include <iostream>
+#include <memory>
+
 #include "botstaff/states.hpp"
 #include "botstaff/utils.hpp"
 #include "botstaff/vocabular.hpp"
@@ -8,11 +15,6 @@
 #include "botstaff/handlers/user_handlers/userRegistration.hpp"
 #include "botstaff/handlers/teacher_handlers/createLessonHandlers.hpp"
 #include "botstaff/database/CRUD.hpp"
-#include <unordered_map>
-#include <string>
-#include <exception>
-#include <iostream>
-
 
 namespace CommandHandlers
 {
@@ -23,19 +25,34 @@ namespace CommandHandlers
             long chat_id(message->chat->id);
             clear_user_state(chat_id);
             clear_lesson_state(chat_id);
-            botUser user = botUser::get(chat_id);
+            std::shared_ptr<BotUser> user = botUser::get(chat_id);
             if (is_admin(chat_id))
-                return bot.getApi().sendMessage(chat_id, "Вход для админа", nullptr, nullptr, teacherKeyboards::create_teacher_start_kb(true)); 
-            else if(is_teacher(user))
-                return bot.getApi().sendMessage(chat_id, "Вход для учителя", nullptr, nullptr, teacherKeyboards::create_teacher_start_kb(false));
+                return bot.getApi().sendMessage(
+                    chat_id, 
+                    "Вход для админа", 
+                    nullptr, 
+                    nullptr, 
+                    teacherKeyboards::create_teacher_start_kb(true)
+                ); 
+            else if(is_teacher(*user))
+                return bot.getApi().sendMessage(
+                    chat_id, 
+                    "Вход для учителя", 
+                    nullptr, 
+                    nullptr, 
+                    teacherKeyboards::create_teacher_start_kb(false)
+                );
             else
                 return bot.getApi().sendMessage(
                     chat_id, 
                     "Вход для пользователя", 
                     nullptr, 
                     nullptr, 
-                    UserKeyboards::create_user_start_kb(chat_id, !user.empty())
-                    );  
+                    UserKeyboards::create_user_start_kb(
+                        chat_id, 
+                        !user->empty()
+                    )
+                );  
                           
         };
     }
@@ -48,14 +65,19 @@ namespace CommandHandlers
             long chat_id(message->chat->id);
             clear_user_state(chat_id);
             clear_lesson_state(chat_id);
-            return bot.getApi().sendMessage(message->chat->id, "Cancel command");
+            return bot.getApi().sendMessage(
+                message->chat->id, 
+                "Cancel command"
+            );
         };
     }
 }
 
 namespace Handlers
 {
-    std::function<Message::Ptr (Message::Ptr)> any_message_handler(TgBot::Bot& bot)
+    std::function<Message::Ptr (Message::Ptr)> any_message_handler(
+        TgBot::Bot& bot
+    )
     {
         return [&bot](Message::Ptr message)
         {
@@ -89,11 +111,16 @@ namespace Handlers
                 std::cerr << e.what() << '\n';
             }
 
-            return bot.getApi().sendMessage(user_chat_id, "Your message is: " + message->text);
+            return bot.getApi().sendMessage(
+                user_chat_id, 
+                "Your message is: " + message->text
+            );
         };
     }
 
-    std::function<Message::Ptr (CallbackQuery::Ptr)> calendar_handler(TgBot::Bot& bot) //
+    std::function<Message::Ptr (CallbackQuery::Ptr)> calendar_handler(
+        TgBot::Bot& bot
+    ) 
     {
         return [&bot](CallbackQuery::Ptr query) 
         {
@@ -103,10 +130,19 @@ namespace Handlers
                 std::string role = StringTools::split(query->data, ' ').at(1);
                 return bot.getApi().sendMessage(
                     query->message->chat->id, 
-                    std::format("<b><i>Расписание на {}</i></b>", MONTHS_RU.at(ymd[1]-1)), 
+                    std::format(
+                        "<b><i>Расписание на {}</i></b>", 
+                        MONTHS_RU.at(ymd[1]-1)
+                    ), 
                     nullptr, 
                     nullptr, 
-                    Keyboards::create_calendar_kb(ymd[0], ymd[1], 1, role, query->message->chat->id),
+                    Keyboards::create_calendar_kb(
+                        ymd[0], 
+                        ymd[1], 
+                        1, 
+                        role, 
+                        query->message->chat->id
+                    ),
                     "HTML"
                     );  
             }
@@ -115,7 +151,9 @@ namespace Handlers
         };
     }
     
-    std::function<Message::Ptr (CallbackQuery::Ptr)> next_month_handler(TgBot::Bot& bot)
+    std::function<Message::Ptr (CallbackQuery::Ptr)> next_month_handler(
+        TgBot::Bot& bot
+    )
     {
         return [&bot](CallbackQuery::Ptr query) 
         {
@@ -136,10 +174,20 @@ namespace Handlers
                 }
                 return bot.getApi().sendMessage(
                     query->message->chat->id, 
-                    std::format("<b><i>Расписание на {}</i></b>", MONTHS_RU.at(month-1)),
+                    std::format(
+                        "<b><i>Расписание на {}</i></b>", 
+                        MONTHS_RU.at(month-1)
+                    ),
                     nullptr, 
                     nullptr, 
-                    Keyboards::create_calendar_kb(year, month, 1, role, query->message->chat->id, update),
+                    Keyboards::create_calendar_kb(
+                        year, 
+                        month, 
+                        1, 
+                        role, 
+                        query->message->chat->id, 
+                        update
+                    ),
                     "HTML"
                     );  
             }
@@ -162,10 +210,17 @@ namespace Handlers
                 int day = stoi(info.at(4));
 
                 
-                auto kb = Keyboards::lessons_list_kb(query->message->chat->id, role, year, month, day);
+                auto kb = Keyboards::lessons_list_kb(
+                    query->message->chat->id, 
+                    role, 
+                    year, 
+                    month, 
+                    day
+                );
                 return bot.getApi().sendMessage(
                     query->message->chat->id, 
-                    kb->inlineKeyboard.empty() ? "Сегодня нет занятий" : "Занятия сегодня",
+                    kb->inlineKeyboard.empty() ? "Сегодня нет занятий" : 
+                    "Занятия сегодня",
                     nullptr, 
                     nullptr, 
                     kb
@@ -177,11 +232,14 @@ namespace Handlers
         };
     }
 
-    std::function<Message::Ptr (CallbackQuery::Ptr)> day_info_handler(TgBot::Bot& bot)
+    std::function<Message::Ptr (CallbackQuery::Ptr)> day_info_handler(
+        TgBot::Bot& bot
+    )
     {
          return [&bot](CallbackQuery::Ptr query) 
         {
-            if (StringTools::split(query->data, ' ').at(0) == "user_lesson")
+            if (StringTools::split(query->data, ' ').at(0) == 
+            "user_lesson")
             {
                 auto info = StringTools::split(query->data, ' ');
                 int user_lesson_id = stoi(info.at(1));
@@ -189,7 +247,11 @@ namespace Handlers
                 
                 return bot.getApi().sendMessage(
                     query->message->chat->id, 
-                    get_user_lesson_info(query->message->chat->id, user_lesson_id, role),
+                    get_user_lesson_info(
+                        query->message->chat->id, 
+                        user_lesson_id, 
+                        role
+                    ),
                     nullptr, 
                     nullptr, 
                     Keyboards::day_info_kb(user_lesson_id, role),

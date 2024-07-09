@@ -13,29 +13,31 @@ void clear_lesson_state(long chat_id);
 Message::Ptr check_lesson_state( 
     TgBot::Bot& bot, 
     const Message::Ptr message
-    );
+);
 
 Message::Ptr lesson_time_handler(
     TgBot::Bot& bot, 
     const Message::Ptr message,
     bool update = false
-    );
+);
 
 Message::Ptr lesson_objectives_handler(
     TgBot::Bot& bot, 
     const Message::Ptr message,
     bool update = false
-    );
+);
+
 Message::Ptr lesson_comment_for_pupil_handler(
     TgBot::Bot& bot, 
     const Message::Ptr message,
     bool update = false
-    );
+);
+
 Message::Ptr lesson_comment_for_teacher_handler(
     TgBot::Bot& bot, 
     const Message::Ptr message,
     bool update = false
-    );
+);
 // Message::Ptr lesson_paid_handler(
 //     TgBot::Bot& bot, 
 //     const Message::Ptr message,
@@ -46,11 +48,11 @@ Message::Ptr send_lesson_info_to_pupil(
     TgBot::Bot& bot,
     std::string& message,
     long pupil_id
-    );
+);
 
 Message::Ptr send_lesson_update_kb(
     TgBot::Bot& bot, 
     const Message::Ptr& message
-    );
+);
 
 #endif 

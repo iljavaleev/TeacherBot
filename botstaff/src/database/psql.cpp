@@ -9,10 +9,11 @@ const std::string URI = std::format(
     "dbname={} user={} password={} host={} port={}", 
     std::getenv("POSTGRES_DB") ? std::getenv("POSTGRES_DB") : "cppbot", 
     std::getenv("POSTGRES_USER") ? std::getenv("POSTGRES_USER") : "postgres", 
-    std::getenv("POSTGRES_PASSWORD") ? std::getenv("POSTGRES_PASSWORD") : "postgres",
+    std::getenv("POSTGRES_PASSWORD") ? std::getenv("POSTGRES_PASSWORD") : 
+    "postgres",
     std::getenv("POSTGRES_HOST") ? std::getenv("POSTGRES_HOST") : "localhost",
     std::getenv("POSTGRES_PORT") ? std::getenv("POSTGRES_PORT") : "5432"
-    );
+);
 
 namespace SQL
 {
@@ -83,7 +84,8 @@ void update(const std::string& query)
         pqxx::connection C(URI);
         if (C.is_open()) 
         {
-        std::cout << "Opened database successfully: " << C.dbname() << std::endl;
+        std::cout << "Opened database successfully: " << 
+        C.dbname() << std::endl;
         } 
         else 
         {
@@ -107,7 +109,8 @@ void destroy(const std::string& query)
         pqxx::connection C(URI);
         if (C.is_open()) 
         {
-        std::cout << "Opened database successfully: " << C.dbname() << std::endl;
+        std::cout << "Opened database successfully: " << 
+        C.dbname() << std::endl;
         } 
         else 
         {
