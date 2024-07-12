@@ -13,5 +13,4 @@ src/Utils.cpp
 src/database/CRUD.cpp
 )
 
-
 target_include_directories(func PUBLIC include) 
