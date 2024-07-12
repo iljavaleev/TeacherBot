@@ -1,6 +1,5 @@
-#include "botstaff/utils.hpp"
+#include "botstaff/Utils.hpp"
 
-#include <boost/locale/encoding_utf.hpp>
 #include <vector>
 #include <string>
 #include <chrono>
@@ -14,10 +13,11 @@
 #include <sstream>
 #include <chrono>
 #include <memory>
+#include <boost/locale/encoding_utf.hpp>
 
-#include "botstaff/database/psql.hpp"
+#include "botstaff/database/PSQL.hpp"
 #include "botstaff/database/CRUD.hpp"
-#include "botstaff/handlers/handlers.hpp"
+#include "botstaff/handlers/Handlers.hpp"
 
 using namespace TgBot;
 
@@ -296,13 +296,13 @@ std::string get_user_lesson_info(
     std::string role
 )
 {   
-    UserLesson user_lesson = UserLesson::get(user_lesson_id);
-    if (!user_lesson.id)
+    std::shared_ptr<UserLesson> user_lesson = UserLesson::get(user_lesson_id);
+    if (!user_lesson->id)
         return "Произошла ошибка, повторите позднее";
-    std::shared_ptr<BotUser>  user;
+    std::shared_ptr<BotUser>  user(new BotUser());
     if (role == "teacher")
     {
-        user = BotUser::get(user_lesson.pupil);
+        user = BotUser::get(user_lesson->pupil);
         return std::format(
             "<b>Ученик: {} {}</b>\n"
             "<b>Время начачла занятия: {}</b>\n"
@@ -316,7 +316,7 @@ std::string get_user_lesson_info(
         );
     }
     
-    user =  BotUser::get(user_lesson.teacher);
+    user =  BotUser::get(user_lesson->teacher);
     return std::format(
         "<b>Преподователь {} {}</b>\n"
         "<b>Время начачла занятия: {}</b>\n"

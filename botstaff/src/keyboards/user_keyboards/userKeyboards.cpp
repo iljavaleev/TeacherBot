@@ -1,4 +1,4 @@
-#include "botstaff/keyboards/user_keyboards/userKeyboards.hpp"
+#include "botstaff/keyboards/user_keyboards/UserKeyboards.hpp"
 
 #include <tgbot/tgbot.h>
 #include <vector>
@@ -6,7 +6,7 @@
 #include <format>
 #include <unordered_set>
 
-#include "botstaff/utils.hpp"
+#include "botstaff/Utils.hpp"
 #include "botstaff/database/CRUD.hpp"
 
 using namespace std;
@@ -69,7 +69,7 @@ namespace UserKeyboards
         std::string  query = "SELECT * FROM bot_user WHERE teacher is null AND \
         is_active=true ORDER BY last_name";
 
-        std::vector<std::shared_ptr<BotUser>> teacher_list = botUser::get_all(
+        std::vector<std::shared_ptr<BotUser>> teacher_list = BotUser::get_all(
             query
         );
         for (auto it{teacher_list.begin()}; it!=teacher_list.end(); ++it)
@@ -78,12 +78,12 @@ namespace UserKeyboards
             InlineKeyboardButton::Ptr teacher_btn(new InlineKeyboardButton);
             teacher_btn->text = std::format(
                 "{} {}", 
-                *it->first_name, 
-                *it->last_name
+                (*it)->first_name, 
+                (*it)->last_name
             );
             teacher_btn->callbackData = std::format(
                 "register_pupil {}", 
-                *it->chat_id
+                (*it)->chat_id
             );
             row.push_back(teacher_btn);
             keyboard->inlineKeyboard.push_back(row);

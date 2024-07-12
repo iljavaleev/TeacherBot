@@ -1,15 +1,15 @@
 add_library(func
-src/handlers/handlers.cpp
-src/handlers/user_handlers/userHandlers.cpp
-src/handlers/teacher_handlers/teacherHandlers.cpp
-src/handlers/teacher_handlers/createLessonHandlers.cpp
-src/handlers/user_handlers/userRegistration.cpp
-src/commands.cpp
-src/database/psql.cpp
-src/keyboards/keyboards.cpp
-src/keyboards/teacher_keyboards/teacherKeyboards.cpp
-src/keyboards/user_keyboards/userKeyboards.cpp
-src/utils.cpp
+src/handlers/Handlers.cpp
+src/handlers/user_handlers/UserHandlers.cpp
+src/handlers/teacher_handlers/TeacherHandlers.cpp
+src/handlers/teacher_handlers/CreateLessonHandlers.cpp
+src/handlers/user_handlers/UserRegistration.cpp
+src/Commands.cpp
+src/database/PSQL.cpp
+src/keyboards/Keyboards.cpp
+src/keyboards/teacher_keyboards/TeacherKeyboards.cpp
+src/keyboards/user_keyboards/UserKeyboards.cpp
+src/Utils.cpp
 src/database/CRUD.cpp
 )
 

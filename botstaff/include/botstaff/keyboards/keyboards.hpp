@@ -1,3 +1,6 @@
+#ifndef Keyboards_hpp
+#define Keyboards_hpp
+
 #include <tgbot/tgbot.h>
 #include <string>
 
@@ -19,3 +22,5 @@ namespace Keyboards
     InlineKeyboardMarkup::Ptr lessons_list_kb(long, std::string, int, int, int);
     InlineKeyboardMarkup::Ptr day_info_kb(int, std::string);
 } 
+
+#endif

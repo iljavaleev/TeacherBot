@@ -1,9 +1,11 @@
+#include "botstaff/database/PSQL.hpp"
+
 #include <pqxx/pqxx>
 #include <string>
 #include <iostream>
 #include <vector>
-#include "botstaff/database/psql.hpp"
 #include <format>
+
 
 const std::string URI = std::format(
     "dbname={} user={} password={} host={} port={}", 

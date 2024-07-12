@@ -1,3 +1,6 @@
+#ifndef Utils_hpp
+#define Utils_hpp
+
 #include <vector>
 #include <string>
 #include <chrono>
@@ -37,9 +40,9 @@ std::string wstring_to_utf8(const std::wstring& str);
 std::string string_to_upper(const std::string& s);
 
 std::shared_ptr<BotUser> get_user(long chat_id);
-std::string get_pupil_info(const BotUser& u);
+std::string get_pupil_info(const std::shared_ptr<BotUser>&);
 std::string get_pupil_info(const Message::Ptr& message);
-std::string get_teacher_info(const BotUser& u);
+std::string get_teacher_info(const std::shared_ptr<BotUser>&);
 std::string get_comment_text(int);
 
 
@@ -65,3 +68,5 @@ std::chrono::year_month_day split_date(const std::string&, char);
 std::string lesson_delete_request_message(long, long*);
 
 std::vector<std::string> get_last_10_comments(long);
+
+#endif

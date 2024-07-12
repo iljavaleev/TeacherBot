@@ -2,16 +2,16 @@
 #include <tgbot/tgbot.h>
 #include <memory>
 #include <functional>
-#include "botstaff/commands.hpp"
 #include <exception>
-#include "botstaff/handlers/handlers.hpp"
-#include "botstaff/handlers/user_handlers/userHandlers.hpp"
-#include "botstaff/handlers/teacher_handlers/teacherHandlers.hpp"
-#include "botstaff/handlers/teacher_handlers/createLessonHandlers.hpp"
-#include "botstaff/handlers/user_handlers/userRegistration.hpp"
 #include <cstdlib>
 #include <format>
 
+#include "botstaff/handlers/Handlers.hpp"
+#include "botstaff/handlers/user_handlers/UserHandlers.hpp"
+#include "botstaff/handlers/teacher_handlers/TeacherHandlers.hpp"
+#include "botstaff/handlers/teacher_handlers/CreateLessonHandlers.hpp"
+#include "botstaff/handlers/user_handlers/UserRegistration.hpp"
+#include "botstaff/Commands.hpp"
 
 using namespace TgBot;
 using namespace std;
@@ -28,8 +28,8 @@ int main() {
     std::vector<BotCommand::Ptr> commands = create_commands();
     bot.getApi().setMyCommands(commands);
 
-    bot.getEvents().onCommand("start", CommandHandlers::startCommand(bot));
-    bot.getEvents().onCommand("cancel", CommandHandlers::cancelCommand(bot));
+    bot.getEvents().onCommand("start", CommandHandlers::start_command(bot));
+    bot.getEvents().onCommand("cancel", CommandHandlers::cancel_command(bot));
     bot.getEvents().onAnyMessage(Handlers::any_message_handler(bot));
     bot.getEvents().onCallbackQuery(Handlers::calendar_handler(bot));
     bot.getEvents().onCallbackQuery(Handlers::next_month_handler(bot));

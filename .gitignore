@@ -13,6 +13,6 @@
 
 build/
 data/
-cppinfra/
 .env
 todo.txt
+/db_setup/db_mock_data.sql

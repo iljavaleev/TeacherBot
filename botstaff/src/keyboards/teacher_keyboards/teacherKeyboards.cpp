@@ -1,4 +1,4 @@
-#include "botstaff/keyboards/teacher_keyboards/teacherKeyboards.hpp"
+#include "botstaff/keyboards/teacher_keyboards/TeacherKeyboards.hpp"
 
 #include <tgbot/tgbot.h>
 #include <vector>
@@ -9,9 +9,8 @@
 #include <pqxx/pqxx>
 
 #include "botstaff/database/CRUD.hpp"
-#include "botstaff/database/psql.hpp"
-#include "botstaff/utils.hpp"
-
+#include "botstaff/database/PSQL.hpp"
+#include "botstaff/Utils.hpp"
 
 
 using namespace std;
@@ -160,7 +159,7 @@ namespace teacherKeyboards
             );
         }
         
-        std::vector<std::shared_ptr<BotUser>> user_list = botUser::get_all(
+        std::vector<std::shared_ptr<BotUser>> user_list = BotUser::get_all(
             query
         );
         for (auto it{user_list.begin()}; it!=user_list.end(); ++it)
@@ -169,10 +168,12 @@ namespace teacherKeyboards
             InlineKeyboardButton::Ptr user_btn(new InlineKeyboardButton);
             user_btn->text = std::format(
                 "{} {}", 
-                *it->first_name, 
-                *it->last_name
+                (*it)->first_name, 
+                (*it)->last_name
             );
-            user_btn->callbackData = std::format("user_info {}", *it->chat_id);
+            user_btn->callbackData = std::format(
+                "user_info {}", (*it)->chat_id
+            );
             row.push_back(user_btn);
             keyboard->inlineKeyboard.push_back(row);
         }
@@ -322,7 +323,7 @@ namespace teacherKeyboards
                 chat_id, 
                 is_active
             );
-        std::vector<std::shared_ptr<BotUser>> user_list = botUser::get_all(
+        std::vector<std::shared_ptr<BotUser>> user_list = BotUser::get_all(
             query
         );
         std::string callback_data = "lesson_pupil {}";
@@ -335,12 +336,12 @@ namespace teacherKeyboards
             InlineKeyboardButton::Ptr user_btn(new InlineKeyboardButton);
             user_btn->text = std::format(
                 "{} {}", 
-                *it->first_name, 
-                *it->last_name
+                (*it)->first_name, 
+                (*it)->last_name
             );
             user_btn->callbackData = std::vformat(
                 callback_data, 
-                std::make_format_args(*it->chat_id)
+                std::make_format_args((*it)->chat_id)
             );
             row.push_back(user_btn);
             keyboard->inlineKeyboard.push_back(row);

@@ -1,5 +1,6 @@
-#ifndef psql_h
-#define psql_h
+#ifndef PSQL_h
+#define PSQL_h
+
 #include <pqxx/pqxx>
 #include <string>
 #include <iostream>

@@ -1,5 +1,5 @@
-#ifndef teacherKeyboards_hpp
-#define teacherKeyboards_hpp
+#ifndef TeacherKeyboards_hpp
+#define TeacherKeyboards_hpp
 
 #include <tgbot/tgbot.h>
 #include <string>
@@ -18,7 +18,7 @@ namespace teacherKeyboards
         long chat_id=0, 
         bool is_active=true
     );
-    InlineKeyboardMarkup::Ptr create_user_info_kb(botUser&);
+    InlineKeyboardMarkup::Ptr create_user_info_kb(BotUser&);
     InlineKeyboardMarkup::Ptr update_user_info_kb(std::string, long);
     InlineKeyboardMarkup::Ptr create_list_pupils_kb(
         long chat_id, 

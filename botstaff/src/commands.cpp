@@ -1,4 +1,4 @@
-#include "botstaff/commands.hpp"
+#include "botstaff/Commands.hpp"
 
 std::vector<BotCommand::Ptr> create_commands()
 {

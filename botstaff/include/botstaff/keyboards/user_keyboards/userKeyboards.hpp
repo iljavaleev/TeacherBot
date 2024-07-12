@@ -1,5 +1,5 @@
-#ifndef userKeyboards_hpp
-#define userKeyboards_hpp
+#ifndef UserKeyboards_hpp
+#define UserKeyboards_hpp
 
 #include <tgbot/tgbot.h>
 #include <string>

@@ -1,54 +1,55 @@
+#include "botstaff/database/CRUD.hpp"
+
 #include <tgbot/tgbot.h>
 #include <pqxx/pqxx>
 #include <vector>
 #include <string>
 #include <chrono>
-#include "botstaff/database/CRUD.hpp"
-#include "botstaff/database/psql.hpp"
-#include "botstaff/utils.hpp"
 #include <format>
 #include <chrono>
 #include <memory>
 
+#include "botstaff/database/PSQL.hpp"
+#include "botstaff/Utils.hpp"
+
 
 std::shared_ptr<BotUser> construct_user(const pqxx::row& res)
 {
-    BotUser user;
+    std::shared_ptr<BotUser> user(new BotUser());
     if (res.empty())
         return user;
     if (res.at(9).as<std::string>() == "pupil")
     {
-        user.teacher = res.at(1).as<long>();
-        user.cls = res.at(7).as<std::string>();
+        user->teacher = res.at(1).as<long>();
+        user->cls = res.at(7).as<std::string>();
     }
-
-    user.chat_id = res.at(0).as<long>();
-    user.tgusername = res.at(2).as<std::string>();
-    user.first_name = res.at(3).as<std::string>();
-    user.last_name = res.at(4).as<std::string>();
-    user.phone = res.at(5).as<std::string>();
-    user.email = res.at(6).as<std::string>();
-    user.comment = res.at(8).as<std::string>();
-    user.role = res.at(9).as<std::string>();
-    user.is_active = res.at(10).as<bool>();
+    user->chat_id = res.at(0).as<long>();
+    user->tgusername = res.at(2).as<std::string>();
+    user->first_name = res.at(3).as<std::string>();
+    user->last_name = res.at(4).as<std::string>();
+    user->phone = res.at(5).as<std::string>();
+    user->email = res.at(6).as<std::string>();
+    user->comment = res.at(8).as<std::string>();
+    user->role = res.at(9).as<std::string>();
+    user->is_active = res.at(10).as<bool>();
     return user;
 }
 
 
 std::shared_ptr<UserLesson> construct_user_lesson(const pqxx::row& res)
 {
-    UserLesson user_lesson;
+    std::shared_ptr<UserLesson> user_lesson(new UserLesson());
     if (res.empty())
         return user_lesson;
-    user_lesson.id = res.at(0).as<int>();
-    user_lesson.date = split_date(res.at(1).as<std::string>(), '-');
-    user_lesson.teacher = res.at(2).as<long>();
-    user_lesson.pupil = res.at(3).as<long>();
-    user_lesson.time = res.at(4).as<std::string>();
-    user_lesson.objectives = res.at(5).as<std::string>();
-    user_lesson.comment_for_pupil = res.at(6).as<std::string>();
-    user_lesson.comment_for_teacher = res.at(7).as<std::string>();
-    user_lesson.is_paid = res.at(8).as<bool>();
+    user_lesson->id = res.at(0).as<int>();
+    user_lesson->date = split_date(res.at(1).as<std::string>(), '-');
+    user_lesson->teacher = res.at(2).as<long>();
+    user_lesson->pupil = res.at(3).as<long>();
+    user_lesson->time = res.at(4).as<std::string>();
+    user_lesson->objectives = res.at(5).as<std::string>();
+    user_lesson->comment_for_pupil = res.at(6).as<std::string>();
+    user_lesson->comment_for_teacher = res.at(7).as<std::string>();
+    user_lesson->is_paid = res.at(8).as<bool>();
     return user_lesson;
 }
 
@@ -59,12 +60,13 @@ std::shared_ptr<BotUser> BotUser::get(long id)
         id
     );
     pqxx::result R = SQL::select_from_table(query);
-    botUser user;
+    std::shared_ptr<BotUser> user(new BotUser());
     if (!R.empty())
     {
         auto row = *R.begin();
         user = construct_user(row);
     }
+    printf("HERE2\n");
     return user;
     
 }
@@ -83,7 +85,7 @@ bool BotUser::exists(long id)
 std::vector<std::shared_ptr<BotUser>> BotUser::get_all(std::string& query)
 {
     pqxx::result R = SQL::select_from_table(query);
-    std::vector<BotUser> users;
+    std::vector<std::shared_ptr<BotUser>> users;
     for (auto it{R.begin()}; it != R.end(); ++it)
     {
         users.push_back(construct_user(*it));
@@ -181,7 +183,7 @@ std::shared_ptr<UserLesson> UserLesson::get(int id)
 std::vector<std::shared_ptr<UserLesson>> UserLesson::get_all(std::string& query)
 {
     pqxx::result R = SQL::select_from_table(query);
-    std::vector<UserLesson> user_lessons;
+    std::vector<std::shared_ptr<UserLesson>> user_lessons;
     for (auto it{R.begin()}; it != R.end(); ++it)
     {
         user_lessons.push_back(construct_user_lesson(*it));

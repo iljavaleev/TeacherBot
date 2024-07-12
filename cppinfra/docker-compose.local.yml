@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  
+  ngrokcpp:
+    image: ngrok/ngrok:3
+    container_name: ngrokcpp
+    command: http host.docker.internal:8080 --domain=${NGROK_URL}
+    environment:
+      - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
+    ports:
+      - 4040:4040
+    env_file: ../.env
+    networks:
+      - services
+
+  dbcpp:
+    image: postgres:13
+    restart: always
+    container_name: dbcpp
+    env_file: ../.env
+    ports:
+      - ${POSTGRES_PORT}:5432
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+    volumes:
+      - ../data/db:/var/lib/postgresql/data
+      - ../db_setup:/db_setup
+    networks:
+      - services
+
+
+  cppbot:
+    image: valeevilja/cppbot:v1
+    container_name: botcpp
+    restart: always
+    ports:
+      - 8080:8080
+    env_file:
+      - ../.env
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - BASE_WEBHOOK_URL=${BASE_WEBHOOK_URL}
+      - ADMIN_CHAT_ID=${ADMIN_CHAT_ID}
+    volumes:
+      - ../:/cppbot
+    networks:
+      - services 
+    depends_on:
+      - dbcpp
+
+
+networks:
+  services:

@@ -1,21 +1,24 @@
-#include <tgbot/tgbot.h>
-#include "botstaff/handlers/teacher_handlers/teacherHandlers.hpp"
+#include "botstaff/handlers/teacher_handlers/TeacherHandlers.hpp"
+
 #include <functional>
 #include <format>
-#include "botstaff/utils.hpp"
+#include <tgbot/tgbot.h>
+#include <memory>
+
+#include "botstaff/Utils.hpp"
 #include "botstaff/database/CRUD.hpp"
-#include "botstaff/keyboards/teacher_keyboards/teacherKeyboards.hpp"
+#include "botstaff/keyboards/teacher_keyboards/TeacherKeyboards.hpp"
 
 using namespace TgBot;
 using namespace std;
 
 namespace teacherHandlers
 {   
-
-    std::function<Message::Ptr (CallbackQuery::Ptr)> list_comments_handler(TgBot::Bot& bot)
+    Message::Ptr list_comments_handler::operator()(
+        const CallbackQuery::Ptr& query
+    )
     {
-        return [&bot](CallbackQuery::Ptr query) 
-        {
+       
             if (query->data == "comments")
             {
                     return bot.getApi().sendMessage(
@@ -23,119 +26,119 @@ namespace teacherHandlers
                         "Ваши недавние комметарии", 
                         nullptr, 
                         nullptr,  
-                        teacherKeyboards::create_comments_kb(query->message->chat->id)
+                        teacherKeyboards::create_comments_kb(
+                            query->message->chat->id
+                        )
                     );
             }
             return Message::Ptr(nullptr);
-        };
-        
-    }
-
-    std::function<Message::Ptr (CallbackQuery::Ptr)> comment_text_handler(TgBot::Bot& bot)
-    {
-        return [&bot](CallbackQuery::Ptr query) 
-        {
-            if (StringTools::split(query->data, ' ').at(0) == "comment_for_teacher")
-            {
-                    int lesson_id(std::stoi(StringTools::split(query->data, ' ').at(1)));
-                    return bot.getApi().sendMessage(
-                        query->message->chat->id, 
-                        get_comment_text(lesson_id),
-                        nullptr, 
-                        nullptr, 
-                        nullptr,
-                        "HTML"
-                    );
-            }
-            return Message::Ptr(nullptr);
-        };
-        
     }
 
 
-    std::function<Message::Ptr (CallbackQuery::Ptr)> list_all_teachers_handler(TgBot::Bot& bot)
+    Message::Ptr comment_text_handler::operator()(
+        const CallbackQuery::Ptr& query
+    )
     {
-        return [&bot](CallbackQuery::Ptr query) 
+        if (StringTools::split(query->data, ' ').at(0) == 
+        "comment_for_teacher")
         {
-            if (query->data == "teachers")
-            {
-                    return bot.getApi().sendMessage(
-                        query->message->chat->id, 
-                        "Выберите категорию", 
-                        nullptr, 
-                        nullptr,  
-                        teacherKeyboards::create_teachers_kb()
-                    );
-            }
-            return Message::Ptr(nullptr);
-        };
-        
+                int lesson_id(std::stoi(
+                    StringTools::split(query->data, ' ').at(1))
+                );
+                return bot.getApi().sendMessage(
+                    query->message->chat->id, 
+                    get_comment_text(lesson_id),
+                    nullptr, 
+                    nullptr, 
+                    nullptr,
+                    "HTML"
+                );
+        }
+        return Message::Ptr(nullptr);
     }
 
-    std::function<Message::Ptr (CallbackQuery::Ptr)> list_teachers_handler(TgBot::Bot& bot)
+    Message::Ptr list_all_teachers_handler::operator()(
+        const CallbackQuery::Ptr& query
+    )
     {
-        return [&bot](CallbackQuery::Ptr query) 
+        if (query->data == "teachers")
         {
-            if (StringTools::startsWith(query->data, "teachers_list"))
-            {
-                if (query->data == "teachers_list_active")
-                {
-                    return bot.getApi().sendMessage(
-                        query->message->chat->id, 
-                        "Список педагогов по фамилии", 
-                        nullptr, 
-                        nullptr, 
-                        teacherKeyboards::create_list_users_kb(0)
-                    );
-                }
-                else
-                {
-                    return bot.getApi().sendMessage(
-                        query->message->chat->id, 
-                        "Список кандидатов по фамилии", 
-                        nullptr, 
-                        nullptr, 
-                        teacherKeyboards::create_list_users_kb(0, false)
-                    );
-                }
-                    
-            }
-            return Message::Ptr(nullptr);
-        };
-        
+                return bot.getApi().sendMessage(
+                    query->message->chat->id, 
+                    "Выберите категорию", 
+                    nullptr, 
+                    nullptr,  
+                    teacherKeyboards::create_teachers_kb()
+                );
+        }
+        return Message::Ptr(nullptr);
     }
 
-
-    std::function<Message::Ptr (CallbackQuery::Ptr)> list_active_not_handler(TgBot::Bot& bot)
+    Message::Ptr list_teachers_handler::operator()(
+        const CallbackQuery::Ptr& query
+    )
     {
-        return [&bot](CallbackQuery::Ptr query) 
+        if (StringTools::startsWith(query->data, "teachers_list"))
         {
-            if (query->data == "pupils")
+            if (query->data == "teachers_list_active")
             {
-                    return bot.getApi().sendMessage(
-                        query->message->chat->id, 
-                        "Выберите категорию", 
-                        nullptr, 
-                        nullptr, 
-                        teacherKeyboards::create_pupils_kb(query->message->chat->id)
-                    );
+                return bot.getApi().sendMessage(
+                    query->message->chat->id, 
+                    "Список педагогов по фамилии", 
+                    nullptr, 
+                    nullptr, 
+                    teacherKeyboards::create_list_users_kb(0)
+                );
             }
-            return Message::Ptr(nullptr);
-        };
-        
+            else
+            {
+                return bot.getApi().sendMessage(
+                    query->message->chat->id, 
+                    "Список кандидатов по фамилии", 
+                    nullptr, 
+                    nullptr, 
+                    teacherKeyboards::create_list_users_kb(0, false)
+                );
+            }
+                
+        }
+        return Message::Ptr(nullptr);
+    }
+
+    Message::Ptr list_active_not_handler::operator()(
+        const CallbackQuery::Ptr& query
+    )
+    {
+        if (query->data == "pupils")
+        {
+                return bot.getApi().sendMessage(
+                    query->message->chat->id, 
+                    "Выберите категорию", 
+                    nullptr, 
+                    nullptr, 
+                    teacherKeyboards::create_pupils_kb(
+                        query->message->chat->id
+                    )
+                );
+        }
+        return Message::Ptr(nullptr);
     }
     
-    std::function<Message::Ptr (CallbackQuery::Ptr)> list_user_handler(TgBot::Bot& bot)
+    Message::Ptr list_user_handler::operator()(
+        const CallbackQuery::Ptr& query
+    )
     {
-        return [&bot](CallbackQuery::Ptr query) 
-        {
-            if (StringTools::startsWith(query->data, "pupils_list"))
+        if (StringTools::startsWith(query->data, "pupils_list"))
             {
                 long teacher_id(query->message->chat->id);
                 if (StringTools::startsWith(query->data, "pupils_list_active"))
                 {
-                    auto kb = teacherKeyboards::create_list_users_kb(teacher_id);
-                    std::string message = kb->inlineKeyboard.empty() ? "Здесь пока никого" : "Список учеников по фамилии";
+                    auto kb = teacherKeyboards::create_list_users_kb(
+                        teacher_id
+                    );
+                    std::string message = kb->inlineKeyboard.empty() ? 
+                    "Здесь пока никого" : 
+                    "Список учеников по фамилии";
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
                         message,
@@ -146,8 +149,13 @@ namespace teacherHandlers
                 }
                 else
                 {   
-                    auto kb = teacherKeyboards::create_list_users_kb(teacher_id, false);
-                    std::string message = kb->inlineKeyboard.empty() ? "Здесь пока никого" : "Список желающих обучаться по фамилии";
+                    auto kb = teacherKeyboards::create_list_users_kb(
+                        teacher_id, 
+                        false
+                    );
+                    std::string message = kb->inlineKeyboard.empty() ? 
+                    "Здесь пока никого" : 
+                    "Список желающих обучаться по фамилии";
                     return bot.getApi().sendMessage(
                         query->message->chat->id, 
                         message, 
@@ -158,22 +166,21 @@ namespace teacherHandlers
                 }
                     
             }
-            return Message::Ptr(nullptr);
-        };
-        
+        return Message::Ptr(nullptr);        
     }
  
-
-    std::function<Message::Ptr (CallbackQuery::Ptr)> user_info_handler(TgBot::Bot& bot)
+    Message::Ptr user_info_handler::operator()(
+        const CallbackQuery::Ptr& query
+    )
     {
-         return [&bot](CallbackQuery::Ptr query)
-        {   
-            if(StringTools::split(query->data, ' ').at(0) == "user_info")
+        if(StringTools::split(query->data, ' ').at(0) == "user_info")
             {   
-                std::string pupil_id{StringTools::split(query->data, ' ').at(1)};
+                std::string pupil_id{
+                    StringTools::split(query->data, ' ').at(1)
+                };
                 std::shared_ptr<BotUser> u = get_user(std::stol(pupil_id));
                 std::string info;
-                if (u.role == "teacher")
+                if (u->role == "teacher")
                 {
                     info = get_teacher_info(u);
                 }
@@ -186,22 +193,21 @@ namespace teacherHandlers
                     info,
                     nullptr, 
                     nullptr, 
-                    teacherKeyboards::create_user_info_kb(u),
+                    teacherKeyboards::create_user_info_kb(*u),
                     "HTML"
                 );
 
             }
-            return Message::Ptr(nullptr);
-        };
+        return Message::Ptr(nullptr);
     }
 
-    std::function<Message::Ptr (CallbackQuery::Ptr)> activate_user(TgBot::Bot& bot)
+    Message::Ptr activate_user::operator()(const CallbackQuery::Ptr& query)
     {
-         return [&bot](CallbackQuery::Ptr query)
-        {   
-            if(StringTools::split(query->data, ' ').at(0) == "activate_user")
+        if(StringTools::split(query->data, ' ').at(0) == "activate_user")
             {   
-                std::string pupil_id{StringTools::split(query->data, ' ').at(1)};
+                std::string pupil_id{
+                    StringTools::split(query->data, ' ').at(1)
+                };
                 activate_this_user(std::stol(pupil_id));
                 try
                 {
@@ -220,17 +226,16 @@ namespace teacherHandlers
                 );
 
             }
-            return Message::Ptr(nullptr);
-        };
+        return Message::Ptr(nullptr);
     }
 
-    std::function<Message::Ptr (CallbackQuery::Ptr)> delete_user(TgBot::Bot& bot)
+    Message::Ptr delete_user::operator()(const CallbackQuery::Ptr& query)
     {
-         return [&bot](CallbackQuery::Ptr query)
-        {   
-            if(StringTools::split(query->data,' ').at(0) == "delete_user")
+        if(StringTools::split(query->data,' ').at(0) == "delete_user")
             {   
-                std::string pupil_id{StringTools::split(query->data, ' ').at(1)};
+                std::string pupil_id{
+                    StringTools::split(query->data, ' ').at(1)
+                };
                 delete_this_user(std::stol(pupil_id));
                 return bot.getApi().sendMessage(
                     query->message->chat->id, 
@@ -238,32 +243,27 @@ namespace teacherHandlers
                 );
 
             }
-            return Message::Ptr(nullptr);
-        };
+        return Message::Ptr(nullptr);
     }
 
-    std::function<Message::Ptr (CallbackQuery::Ptr)> update_user(TgBot::Bot& bot)
+    Message::Ptr update_user::operator()(const CallbackQuery::Ptr& query)
     {
-         return [&bot](CallbackQuery::Ptr query)
+        if(StringTools::split(query->data, ' ').at(0) == "update_user")
         {   
-            if(StringTools::split(query->data, ' ').at(0) == "update_user")
-            {   
-                auto info = StringTools::split(query->data, ' ');
-                long user_id{std::stol(info.at(2))};
-                std::string role{info.at(1)};
-                return bot.getApi().sendMessage(
-                    query->message->chat->id, 
-                    "Что вы хотите изменить?",
-                    nullptr, 
-                    nullptr, 
-                    teacherKeyboards::update_user_info_kb(role, user_id)
-                );
+            auto info = StringTools::split(query->data, ' ');
+            long user_id{std::stol(info.at(2))};
+            std::string role{info.at(1)};
+            return bot.getApi().sendMessage(
+                query->message->chat->id, 
+                "Что вы хотите изменить?",
+                nullptr, 
+                nullptr, 
+                teacherKeyboards::update_user_info_kb(role, user_id)
+            );
 
-            }
-            return Message::Ptr(nullptr);
-        };
+        }
+        return Message::Ptr(nullptr);
     }
-
 }
 
 

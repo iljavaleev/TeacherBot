@@ -1,5 +1,3 @@
--- psql -U postgres -tc "SELECT 1 FROM pg_database WHERE datname = 'cppbot'" | grep -q 1 || psql -U postgres -c "CREATE DATABASE cppbot"
--- psql -U postgres -d cppbot -a -f db_setup.sql    
 DROP TABLE IF EXISTS bot_user cascade;
 DROP TABLE IF EXISTS user_lesson;
 
@@ -33,3 +31,6 @@ CREATE TABLE user_lesson(
     FOREIGN KEY (pupil) REFERENCES bot_user (chat_id) ON DELETE CASCADE,
     FOREIGN KEY (teacher) REFERENCES bot_user (chat_id) ON DELETE CASCADE
 );
+
+-- SET YOUR QUERY TO CREATE ADMIN
+-- INSERT INTO bot_user VALUES (1111111, null, 'admin', 'admin admin', 'admin', '+() 12 23 34', 'mail@mail.com', null, 'no comments', 'teacher', TRUE);

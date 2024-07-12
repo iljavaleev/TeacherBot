@@ -1,11 +1,12 @@
-#ifndef states_hpp
-#define states_hpp
+#ifndef States_hpp
+#define States_hpp
+
 #include <unordered_map>
+#include <memory>
 
 #include "botstaff/database/CRUD.hpp"
 
 struct LessonState{
-    LessonState(){};
     bool update{false};
     bool date{false};
     bool pupil{false};
@@ -17,7 +18,6 @@ struct LessonState{
 };
 
 struct BotUserState{
-    BotUserState(){};
     bool update{false};
     bool teacher{false};
     bool first_name{false};
@@ -30,27 +30,43 @@ struct BotUserState{
 
 
 struct StateForUser{
-    StateForUser(BotUserState& state, BotUser& inst): inst(inst), state(state){}
+    StateForUser(BotUserState& state, BotUser& inst): 
+    inst(std::shared_ptr<BotUser>(new BotUser(inst))), 
+    state(std::shared_ptr<BotUserState>(new BotUserState(state))){}
+    
     StateForUser(const StateForUser& from)
     {
-        inst = from.inst;
-        state = from.state;
+        inst = std::shared_ptr<BotUser>(new BotUser(*(from.inst)));
+        state = std::shared_ptr<BotUserState>(new BotUserState(*(from.state)));
     }
-    BotUser inst;
-    BotUserState state;
+
+    StateForUser(
+        const std::shared_ptr<BotUser>& inst, 
+        const std::shared_ptr<BotUserState>& state
+    ): inst(inst), state(state){}
+
+
+    std::shared_ptr<BotUser> inst;
+    std::shared_ptr<BotUserState> state;
 };
 
 struct DayForLesson{
     DayForLesson(LessonState& state, UserLesson& inst): 
-    inst(inst), 
-    state(state){}
+    inst(std::shared_ptr<UserLesson>(new UserLesson(inst))), 
+    state(std::shared_ptr<LessonState>(new LessonState(state))){}
+    
+    DayForLesson(
+        const std::shared_ptr<LessonState>& state, 
+        const std::shared_ptr<UserLesson>& inst
+    ): inst(inst), state(state){}
+    
     DayForLesson(const DayForLesson& from)
     {
-        inst = from.inst;
-        state = from.state;
+        inst = std::shared_ptr<UserLesson>(new UserLesson(*(from.inst)));
+        state = std::shared_ptr<LessonState>(new LessonState(*(from.state)));
     }
-    UserLesson inst;
-    LessonState state;
+    std::shared_ptr<UserLesson> inst;
+    std::shared_ptr<LessonState> state;
 };
 
 #endif

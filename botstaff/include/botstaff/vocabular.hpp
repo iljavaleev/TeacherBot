@@ -1,5 +1,6 @@
-#ifndef vocabular_hpp
-#define vocabular_hpp
+#ifndef Vocabular_hpp
+#define Vocabular_hpp
+
 #include <vector>
 #include <string>
 

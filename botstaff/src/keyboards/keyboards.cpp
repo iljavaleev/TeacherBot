@@ -1,4 +1,4 @@
-#include "botstaff/keyboards/keyboards.hpp"
+#include "botstaff/keyboards/Keyboards.hpp"
 
 #include <tgbot/tgbot.h>
 #include <vector>
@@ -6,7 +6,7 @@
 #include <format>
 #include <unordered_set>
 
-#include "botstaff/utils.hpp"
+#include "botstaff/Utils.hpp"
 #include "botstaff/database/CRUD.hpp"
 
 using namespace std;
