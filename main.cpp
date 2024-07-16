@@ -18,7 +18,6 @@ using namespace std;
 
 
 int main() {
-    
     std::string bot_token = std::string(std::getenv("BOT_TOKEN"));
     std::string base_webhook_url = std::string(std::getenv("BASE_WEBHOOK_URL"));
     std::string TEL = std::format("https://api.telegram.org/bot{}/setWebhook?url=", bot_token);
