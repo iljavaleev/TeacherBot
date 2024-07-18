@@ -52,7 +52,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SERVER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
+          key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           source: "cppinfra/docker-compose.yml,cppinfra/swag_nginx.conf"
           target: ${{ secrets.DEPLOY_PATH }}
