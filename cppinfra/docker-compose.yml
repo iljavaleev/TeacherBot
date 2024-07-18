@@ -17,6 +17,7 @@ services:
     volumes:
       - ./data/db:/var/lib/postgresql/data
       - ./db_setup:/db_setup
+    command: /bin/sh -c  "cd db_setup && chmod +x db_entry.sh && ./db_entry.sh"
     networks:
       - services
 
