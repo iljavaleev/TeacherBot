@@ -21,7 +21,7 @@ std::vector<int> get_curent_ymd();
 
 
 bool is_admin(long);
-bool is_teacher(const BotUser&);
+bool is_teacher(const std::shared_ptr<BotUser>&);
 bool is_teacher(long chat_id);
 std::unordered_set<int> get_lesson_days(int, int, long, const std::string&);
 

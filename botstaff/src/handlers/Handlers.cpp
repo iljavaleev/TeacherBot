@@ -32,7 +32,7 @@ namespace CommandHandlers
                 nullptr, 
                 teacherKeyboards::create_teacher_start_kb(true)
             ); 
-        else if(is_teacher(*user))
+        else if(is_teacher(user))
             return bot.getApi().sendMessage(
                 chat_id, 
                 "Вход для учителя", 
@@ -101,7 +101,8 @@ namespace Handlers
 
         return bot.getApi().sendMessage(
             user_chat_id, 
-            "Your message is: " + message->text
+            "Сообщение " + message->text + " не является командой "
+            "и вне контекста"
         );
     }
     Message::Ptr calendar_handler::operator()(const CallbackQuery::Ptr& query)

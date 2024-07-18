@@ -13,13 +13,18 @@
 #include <sstream>
 #include <chrono>
 #include <memory>
+#include <unordered_map>
 #include <boost/locale/encoding_utf.hpp>
+
 
 #include "botstaff/database/PSQL.hpp"
 #include "botstaff/database/CRUD.hpp"
 #include "botstaff/handlers/Handlers.hpp"
 
 using namespace TgBot;
+
+
+static std::shared_ptr<std::unordered_map<long, std::string>> roles;
 
 int dayNumber(int year, int month, int day) 
 { 
@@ -120,10 +125,10 @@ bool is_admin(long chat_id)
     return std::stol(s_chat_id) == chat_id;
 }
 
-bool is_teacher(const BotUser& user)
+bool is_teacher(const std::shared_ptr<BotUser>& user)
 {
-    return is_admin(user.chat_id) || (
-            !user.empty() && user.is_active && (user.role == "teacher"
+    return is_admin(user->chat_id) || (
+            !user->empty() && user->is_active && (user->role == "teacher"
         )
     );
 }
@@ -133,7 +138,15 @@ bool is_teacher(long chat_id)
     if (is_admin(chat_id))
         return true;
     
+    if (roles->size() == 100)
+        roles->clear();
+
+    if (roles->contains(chat_id))
+        return roles->at(chat_id) == "teacher";
+    
     std::shared_ptr<BotUser> user = BotUser::get(chat_id);
+    if (user->is_active)
+        roles->insert({chat_id, user->role});
     return  !user->empty() && user->is_active && (user->role == "teacher");
 }
 
